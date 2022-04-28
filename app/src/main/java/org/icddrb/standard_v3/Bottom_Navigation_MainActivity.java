@@ -57,6 +57,7 @@ public class Bottom_Navigation_MainActivity extends AppCompatActivity
         return false;
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
