@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/theme_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/cmdBack"
+                android:layout_width="50sp"
+                android:layout_height="match_parent"
+                android:background="@color/theme_color"
+                android:src="@drawable/back" />
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RelativeLayout01"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="TITLE-1"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/pageHeading"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/lbltitle"/>
+                <Button
+                    android:id="@+id/btnComplete"
+                    android:layout_width="150sp"
+                    android:layout_height="wrap_content"
+                    android:text="Complete"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/button_style_green"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:id="@+id/information"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar3"
+        android:layout_height="wrap_content" android:background="#F3F3F3">
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent" android:id="@+id/header"
+            android:layout_height="wrap_content"
+            android:background="#f3f3f3"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/padding_list_row"
+            android:paddingLeft="?listPreferredItemPaddingLeft"
+            android:paddingRight="?listPreferredItemPaddingRight"
+            android:paddingTop="@dimen/padding_list_row" android:layout_rowWeight="4">
+
+            <LinearLayout
+                android:id="@+id/message_container1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignTop="@+id/message_container"
+                android:clickable="false"
+                android:orientation="vertical"
+                android:paddingLeft="0dp"
+                android:paddingRight="@dimen/padding_list_row">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgPatient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_person"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:layout_width="120sp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:text="Screening ID"
+                        android:textColor="#000000"
+                        android:textSize="@dimen/textsize_list_row"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtStudyID"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="@color/theme_color"
+                    android:textSize="@dimen/textsize_list_row"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <LinearLayout android:layout_marginLeft="10sp"
+                android:id="@+id/message_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:orientation="vertical"
+                android:paddingLeft="130dp"
+                android:paddingRight="@dimen/padding_list_row">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1" android:textSize="20dp" android:textStyle="normal"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/txtAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1" android:textSize="@dimen/textsize_list_row"
+                    android:textColor="#000000"/>
+
+                <!--<LinearLayout android:id="@+id/secComplete" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0" android:layout_below="@+id/secTab">-->
+                    <!--<TextView android:id="@+id/lblComplete" android:text="" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="20sp" />-->
+                    <!--<TextView android:id="@+id/VlblComplete" android:text="Module Completed?" android:layout_width="250sp" android:layout_height="wrap_content" android:textSize="20sp" />-->
+                    <!--<RadioGroup android:id="@+id/rdogrpComplete" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp">-->
+                        <!--<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoComplete1" android:text="Partially Complete" android:gravity="top|bottom" />-->
+                        <!--<RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="20sp" android:id="@+id/rdoComplete2" android:text="Complete" android:gravity="top|bottom"/>-->
+                    <!--</RadioGroup>-->
+                <!--</LinearLayout>-->
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout android:id="@+id/secTab" android:paddingTop="10sp" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:layout_below="@id/information">
+        <TabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            >
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:showDividers="middle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"/>
+            </LinearLayout>
+        </TabHost>
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

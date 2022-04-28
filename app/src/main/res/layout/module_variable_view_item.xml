@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/objCheckList"
+	android:layout_width="match_parent" android:gravity="left|top"
+	android:layout_height="wrap_content"
+	android:background="#FFFFFF"
+	android:clickable="false"
+	android:focusable="false" android:orientation="vertical"
+	android:layout_marginLeft="5sp"
+	android:layout_marginRight="5sp"
+	android:layout_marginTop="5sp"
+	android:paddingBottom="10sp">
+
+	<TextView android:id="@+id/objDescription" android:paddingLeft="10dp"
+		android:textColor="#006699" android:gravity="left|top"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+	<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_gravity="left|top"
+		android:paddingLeft="40dp">
+
+
+		<TextView android:id="@+id/dataDescription"
+			android:textColor="#000000" android:gravity="center_horizontal|top"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:textSize="16dp"/>
+
+		<EditText android:id="@+id/txtData" android:paddingLeft="5dp" android:paddingRight="20dp" android:inputType="text"
+			android:layout_width="match_parent" android:imeOptions="actionDone"
+			android:layout_height="40sp" android:textSize="18sp" android:gravity="left"/>
+
+		<Spinner android:id="@+id/spnDataList" android:paddingLeft="5dp"
+			android:layout_width="match_parent" android:textSize="14sp"
+			android:layout_height="35sp" android:paddingRight="20dp"/>
+
+		<TextView android:id="@+id/rdoData_Value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+		<RadioGroup android:id="@+id/rdoData"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+		</RadioGroup>
+
+		<CheckBox android:id="@+id/chkData"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+	</LinearLayout>
+	<LinearLayout android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_gravity="center_vertical|center_horizontal">
+		<ImageButton android:id="@+id/btnData" android:layout_marginLeft="10sp" android:src="@drawable/ic_action_save"
+			android:layout_width="wrap_content"
+			android:layout_height="35sp" android:background="#FFFFFF" />
+    </LinearLayout>
+
+	<View android:id="@+id/lineImportant" android:visibility="gone" android:gravity="bottom" android:layout_height="8dip" android:layout_width="8dip" android:background="#FF0000" />
+</LinearLayout>

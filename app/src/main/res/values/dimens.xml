@@ -1,0 +1,106 @@
+<resources>
+    <dimen name="apps_text_size">18dp</dimen>
+    <dimen name="edittext_text_size">@dimen/apps_text_size</dimen>
+    <dimen name="heading_text_size">23dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">0dp</dimen>
+    <dimen name="activity_vertical_margin">0dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_top_spacing">5dp</dimen>
+    <dimen name="nav_header_borttom_spacing">5dp</dimen>
+    <dimen name="nav_header_height">70dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--Toolbar Style -->
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <!--Button Style -->
+    <dimen name="button_radius">25dp</dimen>
+    <dimen name="button_line_width">1dp</dimen>
+
+
+    <dimen name="padding_list_row">5dp</dimen>
+    <dimen name="textsize_list_row">18dp</dimen>
+    <dimen name="messages_padding_left">72dp</dimen>
+    <dimen name="icon_width_height">40dp</dimen>
+    <dimen name="msg_text_primary">16sp</dimen>
+    <dimen name="msg_text_secondary">14sp</dimen>
+    <dimen name="icon_star">25dp</dimen>
+    <dimen name="icon_text">22dp</dimen>
+    <dimen name="timestamp">12dp</dimen>
+
+    <!--Heading Height -->
+    <dimen name="heading_height">55dp</dimen>
+
+
+    <dimen name="text_size_45sp">22.5sp</dimen>
+    <dimen name="text_size_35sp">17.5sp</dimen>
+    <dimen name="text_size_28sp">14sp</dimen>
+    <dimen name="text_size_26sp">13sp</dimen>
+    <dimen name="text_size_25sp">12.5sp</dimen>
+    <dimen name="text_size_24sp">12sp</dimen>
+    <dimen name="text_size_22sp">11sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_18sp">9sp</dimen>
+    <dimen name="text_size_16sp">8sp</dimen>
+    <dimen name="text_size_15sp">7.5sp</dimen>
+    <dimen name="text_size_14sp">7sp</dimen>
+    <dimen name="text_size_13sp">6.5sp</dimen>
+    <dimen name="text_size_12sp">6sp</dimen>
+    <dimen name="text_size_10sp">5sp</dimen>
+    <dimen name="text_size_8sp">4sp</dimen>
+
+    <dimen name="size_400dp">200dp</dimen>
+    <dimen name="size_380dp">190dp</dimen>
+    <dimen name="size_350dp">175dp</dimen>
+    <dimen name="size_340dp">170dp</dimen>
+    <dimen name="size_300dp">150dp</dimen>
+    <dimen name="size_280dp">140dp</dimen>
+    <dimen name="size_270dp">135dp</dimen>
+    <dimen name="size_250dp">125dp</dimen>
+    <dimen name="size_220dp">110dp</dimen>
+    <dimen name="size_230dp">115dp</dimen>
+    <dimen name="size_200dp">100dp</dimen>
+    <dimen name="size_190dp">95dp</dimen>
+    <dimen name="size_180dp">90dp</dimen>
+    <dimen name="size_160dp">80dp</dimen>
+    <dimen name="size_150dp">75dp</dimen>
+    <dimen name="size_140dp">70dp</dimen>
+    <dimen name="size_130dp">65dp</dimen>
+    <dimen name="size_120dp">60dp</dimen>
+    <dimen name="size_110dp">55dp</dimen>
+    <dimen name="size_100dp">50dp</dimen>
+    <dimen name="size_95dp">47.5dp</dimen>
+    <dimen name="size_90dp">45dp</dimen>
+    <dimen name="size_85dp">42.5dp</dimen>
+    <dimen name="size_80dp">40dp</dimen>
+    <dimen name="size_75dp">37.5dp</dimen>
+    <dimen name="size_70dp">35dp</dimen>
+    <dimen name="size_65dp">32.5dp</dimen>
+    <dimen name="size_60dp">30dp</dimen>
+    <dimen name="size_55dp">27.5dp</dimen>
+    <dimen name="size_50dp">25dp</dimen>
+    <dimen name="size_45dp">22.5dp</dimen>
+    <dimen name="size_40dp">20dp</dimen>
+    <dimen name="size_35dp">17.5dp</dimen>
+    <dimen name="size_30dp">15dp</dimen>
+    <dimen name="size_25dp">12.5dp</dimen>
+    <dimen name="size_22dp">11dp</dimen>
+    <dimen name="size_20dp">10dp</dimen>
+    <dimen name="size_18dp">9dp</dimen>
+    <dimen name="size_16dp">8dp</dimen>
+    <dimen name="size_15dp">7.5dp</dimen>
+    <dimen name="size_14dp">7dp</dimen>
+    <dimen name="size_13dp">6.5dp</dimen>
+    <dimen name="size_12dp">6dp</dimen>
+    <dimen name="size_10dp">5dp</dimen>
+    <dimen name="size_8dp">4dp</dimen>
+    <dimen name="size_6dp">3dp</dimen>
+    <dimen name="size_5dp">2.5dp</dimen>
+    <dimen name="size_4dp">2dp</dimen>
+    <dimen name="size_3dp">1.5dp</dimen>
+    <dimen name="size_2dp">1dp</dimen>
+    <dimen name="size_1dp">0.5dp</dimen>
+    <dimen name="size_1ndp">-0.5dp</dimen>
+</resources>

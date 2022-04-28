@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:background="@color/login_page_background" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="always" android:isScrollContainer="true" android:scrollbarAlwaysDrawVerticalTrack="true"         android:scrollbarStyle="outsideInset"         android:scrollbars="vertical"><LinearLayout android:orientation="vertical" android:layout_width="fill_parent"    android:layout_marginLeft="10sp" android:layout_marginRight="10sp"    android:layout_height="wrap_content" android:scrollbars="vertical">
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/form_heading"/>
+    <LinearLayout android:id="@+id/seclblListing" android:paddingBottom="20dp" android:background="@color/login_page_background"  android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView android:gravity="center"
+            android:id="@+id/lblHlblListing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Device Setting"
+            android:textColor="#006699"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <View android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <LinearLayout android:layout_width="wrap_content" android:padding="15dp" android:layout_gravity="center" android:layout_height="wrap_content" android:orientation="vertical" style="@style/rowStyle0" android:background="@color/login_page_background">
+        <TextView android:text="Your Device Unique ID Number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/lblDeviceIDNo" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="25sp" android:gravity="center_horizontal|center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="fill_parent" android:paddingTop="60sp" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0" android:background="@color/login_page_background">
+       	<Button android:id="@+id/cmdSave" android:textColor="#ffffff" android:layout_width="fill_parent" android:layout_height="wrap_content"
+       			android:textSize="20sp" android:text=" Done Device Setting "  android:layout_marginBottom="10sp" android:background="@drawable/button_style_green"/>
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

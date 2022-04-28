@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="pressed_color">#4d90fe</color>
+    <color name="default_color">#ffffff</color>
+    <color name="questionHeader">#0097a7</color>
+    <color name="Heading">#01A9DB</color>
+    <color name="pageHeading">#FFFFFF</color>
+    <color name="headecolor">#006699</color>
+
+    <!-- Navigation Bar-->
+    <!--<color name="HeadingBackground">#FF0000</color>-->
+
+    <color name="navigationBar">#01A9DB</color>
+    <color name="navigationBarTextColor">#FFFFFF</color>
+    <!--<color name="pageHeadingBack">#FFC4005F</color>-->
+
+    <!--
+    Theme Color
+    Marune : #FFC4005F
+    Blue   : #006699
+    Green  : #69CB3F
+    Sky    : #01A9DB
+    -->
+
+    <color name="theme_color">#0097a7</color>
+    <color name="theme_color_light">#467E9D</color>
+    <color name="control_back_color">#F3F3F3</color>
+    <color name="control_border_color">#D7D7D7</color>
+    <!--<color name="theme_color">#4E0D3A</color>-->
+    <color name="pageHeadingBack">@color/theme_color</color>
+
+    <color name="form_heading_back_color">#D7D7D7</color>
+    <color name="form_heading_font_color">#01A9DB</color>
+    <color name="row_heading_back_color">#FFFFFF</color>
+    <color name="row_heading_font_color">#006699</color>
+
+    <color name="form_background_color">#FFFFFF</color>
+    <color name="mainmenu_background_color">#D7D7D7</color>
+    <color name="mainmenu_button_color">#F3F3F3</color>
+    <color name="list_background_color">#D7D7D7</color>
+
+    <color name="save_button_color">#69CB3F</color>
+
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_light_gray">#999999</color>
+
+    <!--login page-->
+    <color name="login_page_background">#D7D7D7</color>
+    <color name="login_page_text_color">#000000</color>
+
+    <!--Splash Screen-->
+    <color name="splash_screen_background">#D7D7D7</color>
+    <color name="splash_screen_text_color">#000000</color>
+
+    <!-- Recycle View -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="color_Section_Highlight">#ff9999</color>
+    <color name="year">#999999</color>
+    <color name="title">#222222</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="white100">#64ffffff</color>
+
+    <color name="text_color">#383a3e</color>
+    <color name="hint_text_color">#cccace</color>
+    <color name="info_text_color">#909090</color>
+    <color name="text_disable">#a5a5a5</color>
+    <color name="text_color_gem">#d683eb</color>
+
+    <color name="blue">#4466ad</color>
+    <color name="blue_clicked">#824466ad</color>
+    <color name="grey">#8b878b</color>
+    <color name="blueGrey">#a5aed3</color>
+    <color name="blueLight">#3fc2ff</color>
+    <color name="greyDark">#4b4c54</color>
+    <color name="blackMedium">#676767</color>
+    <color name="red">#ff3a4d</color>
+    <color name="green">#01579b</color>
+    <color name="green1">#2e7d32</color>
+    <color name="greenDark">#01579b</color>
+    <color name="blueNavy">#5f70b0</color>
+    <color name="teal">#00c989</color>
+    <color name="greyLight">#cbcbcb</color>
+    <color name="greyWhite">#eaeaea</color>
+    <color name="grey100">#f5f5f5</color>
+    <color name="grey300">#b6b6b6</color>
+    <color name="grey400">#6689898e</color>
+
+    <color name="tab_unselected">#9371c0</color>
+    <color name="tab_selected">#cfafff</color>
+
+    <color name="indicator_selected">#ff2585</color>
+    <color name="indicator_unselected">#cbcbcb</color>
+
+    <color name="et_cursor">#fe5d7b</color>
+
+    <color name="pink">#fe587c</color>
+
+    <color name="rb_orange">#fe8507</color>
+    <color name="rb_green">#00c976</color>
+    <color name="rb_pink">#ff2086</color>
+    <color name="rb_purple">#a400e9</color>
+    <color name="rb_blue">#00a0e2</color>
+    <color name="greenLight">#00c853</color>
+    <color name="yellow">#fdd835</color>
+
+    <color name="colorHeading">#cfafff</color>
+    <color name="scanner_line">#00ceff</color>
+</resources>

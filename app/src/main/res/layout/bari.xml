@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/form_background_color">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/theme_color">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal">
+            <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="50sp" android:layout_height="match_parent"/>
+            <TextView android:id="@+id/lblHeading" android:text="বাড়ি ফর্ম"  android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="18sp" android:textColor="@color/pageHeading"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout android:id="@+id/secDCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblDCode" android:text="1." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblDCode" android:text="জেলা " android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtDCode" android:visibility="gone" android:layout_width="wrap_content" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtDName" android:enabled="false" android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineDCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secUPCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblUPCode" android:text="2." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblUPCode" android:text="উপজেলা" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUPCode" android:visibility="gone"  android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUPName" android:enabled="false"  android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineUPCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secUNCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblUNCode" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblUNCode" android:text="ইউনিয়ন" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUNCode" android:visibility="gone"  android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUNName" android:enabled="false"  android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineUNCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+            <LinearLayout android:id="@+id/secCluster" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblCluster" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblCluster" android:text="Cluster" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtCluster" android:enabled="false"  android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineCluster" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+
+            <LinearLayout android:id="@+id/secVCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblVCode" android:text="4." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblVCode" android:text="গ্রাম" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtVCode" android:visibility="gone"  android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtVName" android:enabled="false"  android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout android:background="#F3F3F3" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:id="@+id/lblvillage" android:text="village name" android:textStyle="bold" android:textColor="#006699" android:textAllCaps="true" android:layout_width="match_parent" android:gravity="center" android:layout_height="35dp" android:textSize="18dp" />
+            </LinearLayout>
+
+
+            <View android:id="@+id/lineVCode" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secBari" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblBari" android:text="1." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblBari" android:text="বাড়ি নম্বর" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtBari" android:maxLength="8" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineBari" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <RelativeLayout android:id="@+id/secBariName" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblBariName" android:text="6." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblBariName" android:text="বাড়ির নাম" android:layout_width="150sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtBariName" android:maxLength="100" android:layout_below="@+id/VlblBariName" android:layout_marginLeft="0dp" android:layout_width="match_parent" android:inputType="textMultiLine" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </RelativeLayout>
+            <View android:id="@+id/lineBariName" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <RelativeLayout android:id="@+id/secBariLoc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblBariLoc" android:text="7." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblBariLoc" android:text="বাড়ির ঠিকানা" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtBariLoc" android:maxLength="150" android:layout_below="@+id/VlblBariLoc" android:layout_marginLeft="0dp" android:layout_width="match_parent" android:inputType="textMultiLine" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </RelativeLayout>
+            <View android:id="@+id/lineBariLoc" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+            <RelativeLayout android:id="@+id/secTotalHH" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblTotalHH" android:text="7." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblTotalHH" android:text="মোট খানার সংখ্যা" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtTotalHH" android:maxLength="150" android:layout_below="@+id/VlblTotalHH" android:layout_marginLeft="0dp" android:layout_width="match_parent" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </RelativeLayout>
+            <View android:id="@+id/lineTotalHH" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+            <LinearLayout android:layout_width="fill_parent" android:paddingTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/cmdSave" android:layout_width="match_parent" android:layout_height="wrap_content"  android:background="@drawable/button_style_skyblue"
+                    android:text=" Save -> Continue " android:textColor="#ffffff" android:layout_marginBottom="20sp" android:layout_marginLeft="20sp" android:layout_marginRight="20sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

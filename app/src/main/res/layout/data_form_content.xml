@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical" android:background="#D7D7D7">
+
+
+
+ <!--   <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" android:background="#f3f3f3">
+
+        <LinearLayout
+            android:id="@+id/RelativeLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp" android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Answered: "
+                android:gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#006699"
+                android:text="123"
+                android:gravity="center_vertical"
+                android:textStyle="bold|italic"
+
+                android:id="@+id/lblanswered"
+                />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#006699"
+                    android:text="Auto Save"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:textStyle="bold|italic"
+                    android:layout_alignParentRight="true"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>-->
+
+    <RelativeLayout android:id="@+id/secTop" android:visibility="visible" android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left" android:background="#F3F3F3">
+        <TextView android:id="@+id/lblAns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Answered: "
+            android:gravity="center_vertical"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#006699"
+            android:text="" android:layout_toRightOf="@+id/lblAns"
+            android:gravity="center_vertical"
+            android:textStyle="bold|italic"
+            android:id="@+id/lblanswered"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#006699"
+            android:text="Auto Save" android:layout_marginRight="10dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:textStyle="bold|italic"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+    <View android:id="@+id/lineStudyID" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/secTop"
+        android:layout_margin="5dp"
+        android:scrollbars="vertical">
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <TextView android:id="@+id/lblHeadingMsg"
+                android:layout_width="match_parent" android:gravity="center_vertical|left"
+                android:layout_height="wrap_content" android:layout_marginBottom="20dp" />
+            <LinearLayout
+                android:id="@+id/start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/toolbar3"
+                android:scrollbars="vertical"/>
+            <TextView android:id="@+id/lblFooterMsg"
+                android:layout_width="match_parent" android:gravity="center_vertical|left"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!--<EditText--><!--android:layout_width="100dp"--><!--android:layout_height="20dp"--><!--android:id="@+id/et1"/>--><!--&lt;!&ndash;WORK OF DEISGN&ndash;&gt;--><!--<android.support.v4.widget.Space--><!--android:layout_width="match_parent"--><!--android:layout_height="1dip" />-->
+
+</RelativeLayout>

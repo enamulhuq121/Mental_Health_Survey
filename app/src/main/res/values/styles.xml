@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="custom_theme_color">#FFFFFF</color>
+    <color name="font_color">#FFFFFF</color>
+
+    <style name="PopupDialog" parent="@android:style/Theme.Translucent.NoTitleBar" />
+
+    <style name="MyDialogTheme" parent="android:Theme.Dialog">
+        <item name="android:background">#ffdddddd</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light" />
+
+    <style name="ApplicationStyle" parent="android:Theme.Holo.Light">
+        <item name="android:button">@style/CKButton</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!--
+    colorPrimary – The color of the app bar.
+    colorPrimaryDark – The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.
+    colorAccent – The color of UI controls such as check boxes, radio buttons, and edit text boxes.
+    windowBackground – The color of the screen background.
+    textColorPrimary – The color of UI text in the app bar.
+    statusBarColor – The color of the status bar.
+    navigationBarColor – The color of the navigation bar.
+    -->
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+
+    <!--<style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+    <!--<style name="CustomTheme" parent="Theme.MaterialComponents.Light">-->
+    <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- AppCompat Attributes -->
+        <!--colorPrimary – The color of the app bar.-->
+        <item name="colorPrimary">@color/theme_color</item>
+        <!--colorPrimaryDark – The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.-->
+        <item name="colorPrimaryDark">@color/theme_color</item>
+        <!--colorAccent – The color of UI controls such as check boxes, radio buttons, and edit text boxes.-->
+        <item name="colorAccent">@color/theme_color</item>
+        <!--windowBackground – The color of the screen background.-->
+        <item name="android:windowBackground">@color/form_background_color</item>
+        <!--textColorPrimary – The color of UI text in the app bar.-->
+        <item name="android:textColor">#000000</item>
+        <!--statusBarColor – The color of the status bar.-->
+        <!--navigationBarColor – The color of the navigation bar-->
+
+        <item name="android:colorBackground">@color/form_background_color</item>
+        <item name="android:textSize">18sp</item>
+
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:typeface">serif</item>
+        <!--<item name="android:editTextStyle">@style/customEdit</item>-->
+        <item name="android:spinnerStyle">@style/customEdit_grayline</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <!--<item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>-->
+        <!--<item name="android:spinnerDropDownItemStyle">@style/icddrb_SpinnerItem</item>-->
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <style name="CustomTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CustomTheme.Dialog" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+        <item name="android:radioButtonStyle">@style/RadioButtonStyle</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="CustomThemeActivity" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="android:windowBackground">@color/form_background_color</item>
+        <item name="android:colorBackground">@color/custom_theme_color</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+    </style>
+
+    <style name="SpinnerItem" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">@drawable/spinner_item_border</item>
+        <item name="android:padding">5sp</item>
+        <item name="android:spinnerMode">dialog</item>
+        <item name="android:textSize">@dimen/apps_text_size</item>
+    </style>
+
+    <style name="SpinnerDropDownItem">
+        <item name="android:textColor">#006699</item>
+        <item name="android:background">@drawable/edittext_round</item>
+    </style>
+
+    <style name="MyDropDownNav" parent="android:style/Theme.Holo.Light">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">#F3F3F3</item>
+    </style>
+
+    <style name="TBoxStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">#6699CC</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5sp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="CKButton" parent="android:style/Widget.Button">
+        <item name="android:textSize">19sp</item>
+        <item name="android:layout_margin">0dip</item>
+        <item name="android:width">400sp</item>
+        <item name="android:background">#ff0000</item>
+    </style>
+
+    <style name="rowStyle0">
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:background">#FFFFFF</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:paddingLeft">10sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="rowStyle1">
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:background">#C2E0EC</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:paddingLeft">10sp</item>
+    </style>
+
+    <style name="rowStyle2">
+        <item name="android:paddingTop">10sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:paddingLeft">10sp</item>
+    </style>
+
+    <style name="formHeading">
+        <item name="android:layout_marginTop">0sp</item>
+        <item name="android:paddingTop">20sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:background">@color/form_heading_back_color</item>
+        <item name="android:textColor">@color/form_heading_font_color</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:paddingLeft">10sp</item>
+    </style>
+
+    <style name="rowHeading">
+        <item name="android:layout_marginTop">0sp</item>
+        <item name="android:paddingTop">20sp</item>
+        <item name="android:paddingBottom">10sp</item>
+        <item name="android:background">@color/row_heading_back_color</item>
+        <item name="android:textColor">@color/row_heading_font_color</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:paddingLeft">10sp</item>
+    </style>
+
+    <style name="rowTitleBar">
+        <item name="android:background">#00B7FB</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:paddingRight">10sp</item>
+        <item name="android:paddingLeft">0sp</item>
+    </style>
+
+    <style name="customEdit" parent="Widget.AppCompat.EditText">
+        <!-- <item name="android:typeface">serif</item>  -->
+        <item name="android:textSize">@dimen/edittext_text_size</item>
+        <!-- <item name="android:textStyle">bold</item> -->
+        <item name="android:textColor">#006699</item>
+        <item name="android:background">@drawable/edittext_round</item>
+        <item name="android:padding">4sp</item>
+    </style>
+    <style name="customEdit_grayline" parent="Widget.AppCompat.EditText">
+        <!-- <item name="android:typeface">serif</item>  -->
+        <item name="android:textSize">@dimen/edittext_text_size</item>
+        <!-- <item name="android:textStyle">bold</item> -->
+        <item name="android:textColor">#006699</item>
+        <item name="android:background">@drawable/edittext_round_grayline</item>
+        <item name="android:padding">4sp</item>
+    </style>
+
+    <style name="customEditGridMenu">
+        <!-- <item name="android:typeface">serif</item>  -->
+        <item name="android:textSize">16sp</item>
+        <!-- <item name="android:textStyle">bold</item> -->
+        <item name="android:background">@drawable/edittext_round</item>
+        <item name="android:colorBackground">#D7D7D7</item>
+        <item name="android:padding">4sp</item>
+    </style>
+
+    <style name="EditTextHoloDark" parent="android:style/Widget.EditText">
+        <item name="android:background">@drawable/customedittext</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:background">@drawable/edittext_round_grayline</item>
+    </style>
+
+    <style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:bottomBright">#fff</item>
+        <item name="android:bottomDark">#fff</item>
+        <item name="android:bottomMedium">#fff</item>
+        <item name="android:centerBright">#fff</item>
+        <item name="android:centerDark">#fff</item>
+        <item name="android:centerMedium">#fff</item>
+        <item name="android:fullBright">#7D266A</item>
+        <item name="android:fullDark">#7D266A</item>
+        <item name="android:topBright">#2f6699</item>
+        <item name="android:topDark">#2f6699</item>
+    </style>
+
+    <style name="spinner_style">
+        <!--<item name="android:background">@drawable/gradient_spinner</item>-->
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:popupBackground">#DFFFFFFF</item>
+    </style>
+
+
+    <!--MainMenu-->
+    <style name="menuButtonStyle">
+        <item name="android:layout_height">60sp</item>
+    </style>
+
+    <style name="CustomTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="CustomTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Button Style -->
+    <style name="ActionBar" parent="Theme.AppCompat">
+        <item name="android:background">@color/theme_color</item>
+        <item name="android:titleTextStyle">@style/ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+
+    <style name="splashScreenTheme" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/logo_icddrb</item>
+    </style>
+
+    <style name="icdrb_CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/form_background_color</item>
+        <item name="android:colorBackground">@color/custom_theme_color</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:spinnerDropDownItemStyle">@style/icddrb_SpinnerItem</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="icddrb_SpinnerStyle" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">@drawable/icddrb_spinneritem</item>
+        <item name="android:paddingTop">0sp</item>
+        <item name="android:paddingLeft">5sp</item>
+        <item name="android:paddingBottom">0sp</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="icddrb_SpinnerItem" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">@drawable/icddrb_spinneritem</item>
+        <item name="android:paddingTop">5sp</item>
+        <item name="android:paddingLeft">5sp</item>
+        <item name="android:paddingBottom">5sp</item>
+        <item name="android:paddingRight">3dp</item>
+        <item name="android:textSize">@dimen/apps_text_size</item>
+    </style>
+
+
+    <!--New Theme-->
+    <style name="icddrbTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+        <item name="android:radioButtonStyle">@style/RadioButtonStyle</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_20sp</item>
+    </style>
+    <style name="EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_20sp</item>
+        <item name="android:background">@drawable/bg_box</item>
+        <item name="android:padding">@dimen/size_4dp</item>
+        <item name="android:layout_margin">@dimen/size_2dp</item>
+    </style>
+
+    <style name="ButtonStyle" parent="android:Widget.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/text_size_18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_round_gradient</item>
+        <item name="android:padding">@dimen/size_8dp</item>
+        <item name="android:elevation" tools:targetApi="lollipop">@dimen/size_4dp</item>
+    </style>
+
+    <style name="RadioButtonStyle" parent="android:Widget.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="android:textSize">@dimen/text_size_12sp</item>
+        <item name="android:padding">@dimen/size_4dp</item>
+    </style>
+
+    <style name="icddrbTheme.Dialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+        <item name="android:radioButtonStyle">@style/RadioButtonStyle</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="icddrb_search_edittext" parent="Widget.AppCompat.EditText">
+        <item name="android:drawableLeft">@drawable/ic_action_search_black</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">50dp</item>
+        <item name="android:background">@drawable/edittext_search_round</item>
+        <item name="android:layout_height">20dp</item>
+    </style>
+
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/dialog_style_line</item>
+    </style>
+</resources>

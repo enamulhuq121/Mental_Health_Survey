@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/form_background_color"
+    tools:ignore="MissingDefaultResource">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/theme_color">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal">
+            <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="50sp" android:layout_height="match_parent"/>
+            <TextView android:id="@+id/lblHeading" android:text="তালিকা থেকে গ্রাম সিলেক্ট করুন"  android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="18sp" android:textColor="@color/pageHeading"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout  android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle2">
+            <TextView android:text="তালিকা থেকে সঠিক গ্রাম সিলেক্ট করুন" android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="30sp" android:textColor="@color/theme_color" />
+        </LinearLayout>
+        <View android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+        <LinearLayout android:id="@+id/secDCode" android:padding="20sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle2">
+            <TextView android:id="@+id/lblDCode" android:text="1." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <TextView android:id="@+id/VlblDCode" android:text="জেলা" android:layout_width="125sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <Spinner android:id="@+id/spnDCode" android:drawSelectorOnTop="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="25sp" />
+        </LinearLayout>
+        <View android:id="@+id/lineDCode" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+        <LinearLayout android:id="@+id/secUPCode" android:padding="20sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle2">
+            <TextView android:id="@+id/lblUPCode" android:text="2." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <TextView android:id="@+id/VlblUPCode" android:text="উপজেলা" android:layout_width="125sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <Spinner android:id="@+id/spnUPCode" android:drawSelectorOnTop="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="25sp" />
+        </LinearLayout>
+        <View android:id="@+id/lineUPCode" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+        <LinearLayout android:id="@+id/secUNCode" android:padding="20sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle2">
+            <TextView android:id="@+id/lblUNCode" android:text="3." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <TextView android:id="@+id/VlblUNCode" android:text="ইউনিয়ন/ওয়ার্ড" android:layout_width="125sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <Spinner android:id="@+id/spnUNCode" android:drawSelectorOnTop="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="25sp" />
+        </LinearLayout>
+        <View android:id="@+id/lineUNCode" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+        <LinearLayout android:id="@+id/secCluster" android:visibility="visible" android:padding="20sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle2">
+            <TextView android:id="@+id/lblCluster" android:text="3." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <TextView android:id="@+id/VlblCluster" android:text="ক্লাস্টার" android:layout_width="125sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <Spinner android:id="@+id/spnCluster" android:drawSelectorOnTop="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="25sp" />
+        </LinearLayout>
+        <View android:id="@+id/lineCluster" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+        <RelativeLayout android:id="@+id/secVCode" android:padding="20sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle2">
+            <TextView android:id="@+id/lblVCode" android:text="4." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <TextView android:id="@+id/VlblVCode" android:layout_toRightOf="@+id/lblVCode" android:text="গ্রাম/মহল্লা" android:layout_width="125sp" android:layout_height="wrap_content" android:textSize="18sp" />
+            <Spinner android:id="@+id/spnVCode" android:layout_toRightOf="@+id/VlblVCode" android:drawSelectorOnTop="true" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="25sp" />
+        </RelativeLayout>
+        <View android:id="@+id/lineVCode" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle2">
+        <TextView android:text="পুনরায় নিশ্চিত হোন" android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="30sp" android:textColor="#ff0000" />
+    </LinearLayout>
+
+    <View android:id="@+id/lineVisitStatus" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+    <LinearLayout  android:background="#F3F3F3" android:paddingTop="5sp" android:paddingBottom="10sp" android:layout_width="fill_parent" android:layout_marginTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
+        <Button android:id="@+id/cmdHHListing" android:textAllCaps="false" android:layout_marginLeft="20sp" android:layout_marginRight="20sp"  android:textSize="18sp" android:textColor="#ffffff"
+            android:background="@drawable/button_style_skyblue" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dip" android:layout_marginBottom="10sp" android:text="খানা নিবন্ধন" android:paddingLeft="5sp" android:paddingRight="5sp"/>
+    </LinearLayout>
+
+    <FrameLayout android:layout_width="match_parent" android:layout_weight="1" android:layout_height="0dp"/>
+</LinearLayout>

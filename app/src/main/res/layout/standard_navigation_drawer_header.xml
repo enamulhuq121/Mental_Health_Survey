@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:gravity="center_vertical"
+android:orientation="vertical"
+android:paddingBottom="@dimen/nav_header_borttom_spacing"
+android:layout_marginTop="0dp"
+android:paddingTop="20dp"
+android:layout_marginLeft="0dp"
+android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+<ImageView android:visibility="visible"
+    android:id="@+id/imageView"
+    android:layout_width="wrap_content"
+    android:layout_height="40sp" android:layout_marginTop="10dp"
+    app:srcCompat="@drawable/logo_app" />
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/app_name" android:layout_marginLeft="10sp"
+    android:textColor="@color/theme_color"/>
+<TextView
+    android:layout_width="match_parent"  android:layout_marginLeft="10sp"
+    android:layout_height="wrap_content" android:textColor="@color/theme_color"
+    android:text="Version 1.0" android:textSize="14sp"/>
+<View android:layout_height="0.1dp" android:layout_marginTop="10sp" android:layout_width="fill_parent" android:background="#CCCCCC"
+    android:layout_marginLeft="5sp"
+    android:layout_marginRight="5sp"/>
+</LinearLayout>

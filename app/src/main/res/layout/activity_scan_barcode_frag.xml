@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScanBarcode">
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardViewAdvanceSearch"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/CardType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scan Barcode"
+            android:textAlignment="center"
+            android:textColor="@color/theme_color"
+            android:textSize="25sp" android:padding="5dp" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardViewAdvanceSearch1"
+        android:layout_below="@+id/cardViewAdvanceSearch"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="5dp" android:layout_marginTop="5dp">
+
+    <!-- Barcode Reader fragment -->
+    <fragment
+        android:id="@+id/barcode_fragment"
+        android:name="barcodeSourceRavi8x.BarcodeReader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cardViewAdvanceSearch"
+        android:layout_marginTop="0dp"
+        app:auto_focus="true"
+        app:use_flash="true" />
+
+    <!-- Scanner overlay animation -->
+    <barcodeSourceRavi8x.ScannerOverlay
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#44000000"
+        app:line_color="#7323DC"
+        app:line_speed="6"
+        app:line_width="4"
+        app:square_height="400"
+        app:square_width="600" />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
+

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/form_background_color">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/theme_color">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal">
+            <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="50sp" android:layout_height="match_parent"/>
+            <TextView android:id="@+id/lblHeading" android:text="খানা ভিজিট ফর্ম"  android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="18sp" android:textColor="@color/pageHeading"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+            <LinearLayout android:id="@+id/secDCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblDCode" android:text="1." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblDCode" android:text="জেলা" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtDCode" android:visibility="gone" android:maxLength="2" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtDName" android:enabled="false" android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineDCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secUPCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblUPCode" android:text="2." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblUPCode" android:text="উপজেলা" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUPCode" android:visibility="gone" android:maxLength="2" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUPName" android:enabled="false" android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineUPCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secUNCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblUNCode" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblUNCode" android:text="ইউনিয়ন" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUNCode" android:visibility="gone" android:maxLength="2" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtUNName" android:enabled="false" android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineUNCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+            <LinearLayout android:id="@+id/secCluster" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblCluster" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblCluster" android:text="Cluster" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtCluster" android:enabled="false" android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineCluster" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+            <LinearLayout android:id="@+id/secVCode" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblVCode" android:text="4." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblVCode" android:text="গ্রাম" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtVCode" android:visibility="gone" android:maxLength="4" android:layout_width="250sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+                <EditText android:id="@+id/txtVName" android:enabled="false" android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineVCode" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secBari" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblBari" android:text="5." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblBari" android:text="বাড়ি নম্বর" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtBari" android:enabled="false" android:maxLength="8" android:layout_width="230sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout android:background="#F3F3F3" android:id="@+id/secBariName" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:id="@+id/lblBariname" android:text="bari name" android:textStyle="bold" android:textColor="#006699" android:textAllCaps="true" android:layout_width="match_parent" android:gravity="center" android:layout_height="35dp" android:textSize="18dp" />
+            </LinearLayout>
+
+            <View android:id="@+id/lineBari" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secHHNo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblHHNo" android:text="1." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblHHNo" android:text="খানা নম্বর" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtHHNo" android:enabled="false" android:maxLength="8" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineHHNo" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secVisitNo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblVisitNo" android:text="2." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblVisitNo" android:text="ভিজিট নম্বর" android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtVisitNo" android:maxLength="2" android:layout_width="150sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineVisitNo" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secVisitDate" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblVisitDate" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblVisitDate" android:text="ভিজিটের তারিখ " android:layout_width="130sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/dtpVisitDate" android:drawableRight="@drawable/calendersmall" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp"/>
+            </LinearLayout>
+            <View android:id="@+id/lineVisitDate" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secVisitStatus" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblVisitStatus" android:text="9." android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblVisitStatus" android:text="4.    খানা ভিজিটের ফলাফল" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18sp" />
+                <Spinner android:id="@+id/spnVisitStatus" android:layout_marginTop="10sp" android:layout_marginBottom="20dp" android:layout_marginLeft="30dp" android:drawSelectorOnTop="true" android:layout_marginRight="30dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="0" android:prompt="@string/planet_prompt" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineVisitStatus" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secVisitStatusOT" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblVisitStatusOT" android:text="" android:visibility="gone" android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblVisitStatusOT" android:layout_marginLeft="30dp" android:text="অন্য ফলাফল" android:layout_width="250sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtVisitStatusOT" android:layout_marginLeft="30dp" android:maxLength="50" android:layout_width="match_parent" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="30sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineVisitStatusOT" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+            <LinearLayout android:id="@+id/secTotalMember" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblTotalMember" android:text="5." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblTotalMember" android:text="খানার সদস্য সংখ্যা কত" android:layout_marginBottom="20dp"  android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtTotalMember" android:maxLength="2" android:layout_width="60sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineTotalMember" android:visibility="gone" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+            <LinearLayout android:id="@+id/secEMWRA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblEMWRA" android:text="5." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblEMWRA" android:text="খানায় ১৫-৪৯ বছর বয়সের মধ্যে কখনো বিবাহ হয়েছে এমন মহিলা/মহিলারা আছেন কিনা" android:layout_marginBottom="20dp"  android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <RadioGroup android:id="@+id/rdogrpEMWRA" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18sp">
+                    <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="18sp" android:id="@+id/rdoEMWRA1" android:text="হ্যাঁ" android:gravity="top|bottom" />
+                    <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:textSize="18sp" android:id="@+id/rdoEMWRA2" android:text="না" android:gravity="top|bottom"/>
+                </RadioGroup>
+            </LinearLayout>
+            <View android:id="@+id/lineEMWRA" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+            <LinearLayout android:id="@+id/secCMWRATotal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+                <TextView android:id="@+id/lblCMWRATotal" android:text="6." android:layout_width="40sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <TextView android:id="@+id/VlblCMWRATotal" android:text="কখনো বিবাহ হয়েছিল ১৫-৪৯ বছরে এমন কতজন মহিলা আছেন" android:layout_marginBottom="20dp"  android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="18sp" />
+                <EditText android:id="@+id/txtCMWRATotal" android:maxLength="2" android:layout_width="60sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="18sp" />
+            </LinearLayout>
+            <View android:id="@+id/lineCMWRATotal" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+
+            <LinearLayout android:layout_width="fill_parent" android:paddingTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/cmdSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button_style_skyblue"
+                    android:text=" Save -> Continue " android:textColor="#ffffff" android:layout_marginBottom="20sp" android:layout_marginLeft="20sp" android:layout_marginRight="20sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

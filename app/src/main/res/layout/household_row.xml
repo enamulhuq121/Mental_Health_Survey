@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/secListRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/padding_list_row"
+    android:paddingTop="0dp" android:layout_rowWeight="4">
+    <LinearLayout android:background="#F3F3F3" android:id="@+id/secBariName" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView android:id="@+id/lblBari" android:text="bari name" android:textStyle="bold" android:textColor="#006699" android:textAllCaps="true" android:layout_width="match_parent" android:gravity="center" android:layout_height="35dp" android:textSize="18dp" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/secHHDetail" android:layout_below="@+id/secBariName" android:paddingLeft="5dp" android:paddingRight="?listPreferredItemPaddingRight" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <LinearLayout android:paddingTop="0sp" android:paddingBottom="8sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+            <TextView android:id="@+id/HHNo" android:background="#D7D7D7" android:textStyle="bold" android:layout_width="35dp" android:gravity="center" android:layout_height="35dp" android:textSize="16dp" />
+        </LinearLayout>
+        <RelativeLayout android:layout_weight="5"
+            android:layout_width="0dp" android:layout_marginLeft="10sp"
+            android:layout_height="wrap_content">
+            <LinearLayout android:id="@+id/secLeft" android:gravity="left" android:paddingTop="5sp" android:paddingBottom="8sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:id="@+id/HHHead" android:textColor="#006699" android:layout_width="match_parent" android:gravity="left" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/Mobile" android:layout_width="match_parent" android:gravity="left" android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/secRight" android:visibility="gone" android:layout_alignParentEnd="true" android:layout_marginLeft="10dp" android:layout_weight="5" android:gravity="left" android:paddingTop="5sp" android:paddingBottom="8sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:id="@+id/lblTotalMem" android:visibility="gone" android:text="সদস্য ()" android:textColor="#006699" android:layout_width="match_parent" android:gravity="left" android:layout_height="wrap_content"/>
+                <TextView android:id="@+id/lblTotalEMWRA" android:text="RDW ()" android:layout_width="match_parent" android:gravity="left" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout android:layout_alignParentRight="true" android:paddingLeft="20dp" android:paddingTop="8sp" android:paddingBottom="8sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+            <Button android:id="@+id/btnUpdateHH" android:visibility="gone" android:layout_weight="1" android:textAllCaps="false" android:layout_marginLeft="10sp" android:layout_marginRight="10sp"  android:textSize="18sp" android:textColor="@color/theme_color"
+                android:background="@drawable/button_style_circle_line" android:layout_width="wrap_content" android:layout_height="30sp" android:text="Update" android:paddingLeft="5sp" android:paddingRight="5sp"/>
+            <Button android:id="@+id/btnHHVisit" android:layout_weight="1" android:layout_marginTop="0dp"  android:textAllCaps="false" android:layout_marginLeft="10sp" android:layout_marginRight="10sp"  android:textSize="18sp" android:textColor="#000000"
+                android:background="@drawable/button_style_circle_line" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="ভিজিট" android:paddingLeft="5sp" android:paddingRight="5sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

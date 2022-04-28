@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/scan_layout"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="স্ক্যান করতে নির্বাচন করুন"
+        android:textColor="#006699"
+        android:textSize="30sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSmart"
+        android:text="স্মার্ট কার্ড"
+        android:layout_marginLeft="20sp"
+        android:layout_marginBottom="5sp"
+        android:layout_marginRight="20sp"
+        android:textSize="28sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOld"
+
+        android:text="পুরাতন জাতীয় পরিচয় পত্র"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:layout_marginBottom="5sp"
+        android:textSize="28sp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnHid"
+
+        android:text="হেলথ আইডি কার্ড"
+        android:layout_marginBottom="40sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:textSize="28sp"/>
+
+</LinearLayout>
