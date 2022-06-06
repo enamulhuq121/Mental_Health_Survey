@@ -93,6 +93,9 @@ public class Bottom_Navigation_MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
+
+
         //Synchronize Data
         /*if (!Connection.haveNetworkConnection(Bottom_Navigation_MainActivity.this)) {
             networkAvailable = true;
