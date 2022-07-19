@@ -507,7 +507,7 @@ public class Connection extends SQLiteOpenHelper {
                     Final_RequestSQL  = RequestSQL.replace("~", String.valueOf(batchSize*(i)));
                     if(i==totalBatch-1) TIMESTAMP = Global.DateTimeNowYMDHMS();
 
-                    Res = DownloadJSON_New(Final_RequestSQL, TableName, VariableList, UniqueField);
+                    Res = DownloadJSON(Final_RequestSQL, TableName, VariableList, UniqueField);
 
                     if(i==totalBatch-1){
                         SaveData("Update local_index_datasync set timestamp='"+ TIMESTAMP +"' where table_name='"+ TableName +"'");
@@ -518,10 +518,9 @@ public class Connection extends SQLiteOpenHelper {
         }
     }
 
-    public String DownloadJSON_New(String SQL, String TableName, String ColumnList, String UniqueField) {
+    public String DownloadJSON(String SQL, String TableName, String ColumnList, String UniqueField) {
         String response = "";
         String resp = "";
-        //String TIME_STAMP = "";
 
         try {
             DownloadDataJSON dload = new DownloadDataJSON();

@@ -35,7 +35,7 @@
 
     <!--<style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
     <!--<style name="CustomTheme" parent="Theme.MaterialComponents.Light">-->
-    <style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="CustomTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- AppCompat Attributes -->
         <!--colorPrimary – The color of the app bar.-->
         <item name="colorPrimary">@color/theme_color</item>

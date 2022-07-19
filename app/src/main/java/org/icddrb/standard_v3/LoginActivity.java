@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 import Common.Connection;
 import Common.Global;
@@ -220,12 +221,15 @@ public class LoginActivity extends AppCompatActivity {
         File apkfile = new File(Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.NewVersionName + ".apk");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Uri apkuri = FileProvider.getUriForFile(LoginActivity.this,
+            /*Uri apkuri = FileProvider.getUriForFile(LoginActivity.this,
                     BuildConfig.APPLICATION_ID + ".provider",
-                    apkfile);
+                    apkfile);*/
+            Uri apkuri = FileProvider.getUriForFile(Objects.requireNonNull(getApplicationContext()),
+                    Objects.requireNonNull(getApplicationContext()).getPackageName() + ".provider", apkfile);
+
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // without this flag android returned a intent error!
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
 
             intent.setDataAndType(apkuri, "application/vnd.android.package-archive");
 
