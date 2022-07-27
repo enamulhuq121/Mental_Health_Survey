@@ -1,19 +1,26 @@
 package org.icddrb.standard_v3;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +31,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Common.Connection;
+import forms_activity.Household_list;
 import forms_activity.Indicator_List;
+import forms_activity.Mapping_Household_list;
 
 public class HomeFragment extends Fragment {
     public static HomeFragment newInstance() {
@@ -77,7 +86,6 @@ public class HomeFragment extends Fragment {
 
                                                 new DataSyncTask().executeOnExecutor(AsyncTask.SERIAL_EXECUTOR);
 
-                                                // Content_Download();
                                                 break;
 
                                             case DialogInterface.BUTTON_NEGATIVE:
@@ -165,7 +173,7 @@ public class HomeFragment extends Fragment {
                 }catch (Exception ex){
                     //String a = ex.getMessage();
                 }
-                MyView.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, 140));
+                MyView.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, 190));
             }
             return MyView;
         }
@@ -222,11 +230,10 @@ public class HomeFragment extends Fragment {
                             int progressCount = 0;
 
                             C.Sync_DatabaseStructure();
-                            //C.Sync_Download("PatientInfo","PatientInfo", "");
 
                             List<String> tableList = new ArrayList<String>();
-                            tableList.add("Cluster");
-                            tableList.add("village");
+                            tableList.add("patientinfo");
+                            //tableList.add("village");
 
                             if(tableList.size()!=0)
                                 progressCount = 50/tableList.size();
@@ -295,4 +302,285 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    private void SelectVillageForm()
+    {
+        final Dialog dialog = new Dialog(thiscontext);
+        dialog.setContentView(R.layout.select_village);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+
+        wlp.gravity = Gravity.TOP;
+        wlp.flags &= ~WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        window.setAttributes(wlp);
+
+        final Spinner spnDCode;
+        final Spinner spnUPCode;
+        final Spinner spnUNCode;
+        final Spinner spnCluster;
+        final Spinner spnVCode;
+
+        spnDCode=(Spinner)dialog.findViewById(R.id.spnDCode);
+        spnUPCode=(Spinner)dialog.findViewById(R.id.spnUPCode) ;
+        spnUNCode=(Spinner)dialog.findViewById(R.id.spnUNCode) ;
+        spnCluster=(Spinner)dialog.findViewById(R.id.spnCluster) ;
+        spnVCode=(Spinner)dialog.findViewById(R.id.spnVCode) ;
+        spnDCode.setAdapter(C.getArrayAdapter("Select '' union Select DCode||'-'||DName from zilla"));
+        spnUPCode.setAdapter(C.getArrayAdapter("Select '' union Select UPCode||'-'||UPName from Upazila where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"'"));
+        spnUNCode.setAdapter(C.getArrayAdapter("Select '' union Select UNCode||'-'||UNName from Unions where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"'"));
+        spnCluster.setAdapter(C.getArrayAdapter("Select '' union Select '000' union Select Cluster from Cluster where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+        spnVCode.setAdapter(C.getArrayAdapter("Select '' union select v.vcode||'-'||v.VName from Village v inner join Cluster c on v.dcode=c.dcode and v.upcode=c.upcode and v.uncode=c.uncode and v.vcode=c.vcode and c.cluster='"+ spnCluster.getSelectedItem().toString().split("-")[0] +"'" +
+                " where v.DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and v.UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and v.UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+
+        spnDCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnUPCode.setAdapter(C.getArrayAdapter("Select '' union Select UPCode||'-'||UPName from Upazila where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        spnUPCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnUNCode.setAdapter(C.getArrayAdapter("Select '' union Select UNCode||'-'||UNName from Unions where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        spnUNCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnCluster.setAdapter(C.getArrayAdapter("Select '' union Select '000' union Select Cluster from Cluster where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        spnCluster.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnVCode.setAdapter(C.getArrayAdapter("Select '' union select v.vcode||'-'||v.VName from Village v inner join Cluster c on v.dcode=c.dcode and v.upcode=c.upcode and v.uncode=c.uncode and v.vcode=c.vcode and c.cluster='"+ spnCluster.getSelectedItem().toString().split("-")[0] +"'" +
+                        " where v.DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and v.UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and v.UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        ImageButton cmdBack = (ImageButton) dialog.findViewById(R.id.cmdBack);
+        cmdBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dialog.dismiss();
+            }});
+
+        Button cmdHHListing = (Button)dialog.findViewById(R.id.cmdHHListing);
+        cmdHHListing.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                if(spnDCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক জেলার নাম সিলেক্ট করুন");
+                    return;
+                }else if(spnUPCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক উপজেলার নাম সিলেক্ট করুন");
+                    return;
+                }else if(spnUNCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক ইউনিয়ন এর  নাম সিলেক্ট করুন");
+                    return;
+                }else if(spnCluster.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক ক্লাস্টার এর নম্বর সিলেক্ট করুন");
+                    return;
+                }
+                else if(spnVCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক গ্রামের নাম সিলেক্ট করুন");
+                    return;
+                }
+
+                AlertDialog.Builder adb = new AlertDialog.Builder(thiscontext);
+                adb.setTitle("নিশ্চিত করুন");
+                adb.setMessage("আপনি যেই গ্রাম সিলেক্ট করেছেন সেটা সঠিক কিনা পুনরায় নিশ্চিত হন এবং হ্যাঁ বাটন সিলেক্ট করুন অন্যথায় না সিলেক্ট করুন। ");
+                adb.setNegativeButton("না", null);
+                adb.setPositiveButton("হ্যাঁ", new AlertDialog.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Bundle Ibundle = new Bundle();
+
+                        Ibundle.putString("DCode", spnDCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("DName", spnDCode.getSelectedItem().toString().split("-")[1]);
+                        Ibundle.putString("UPCode", spnUPCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("UPName", spnUPCode.getSelectedItem().toString().split("-")[1]);
+                        Ibundle.putString("UNCode", spnUNCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("UNName", spnUNCode.getSelectedItem().toString().split("-")[1]);
+                        Ibundle.putString("Cluster", spnCluster.getSelectedItem().toString());
+                        Ibundle.putString("VCode", spnVCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("VName", spnVCode.getSelectedItem().toString().split("-")[1]);
+
+                        Intent intent = new Intent(thiscontext, Household_list.class);
+                        intent.putExtras(Ibundle);
+                        startActivity(intent);
+
+                        dialog.dismiss();
+                    }});
+                adb.show();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void SelectVillageForm_Mapping()
+    {
+        final Dialog dialog = new Dialog(thiscontext);
+        dialog.setContentView(R.layout.select_village);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+
+        wlp.gravity = Gravity.TOP;
+        wlp.flags &= ~WindowManager.LayoutParams.FLAG_DIM_BEHIND;
+        window.setAttributes(wlp);
+
+        final Spinner spnDCode;
+        final Spinner spnUPCode;
+        final Spinner spnUNCode;
+        final Spinner spnCluster;
+        final Spinner spnVCode;
+        spnDCode=(Spinner)dialog.findViewById(R.id.spnDCode);
+        spnUPCode=(Spinner)dialog.findViewById(R.id.spnUPCode) ;
+        spnUNCode=(Spinner)dialog.findViewById(R.id.spnUNCode) ;
+        spnCluster=(Spinner)dialog.findViewById(R.id.spnCluster) ;
+        spnVCode=(Spinner)dialog.findViewById(R.id.spnVCode) ;
+        spnDCode.setAdapter(C.getArrayAdapter("Select '' union Select DCode||'-'||DName from zilla"));
+        spnUPCode.setAdapter(C.getArrayAdapter("Select '' union Select UPCode||'-'||UPName from Upazila where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"'"));
+        spnUNCode.setAdapter(C.getArrayAdapter("Select '' union Select UNCode||'-'||UNName from Unions where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"'"));
+        spnCluster.setAdapter(C.getArrayAdapter("Select '' union Select '000' union Select Cluster from Cluster where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+        spnVCode.setAdapter(C.getArrayAdapter("Select '' union select v.vcode||'-'||v.VName from Village v inner join Cluster c on v.dcode=c.dcode and v.upcode=c.upcode and v.uncode=c.uncode and v.vcode=c.vcode and c.cluster='"+ spnCluster.getSelectedItem().toString().split("-")[0] +"'" +
+                " where v.DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and v.UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and v.UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+
+        spnDCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnUPCode.setAdapter(C.getArrayAdapter("Select '' union Select UPCode||'-'||UPName from Upazila where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        spnUPCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnUNCode.setAdapter(C.getArrayAdapter("Select '' union Select UNCode||'-'||UNName from Unions where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        spnUNCode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnCluster.setAdapter(C.getArrayAdapter("Select '' union Select '000' union Select Cluster from Cluster where DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        spnCluster.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                spnVCode.setAdapter(C.getArrayAdapter("Select '' union select v.vcode||'-'||v.VName from Village v inner join Cluster c on v.dcode=c.dcode and v.upcode=c.upcode and v.uncode=c.uncode and v.vcode=c.vcode and c.cluster='"+ spnCluster.getSelectedItem().toString().split("-")[0] +"'" +
+                        " where v.DCode='"+ spnDCode.getSelectedItem().toString().split("-")[0] +"' and v.UPCode='"+ spnUPCode.getSelectedItem().toString().split("-")[0] +"' and v.UNCode='"+ spnUNCode.getSelectedItem().toString().split("-")[0] +"'"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        ImageButton cmdBack = (ImageButton) dialog.findViewById(R.id.cmdBack);
+        cmdBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dialog.dismiss();
+            }});
+
+        Button cmdHHListing = (Button)dialog.findViewById(R.id.cmdHHListing);
+        cmdHHListing.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                if(spnDCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক জেলার নাম সিলেক্ট করুন");
+                    return;
+                }else if(spnUPCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক উপজেলার নাম সিলেক্ট করুন");
+                    return;
+                }else if(spnUNCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক ইউনিয়ন এর  নাম সিলেক্ট করুন");
+                    return;
+                }else if(spnCluster.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক ক্লাস্টার এর নম্বর সিলেক্ট করুন");
+                    return;
+                }
+                else if(spnVCode.getSelectedItemPosition()==0){
+                    Connection.MessageBox(thiscontext,"তালিকা থেকে সঠিক গ্রামের নাম সিলেক্ট করুন");
+                    return;
+                }
+
+                AlertDialog.Builder adb = new AlertDialog.Builder(thiscontext);
+                adb.setTitle("নিশ্চিত করুন");
+                adb.setMessage("আপনি যেই গ্রাম সিলেক্ট করেছেন সেটা সঠিক কিনা পুনরায় নিশ্চিত হন এবং হ্যাঁ বাটন সিলেক্ট করুন অন্যথায় না সিলেক্ট করুন। ");
+                adb.setNegativeButton("না", null);
+                adb.setPositiveButton("হ্যাঁ", new AlertDialog.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Bundle Ibundle = new Bundle();
+
+                        Ibundle.putString("DCode", spnDCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("DName", spnDCode.getSelectedItem().toString().split("-")[1]);
+                        Ibundle.putString("UPCode", spnUPCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("UPName", spnUPCode.getSelectedItem().toString().split("-")[1]);
+                        Ibundle.putString("UNCode", spnUNCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("UNName", spnUNCode.getSelectedItem().toString().split("-")[1]);
+                        Ibundle.putString("Cluster", spnCluster.getSelectedItem().toString());
+                        Ibundle.putString("VCode", spnVCode.getSelectedItem().toString().split("-")[0]);
+                        Ibundle.putString("VName", spnVCode.getSelectedItem().toString().split("-")[1]);
+
+                        Intent intent = new Intent(thiscontext, Mapping_Household_list.class);
+                        intent.putExtras(Ibundle);
+                        startActivity(intent);
+
+                        dialog.dismiss();
+                    }});
+                adb.show();
+            }
+        });
+
+        dialog.show();
+    }
 }

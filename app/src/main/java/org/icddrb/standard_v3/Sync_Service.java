@@ -1,6 +1,5 @@
 package org.icddrb.standard_v3;
 
-import android.app.NotificationManager;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -8,9 +7,7 @@ import android.content.ServiceConnection;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.IBinder;
-import android.os.PowerManager;
 
 import Common.Connection;
 import Utility.MySharedPreferences;
@@ -20,7 +17,6 @@ import Utility.MySharedPreferences;
  */
 public class Sync_Service extends Service {
     public Sync_Service m_service;
-    MySharedPreferences sp;
 
     public class MyBinder extends Binder {
         public Sync_Service getService() {
@@ -38,11 +34,6 @@ public class Sync_Service extends Service {
         }
     };
 
-    private NotificationManager mManager;
-    PowerManager.WakeLock wakeLock;
-    PowerManager c;
-    Bundle IDbundle;
-
     @Override
     public IBinder onBind(Intent arg0) {
         // TODO Auto-generated method stub
@@ -53,13 +44,7 @@ public class Sync_Service extends Service {
     public void onCreate() {
         // TODO Auto-generated method stub
         super.onCreate();
-        // obtain the wake lock
-        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyWakelockTag");
-        //wakeLock = powerManager.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "MyWakelockTag");
     }
-
-    static String DEVICEID  = "";
 
 
     private void handleIntent(Intent intent) {
@@ -80,7 +65,6 @@ public class Sync_Service extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         handleIntent(intent);
-        wakeLock.acquire();
     }
 
     @Override
@@ -95,7 +79,6 @@ public class Sync_Service extends Service {
     public void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-        wakeLock.release();
     }
 
 
@@ -108,18 +91,21 @@ public class Sync_Service extends Service {
 
         @Override
         protected Void doInBackground(String... params) {
+
             try {
+
                 new Thread() {
                     public void run() {
                         try {
-                            Connection.SyncDataService();
-
+                            boolean networkAvailable = Connection.haveNetworkConnection(Sync_Service.this);
+                            if (networkAvailable) {
+                                Connection.SyncDataService();
+                            }
                         } catch (Exception ignored) {
 
                         }
                     }
                 }.start();
-
             } catch (Exception ignored) {
 
             }

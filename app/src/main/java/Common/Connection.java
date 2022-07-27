@@ -48,8 +48,8 @@ public class Connection extends SQLiteOpenHelper {
 
     // Database Name
     private static final String DB_NAME    = ProjectSetting.DatabaseName;
-    private static final String DBLocation = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder + File.separator + DB_NAME;
-    //private static final String DBLocation = DB_NAME;
+    //private static final String DBLocation = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder + File.separator + DB_NAME;
+    private static final String DBLocation = DB_NAME;
     //public static final String DBLocation = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + ProjectSetting.DatabaseFolder + File.separator + DB_NAME;
 
     // Todo table name
@@ -462,7 +462,7 @@ public class Connection extends SQLiteOpenHelper {
 
     public void Sync_Download(String TableName, String Server_TableName, String WhereClause) {
         //Populate Index Table
-        SaveData("Insert into local_index_datasync(table_name,timestamp,modifydate) Select TableName,'','"+ Global.DateTimeNowYMDHMS() +"' from DatabaseTab where not exists(select * from local_index_datasync where table_name=DatabaseTab.TableName)");
+        //SaveData("Insert into local_index_datasync(table_name,timestamp,modifydate) Select TableName,'','"+ Global.DateTimeNowYMDHMS() +"' from DatabaseTab where not exists(select * from local_index_datasync where table_name=DatabaseTab.TableName)");
         String TIMESTAMP = Get_TimeStamp(TableName);
 
         //Request for Download Parameter from Server
@@ -1266,17 +1266,12 @@ public class Connection extends SQLiteOpenHelper {
     {
         try {
             Connection C = new Connection(dbContext);
+            //Populate Index Table
+            C.SaveData("Insert into local_index_datasync(table_name,timestamp,modifydate) Select TableName,'','"+ Global.DateTimeNowYMDHMS() +"' from DatabaseTab where not exists(select * from local_index_datasync where table_name=DatabaseTab.TableName)");
+
             C.Sync_DatabaseStructure();
-            C.Sync_Download("PatientInfo","PatientInfo", "");
-            //C.Sync_Download("data_chart","data_chart", "");
-
-            //Regular data sync
-            //--------------------------------------------------------------------------------------
-            /*C.Sync_Download("DeviceList","DeviceList", UniqueID,"DeviceID='"+ UniqueID +"'");
-
-            C.Sync_Download("module_variable","module_variable", UniqueID, "");
-            C.Sync_Download("module_variable_list","module_variable_list", UniqueID, "");
-            C.Sync_Download("module_variable_language","module_variable_language", UniqueID, "");*/
+            C.Sync_Download("DataCollector","DataCollector", "");
+            C.Sync_Download("Language","Language", "");
         }
         catch(Exception ex)
         {

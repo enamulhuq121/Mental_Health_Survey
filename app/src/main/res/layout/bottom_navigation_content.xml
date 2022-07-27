@@ -63,7 +63,7 @@
         app:navGraph="@navigation/mobile_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav_view" android:visibility="visible"
+        android:id="@+id/bottom_nav_view" android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_light_gray"

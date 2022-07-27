@@ -14,13 +14,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import Common.Connection;
 
 public class Splash_Screen extends Activity {
     Connection C;
+    ActivityResultLauncher<Intent> someActivityResultLauncher;
+
     /** Duration of wait **/
     private final int SPLASH_DISPLAY_LENGTH = 1000;
     private boolean isServiceRunning(Class<?> serviceClass) {
@@ -50,7 +57,21 @@ public class Splash_Screen extends Activity {
         C = new Connection(this);
 
         checkPermission();
+
     }
+
+/*    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            // There are no request codes
+            //Intent data = result.getData();
+
+            Intent mainIntent = new Intent(Splash_Screen.this,Bottom_Navigation_MainActivity.class);
+            startActivity(mainIntent);
+            finish();
+        }
+    }*/
 
     private void Activity_Load()
     {
@@ -63,21 +84,18 @@ public class Splash_Screen extends Activity {
                 String TotalTab = C.ReturnSingleValue("SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name != 'android_metadata' AND name != 'sqlite_sequence'");
                 Intent mainIntent;
                 if (Integer.parseInt(TotalTab) == 0) {
-                    mainIntent = new Intent(Splash_Screen.this, org.icddrb.standard_v3.PreparingDatabase.class);
-                    //mainIntent = new Intent(Splash_Screen.this,data_registration.class);
+                    mainIntent = new Intent(Splash_Screen.this, PreparingDatabase.class);
+                    //someActivityResultLauncher.launch(mainIntent);
                 }else{
-                    boolean networkAvailable = Connection.haveNetworkConnection(Splash_Screen.this);
-                    if (networkAvailable) {
-                        C.Sync_Download("DataCollector","DataCollector", "");
-                        C.Sync_Download("Language","Language", "");
 
-                        if (isServiceRunning(org.icddrb.standard_v3.Sync_Service.class)) {
-                            stopService(new Intent(getApplicationContext(), org.icddrb.standard_v3.Sync_Service_DatabaseStructure.class));
-                        }
-                        startService(new Intent(getApplicationContext(), org.icddrb.standard_v3.Sync_Service_DatabaseStructure.class));
-
+                    if (isServiceRunning(Sync_Service.class)) {
+                        stopService(new Intent(getApplicationContext(), Sync_Service.class));
                     }
-                    mainIntent = new Intent(Splash_Screen.this, org.icddrb.standard_v3.LoginActivity.class);
+                    startService(new Intent(getApplicationContext(), Sync_Service.class));
+
+                    mainIntent = new Intent(Splash_Screen.this,Bottom_Navigation_MainActivity.class);
+                    Splash_Screen.this.finish();
+                    Splash_Screen.this.startActivity(mainIntent);
                 }
 
                 Splash_Screen.this.startActivity(mainIntent);
