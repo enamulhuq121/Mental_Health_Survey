@@ -91,7 +91,7 @@
         <activity android:name="gps.GPS_Data" />
         <activity android:name="gps.GPS_Landmark_Data" />
         <activity android:name="forms_activity.Indicator_List" />
-        <activity android:name="org.icddrb.standard_v3.Bottom_Navigation_MainActivity" />
+        <activity android:name="org.icddrb.standard_v3.Fragment_Main" />
         <activity android:name="forms_activity.data_registration" />
     </application>
 </manifest>

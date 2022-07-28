@@ -116,7 +116,7 @@ public class PreparingDatabase extends AppCompatActivity {
                     if(C.RebuildDatabase(progDailog, progressHandler, DeviceID)){
                         progDailog.dismiss();
                         finish();
-                        Intent mainIntent = new Intent(PreparingDatabase.this, org.icddrb.standard_v3.Bottom_Navigation_MainActivity.class);
+                        Intent mainIntent = new Intent(PreparingDatabase.this, Fragment_Main.class);
                         startActivity(mainIntent);
                     }else{
                         progDailog.dismiss();

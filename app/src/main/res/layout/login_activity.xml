@@ -38,12 +38,12 @@
             android:textColor="@color/login_page_text_color"/>
     </LinearLayout>
 
-    <LinearLayout android:layout_marginLeft="50sp" android:layout_marginRight="50sp" android:layout_marginTop="0sp"  android:layout_width="fill_parent"  android:layout_height="wrap_content" android:layout_gravity="center">
+    <LinearLayout android:orientation="vertical" android:layout_marginLeft="50sp" android:layout_marginRight="50sp" android:layout_marginTop="0sp"  android:layout_width="fill_parent"  android:layout_height="wrap_content" android:layout_gravity="center">
         <Spinner android:id="@+id/userId"
             android:drawSelectorOnTop="true"
             android:layout_width="match_parent"
             android:layout_height="41dp"
-            android:prompt="@string/planet_prompt" />
+            android:prompt="@string/planet_prompt"/>
 
     </LinearLayout>
 
@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="41dp"
                 android:layout_marginTop="15sp"
-                android:prompt="@string/planet_prompt" />
+                android:prompt="@string/planet_prompt"/>
 
         </LinearLayout>
     <LinearLayout android:layout_marginLeft="50sp" android:weightSum="1" android:layout_marginRight="50sp"  android:orientation="horizontal" android:layout_marginTop="0sp" android:layout_marginBottom="20sp"

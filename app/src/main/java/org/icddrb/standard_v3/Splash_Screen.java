@@ -93,7 +93,8 @@ public class Splash_Screen extends Activity {
                     }
                     startService(new Intent(getApplicationContext(), Sync_Service.class));
 
-                    mainIntent = new Intent(Splash_Screen.this,Bottom_Navigation_MainActivity.class);
+                    //mainIntent = new Intent(Splash_Screen.this,Bottom_Navigation_MainActivity.class);
+                    mainIntent = new Intent(Splash_Screen.this,LoginActivity.class);
                     Splash_Screen.this.finish();
                     Splash_Screen.this.startActivity(mainIntent);
                 }

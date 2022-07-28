@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--<item android:id="@+id/menu_print"
-        android:icon="@drawable/menu_save"
-        android:title="@string/menu_save" />
-    &lt;!&ndash; menu group &ndash;&gt;
-    <group android:id="@+id/group_delete">
-        <item android:id="@+id/menu_archive"
-            android:title="@string/menu_archive" />
-        <item android:id="@+id/menu_delete"
-            android:title="@string/menu_delete" />
-    </group>-->
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_print"
-        android:icon="@drawable/ic_print"
-        android:title="Print">
-    </item>
+        android:title="Home"/>
     <item
         android:id="@+id/menu_pdf"
-        android:icon="@drawable/ic_pdf"
-        android:title="Save as PDF">
-    </item>
+        android:title="Two"/>
 </menu>

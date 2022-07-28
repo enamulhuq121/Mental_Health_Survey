@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/menuSync" android:title=" Data Sync" android:showAsAction="ifRoom|withText"/>
-    <item android:id="@+id/menuExit" android:title=" Exit" android:icon="@drawable/exit1" android:showAsAction="ifRoom|withText"/>
-</menu>

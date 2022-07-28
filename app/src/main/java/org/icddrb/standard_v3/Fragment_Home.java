@@ -1,5 +1,9 @@
 package org.icddrb.standard_v3;
 
+import static com.google.android.gms.cast.CastRemoteDisplayLocalService.startService;
+import static com.google.android.gms.cast.CastRemoteDisplayLocalService.stopService;
+
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -25,19 +29,19 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.google.android.gms.cast.CastRemoteDisplayLocalService;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import Common.Connection;
+import Common.ProjectSetting;
 import forms_activity.Household_list;
 import forms_activity.Indicator_List;
 import forms_activity.Mapping_Household_list;
 
-public class HomeFragment extends Fragment {
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
+public class Fragment_Home extends Fragment {
+    public static Fragment_Home newInstance() {
+        Fragment_Home fragment = new Fragment_Home();
         return fragment;
     }
 
@@ -132,6 +136,16 @@ public class HomeFragment extends Fragment {
         });
 
         return rootView; //inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    private boolean isServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) thiscontext.getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static class menuAdapter extends BaseAdapter {
@@ -229,19 +243,28 @@ public class HomeFragment extends Fragment {
                             int count = 0;
                             int progressCount = 0;
 
+                            //Stop Sync Service if still running
+                            //----------------------------------------------------------------------
+                            if (isServiceRunning(Sync_Service.class)) {
+                                thiscontext.stopService(new Intent(thiscontext, Sync_Service.class));
+                            }
+                            thiscontext.startService(new Intent(thiscontext, Sync_Service.class));
+
+                            //Update database level change
+                            //----------------------------------------------------------------------
                             C.Sync_DatabaseStructure();
 
-                            List<String> tableList = new ArrayList<String>();
-                            tableList.add("patientinfo");
-                            //tableList.add("village");
+                            //Upload
+                            //----------------------------------------------------------------------
+                            List<String> tableList_upload = ProjectSetting.TableList_Upload();
 
-                            if(tableList.size()!=0)
-                                progressCount = 50/tableList.size();
-                            for (int i = 0; i < tableList.size(); i++) {
+                            if(tableList_upload.size()!=0)
+                                progressCount = 50/tableList_upload.size();
+                            for (int i = 0; i < tableList_upload.size(); i++) {
                                 try {
-                                    C.Sync_Upload_Process(tableList.get(i));
+                                    C.Sync_Upload_Process(tableList_upload.get(i));
                                     count +=progressCount;
-                                    onProgressUpdate(tableList.get(i)+","+ String.valueOf(count));
+                                    onProgressUpdate(tableList_upload.get(i)+","+ String.valueOf(count));
                                 }catch(Exception ignored){
 
                                 }
@@ -250,15 +273,16 @@ public class HomeFragment extends Fragment {
 
                             //Download
                             //----------------------------------------------------------------------
-                            if(tableList.size()!=0)
-                                progressCount = 50/tableList.size();
+                            List<String> tableList_download = ProjectSetting.TableList_Download();
+                            if(tableList_download.size()!=0)
+                                progressCount = 50/tableList_download.size();
 
-                            for (int j = 0; j < tableList.size(); j++) {
+                            for (int j = 0; j < tableList_download.size(); j++) {
                                 try {
-                                    C.Sync_Download(tableList.get(j),tableList.get(j), "");
+                                    C.Sync_Download(tableList_download.get(j),tableList_download.get(j), "");
 
                                     count +=progressCount;
-                                    onProgressUpdate(tableList.get(j)+","+ String.valueOf(count));
+                                    onProgressUpdate(tableList_download.get(j)+","+ String.valueOf(count));
                                 }catch(Exception ignored){
 
                                 }
@@ -268,9 +292,9 @@ public class HomeFragment extends Fragment {
 
 
                             //Database File Upload
-                            String DBREQUEST = "1";
-                            if (DBREQUEST.equals("1")){
-                                getActivity().startService(new Intent(getActivity(),DatabaseFileSync_Service.class));
+                            String DBREQUEST = ProjectSetting.Database_Upload;
+                            if (DBREQUEST.equals("yes")){
+                                requireActivity().startService(new Intent(getActivity(),DatabaseFileSync_Service.class));
                             }
 
 

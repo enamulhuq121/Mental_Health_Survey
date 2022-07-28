@@ -43,7 +43,7 @@
  import androidx.appcompat.app.AppCompatActivity;
  import androidx.core.content.ContextCompat;
 
- import org.icddrb.standard_v3.Bottom_Navigation_MainActivity;
+ import org.icddrb.standard_v3.Fragment_Main;
  import org.icddrb.standard_v3.R;
 
  import forms_datamodel.data_registration_DataModel;
@@ -483,7 +483,7 @@
                  try {
                      if(C.RebuildDatabase(progDailog, progressHandler, DeviceID)){
                          progDailog.dismiss();
-                         Intent mainIntent = new Intent(data_registration.this, Bottom_Navigation_MainActivity.class);
+                         Intent mainIntent = new Intent(data_registration.this, Fragment_Main.class);
                          startActivity(mainIntent);
                      }else{
                          progDailog.dismiss();

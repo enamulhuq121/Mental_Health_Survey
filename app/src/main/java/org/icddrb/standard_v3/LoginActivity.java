@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
-import androidx.multidex.BuildConfig;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -166,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
                                     public void run() {
                                         try {
                                             finish();
-                                            Intent f1 = new Intent(getApplicationContext(), org.icddrb.standard_v3.Bottom_Navigation_MainActivity.class);
+                                            Intent f1 = new Intent(getApplicationContext(), Fragment_Main.class);
                                             startActivity(f1);
                                         } catch (Exception e) {
 
@@ -182,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void run() {
                                     try {
                                         finish();
-                                        Intent f1 = new Intent(getApplicationContext(), org.icddrb.standard_v3.Bottom_Navigation_MainActivity.class);
+                                        Intent f1 = new Intent(getApplicationContext(), Fragment_Main.class);
                                         startActivity(f1);
                                     } catch (Exception e) {
 
@@ -198,7 +197,7 @@ public class LoginActivity extends AppCompatActivity {
                             public void run() {
                                 try {
                                     finish();
-                                    Intent f1 = new Intent(getApplicationContext(), org.icddrb.standard_v3.Bottom_Navigation_MainActivity.class);
+                                    Intent f1 = new Intent(getApplicationContext(), Fragment_Main.class);
                                     startActivity(f1);
                                 } catch (Exception e) {
 

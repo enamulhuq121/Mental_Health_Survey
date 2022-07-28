@@ -34,9 +34,6 @@ import java.util.List;
 import java.lang.String;
 import java.util.concurrent.ExecutionException;
 
-import DataSync.api_DownloadClass;
-import DataSync.api_DownloadJSONData;
-import DataSync.api_DownloadRequestClass;
 import Utility.CompressZip;
 
 //--------------------------------------------------------------------------------------------------
@@ -46,11 +43,8 @@ public class Connection extends SQLiteOpenHelper {
     // Database Version
     private static final int DATABASE_VERSION = 1;
 
-    // Database Name
-    private static final String DB_NAME    = ProjectSetting.DatabaseName;
-    //private static final String DBLocation = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder + File.separator + DB_NAME;
-    private static final String DBLocation = DB_NAME;
-    //public static final String DBLocation = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + ProjectSetting.DatabaseFolder + File.separator + DB_NAME;
+    // Database Name and Location
+    private static final String DBLocation = ProjectSetting.Database_Location;
 
     // Todo table name
     private static final String TABLE_TODO = "todo_items";
@@ -1772,136 +1766,6 @@ public class Connection extends SQLiteOpenHelper {
         return deviceUniqueIdentifier;
     }*/
 
-
-    public String api_DownloadJSON(String SQL, String TableName, String ColumnList, String UniqueField, String UserId) {
-        api_DownloadRequestClass dr = new api_DownloadRequestClass();
-        dr.sethost_address(ProjectSetting.host_address);
-        dr.setdatabase_name(ProjectSetting.database_name);
-        dr.setmethod_name("DownloadData");
-        dr.setsql(SQL);
-        dr.setdevice_id(UserId);
-
-        Gson gson = new Gson();
-        String json = gson.toJson(dr);
-
-        int varPos = 0;
-        int varPos_modifyDate = 0;
-
-        String response = "";
-        String resp = "";
-        String IDNO = "";
-        String SaveResp = "";
-
-        try {
-            //Download from server
-            //--------------------------------------------------------------------------------------
-            response = new api_DownloadJSONData().execute(json).get();
-
-            Type collType = new TypeToken<api_DownloadClass>() {}.getType();
-            //api_DownloadClass responseData = gson.fromJson(response, api_DownloadClass.class);
-            api_DownloadClass responseData = gson.fromJson(response, collType);
-
-            String[] UField = UniqueField.trim().split(",");
-            String[] VarList = ColumnList.trim().split(",");
-
-            //Position modifydate in table : 15 Sep 2021
-            //--------------------------------------------------------------------------------------
-            varPos_modifyDate = VarPosition("modifyDate", VarList);
-
-            //Position Unique ID's : 15 Sep 2021
-            //--------------------------------------------------------------------------------------
-            StringBuilder Position_UID = new StringBuilder();
-            for (String s : UField) {
-                Position_UID.append(Position_UID.length()==0?VarPosition(s, VarList):","+VarPosition(s, VarList));
-            }
-            String[] VarPos_UID =  Position_UID.toString().split(",");
-
-            //--------------------------------------------------------------------------------------
-            String modifyDate = "";
-            StringBuilder UID = new StringBuilder();
-
-            String DataList = "";
-            DataClassProperty dd;
-            List<DataClassProperty> dataTemp = new ArrayList<DataClassProperty>();
-            List<DataClassProperty> data     = new ArrayList<DataClassProperty>();
-
-            String downloadSyncStatus = "";
-
-            assert responseData != null;
-            String temp = "";
-            if (responseData.getdata().size() > 0) {
-                StringBuilder SQLBuilder = new StringBuilder("Insert or replace into " + TableName + "(" + ColumnList + ")Values");
-                for (int i = 0; i < responseData.getdata().size(); i++) {
-                    String[] VarData = split(responseData.getdata().get(i), '^');
-
-                    //Generate Unique ID
-                    //------------------------------------------------------------------------------
-                    for(String pos: VarPos_UID){
-                        UID.append(VarData[Integer.parseInt(pos)]);
-                    }
-
-                    modifyDate = VarData[varPos_modifyDate];
-
-                    //------------------------------------------------------------------------------
-                    //06 Jan 2021
-                    temp = responseData.getdata().get(i).replace("'","''");
-                    if (i == 0) {
-                        SQLBuilder.append("('").append(temp.replace("^", "','").replace("null", "")).append("')");
-                    } else {
-                        SQLBuilder.append(",('").append(temp.replace("^", "','").replace("null", "")).append("')");
-                    }
-
-                    //Populate class with data for sync_management
-                    //------------------------------------------------------------------------------
-                    DataList = TableName + "^" + UID + "^" + UserId + "^" + modifyDate;
-                    dd = new DataClassProperty();
-                    dd.setdatalist(DataList);
-                    dd.setuniquefieldwithdata("" +
-                            "TableName='" + TableName + "' and " +
-                            "UniqueID='" + UID + "' and " +
-                            "UserId='" + UserId + "' and " +
-                            "modifyDate='" + modifyDate + "'");
-                    dataTemp.add(dd);
-
-                    UID = new StringBuilder();
-                }
-                SQL = SQLBuilder.toString();
-
-                //If there have no error then response send back to server
-                downloadSyncStatus = SaveData(SQL);
-                if(downloadSyncStatus.length()==0){
-                    data = dataTemp;
-                }else{
-                    resp = downloadSyncStatus;
-                }
-
-                //Update data to Server on sync management
-                //------------------------------------------------------------------------------
-                DataClass dt = new DataClass();
-                dt.settablename("Sync_Management");
-                dt.setcolumnlist("TableName, UniqueID, UserId, modifyDate");
-                dt.setuniquefields("TableName, UniqueID, UserId, modifyDate");
-                dt.setdata(data);
-
-                Gson gson1 = new Gson();
-                String json1 = gson1.toJson(dt);
-                String resp1 = "";
-
-                UploadDataJSON u = new UploadDataJSON();
-
-                try {
-                    resp1 = u.execute(json1).get();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-        } catch (Exception e) {
-            resp = e.getMessage();
-            e.printStackTrace();
-        }
-        return resp;
-    }
 
     //Bari Number
     public String NewBariNumber_ByCluster(String DCode, String UPCode, String UNCode,String Cluster, String VCode, int TotalDigit)
