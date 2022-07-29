@@ -8,9 +8,8 @@
                 android:bottomRightRadius="5dp"
                 android:topLeftRadius="5dp"
                 android:topRightRadius="5dp" />
-            <solid android:color="@color/mainmenu_button_color" />
+            <solid android:color="@color/colorPrimary" />
         </shape>
-        <color android:color="#D7D7D7" />
     </item>
     <item>
         <shape android:shape="rectangle">
@@ -19,7 +18,7 @@
                 android:bottomRightRadius="5dp"
                 android:topLeftRadius="5dp"
                 android:topRightRadius="5dp" />
-            <solid android:color="@color/theme_color" />
+            <solid android:color="@color/colorPrimaryVariant" />
         </shape>
     </item>
 </selector>

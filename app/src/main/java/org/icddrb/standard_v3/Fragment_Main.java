@@ -14,11 +14,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import Common.Connection;
+import Common.ProjectSetting;
 import Utility.MySharedPreferences;
 
 public class Fragment_Main extends AppCompatActivity
@@ -94,7 +96,7 @@ public class Fragment_Main extends AppCompatActivity
             }
         });
 
-        BottomNavigationView navView = findViewById(R.id.bottom_nav_view);
+        BottomNavigationView bottom_navView = findViewById(R.id.bottom_nav_view);
         FloatingActionButton floView = findViewById(R.id.fab);
         floView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +108,21 @@ public class Fragment_Main extends AppCompatActivity
             }
         });
 
-        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        BottomAppBar bottomAppBar = findViewById(R.id.bottomAppBar);
+        if(ProjectSetting.Show_Bottom_Navigation_Bar) {
+            bottomAppBar.setVisibility(View.VISIBLE);
+            floView.setVisibility(View.VISIBLE);
+        }else {
+            bottomAppBar.setVisibility(View.GONE);
+            floView.setVisibility(View.GONE);
+        }
+        if(ProjectSetting.Show_Floating_Button_Navigation_Bar) {
+            floView.setVisibility(View.VISIBLE);
+        }else {
+            floView.setVisibility(View.GONE);
+        }
+
+        bottom_navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 /*switch (item.getItemId()) {

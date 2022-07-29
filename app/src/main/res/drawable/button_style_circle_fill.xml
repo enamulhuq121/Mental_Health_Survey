@@ -8,10 +8,9 @@
                 android:bottomRightRadius="90dp"
                 android:topLeftRadius="90dp"
                 android:topRightRadius="90dp" />
-            <solid android:color="#F3F3F3"/>
-            <stroke android:color="@color/theme_color" android:width="@dimen/button_line_width"/>
+            <solid android:color="@color/colorPrimary"/>
+            <stroke android:color="@color/colorPrimaryVariant" android:width="@dimen/button_line_width"/>
         </shape>
-        <color android:color="#FFFFFF" />
     </item>
     <item>
         <shape android:shape="rectangle">
@@ -20,7 +19,8 @@
                 android:bottomRightRadius="90dp"
                 android:topLeftRadius="90dp"
                 android:topRightRadius="90dp" />
-            <solid android:color="@color/theme_color"/>
+            <solid android:color="@color/colorPrimaryVariant"/>
+            <stroke android:color="@color/colorPrimary" android:width="@dimen/button_line_width"/>
         </shape>
     </item>
 </selector>

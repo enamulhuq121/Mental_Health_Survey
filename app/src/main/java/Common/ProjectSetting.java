@@ -1,5 +1,8 @@
 package Common;
 
+import android.os.Environment;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +15,19 @@ public class ProjectSetting {
     //Project and Server link Information
     //==============================================================================================
     public static String ProjectName    = "standard_v3";
-    public static String DatabaseName   = ProjectName.toUpperCase() +"Database.db";
     public static String ServerURL      = "http://chu.icddrb.org/";
 
     //Database Location
     //==============================================================================================
-    //public static final String Database_Location = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder + File.separator + DatabaseName;
+    public static String DatabaseName   = ProjectName.toUpperCase() +"Database.db";
+    public static String DatabaseFolder = ProjectName.toUpperCase() +"DB";
+    public static final String Database_Folder_URL = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder;
+    //Internal Memory
     public static final String Database_Location = DatabaseName;
-    //public static final String Database_Location = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + File.separator + ProjectSetting.DatabaseFolder + File.separator + DatabaseName;
+
+    //External Storage
+    //public static final String Database_Location = Database_Folder_URL + File.separator + DatabaseName;
+    //public static final String Database_Location = Database_Folder_URL + File.separator + DatabaseName;
 
     //New Release
     //==============================================================================================
@@ -48,15 +56,18 @@ public class ProjectSetting {
 
     //Database Upload
     //==============================================================================================
-    public static String Database_Upload = "no"; //yes/no
+    public static boolean Tab_Database_Upload = false;
 
+    //UI Design Attributes
+    //==============================================================================================
+    public static boolean Show_Bottom_Navigation_Bar = true;
+    public static boolean Show_Floating_Button_Navigation_Bar = true;
 
     //System Variables: Don't need to change
     //==============================================================================================
     public static String Namespace      = "http://chu.icddrb.org/";
     public static String apiName        = ProjectName.toLowerCase();
     public static String NewVersionName = ProjectName.toLowerCase() +"_update";
-    public static String DatabaseFolder = ProjectName.toUpperCase() +"DB";
     public static String zipDatabaseName= ProjectName.toUpperCase() +"Database.zip";
     public static String DBSecurityPass = "a";
     public static String Organization   = "ICDDR,B";

@@ -38,11 +38,25 @@
     <style name="CustomTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- AppCompat Attributes -->
         <!--colorPrimary – The color of the app bar.-->
-        <item name="colorPrimary">@color/theme_color</item>
-        <!--colorPrimaryDark – The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.-->
+        <!--<item name="colorPrimary">@color/theme_color</item>
+        &lt;!&ndash;colorPrimaryDark – The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.&ndash;&gt;
         <item name="colorPrimaryDark">@color/theme_color</item>
-        <!--colorAccent – The color of UI controls such as check boxes, radio buttons, and edit text boxes.-->
+        &lt;!&ndash;colorAccent – The color of UI controls such as check boxes, radio buttons, and edit text boxes.&ndash;&gt;
+        <item name="colorAccent">@color/theme_color</item>-->
+
+        <!--Material Attributes-->
+        <!--https://material.io/design/material-theming/implementing-your-theme.html#color-->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/theme_color</item>
+        <item name="colorPrimaryVariant">@color/theme_color</item>
         <item name="colorAccent">@color/theme_color</item>
+        <item name="colorSecondary">@color/theme_color</item>
+        <item name="colorSecondaryVariant">@color/theme_color</item>
+        <!--Require API level 21
+        <item name="android:statusBarColor">@color/theme_color</item>-->
+
+
+
         <!--windowBackground – The color of the screen background.-->
         <item name="android:windowBackground">@color/form_background_color</item>
         <!--textColorPrimary – The color of UI text in the app bar.-->
@@ -58,11 +72,31 @@
         <item name="android:typeface">serif</item>
         <!--<item name="android:editTextStyle">@style/customEdit</item>-->
         <item name="android:spinnerStyle">@style/spinner_grayline</item>
-        <!--<item name="android:spinnerItemStyle">@style/spinnerItem_grayline</item>-->
+        <item name="android:spinnerItemStyle">@style/spinnerItem_grayline</item>
         <!--<item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>-->
         <!--<item name="android:spinnerDropDownItemStyle">@style/icddrb_SpinnerItem</item>-->
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
     </style>
+
+    <!--Material Shape Appearance-->
+    <style name="ShapeAppearance.App.SmallComponent"
+       parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+    <style name="ShapeAppearance.App.MediumComponent"
+        parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="ShapeAppearance.App.LargeComponent"
+        parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+
+
 
     <style name="customEdit_grayline" parent="Widget.AppCompat.EditText">
         <item name="android:textSize">@dimen/edittext_text_size</item>
@@ -74,13 +108,11 @@
         <item name="android:textSize">@dimen/edittext_text_size</item>
         <item name="android:textColor">#006699</item>
         <item name="android:background">@drawable/spinner_round_grayline</item>
-        <item name="android:padding">4sp</item>
+        <item name="android:padding">0sp</item>
     </style>
-    <style name="spinnerItem_grayline" parent="Widget.AppCompat.EditText">
+    <style name="spinnerItem_grayline" parent="Widget.AppCompat.DropDownItem.Spinner">
         <item name="android:textSize">@dimen/edittext_text_size</item>
-        <item name="android:textColor">#006699</item>
-        <item name="android:background">@drawable/spinner_item_grayline</item>
-        <item name="android:padding">4sp</item>
+        <!--<item name="android:padding">4sp</item>-->
     </style>
 
     <style name="CustomTheme.NoActionBar" parent="AppTheme">

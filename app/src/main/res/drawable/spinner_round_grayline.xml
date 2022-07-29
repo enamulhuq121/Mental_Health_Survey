@@ -5,9 +5,11 @@
         <item>
             <shape>
                 <solid android:color="@color/spinner_background_color"/>
-                <stroke android:width="0.5dp" android:color="@color/spinner_border_color" />
-                <corners android:radius="4dp" />
-                <padding android:bottom="3dp" android:left="3dp" android:right="8dp" android:top="6dp" />
+                <stroke android:width="@dimen/spinner_border_stroke" android:color="@color/spinner_border_color" />
+                <corners android:radius="@dimen/spinner_corner_radius" />
+                <padding android:right="8dp"
+                    android:top="3dp"
+                    android:left="5dp"/>
             </shape>
         </item>
         <item >

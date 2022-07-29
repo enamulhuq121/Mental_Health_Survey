@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-            android:bottom="0.5dp"
-            android:left="0.5dp"
-            android:right="0.5dp"
-            android:top="0.5dp"
-            >
+    <item>
         <shape android:shape="rectangle">
            <solid android:color="@color/edittext_background_color"/>
-            <corners
-                android:bottomLeftRadius="3dp"
-                android:bottomRightRadius="3dp"
-                android:topLeftRadius="3dp"
-                android:topRightRadius="3dp"/>
+            <corners android:radius="@dimen/edittext_corner_radius" />
             <stroke android:color="@color/edittext_border_color"
-                    android:width="0.5dp"/>
+                    android:width="@dimen/edittext_border_stroke"/>
         </shape>
     </item>
 </layer-list>

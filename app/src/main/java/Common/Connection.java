@@ -454,9 +454,11 @@ public class Connection extends SQLiteOpenHelper {
         return ReturnSingleValue("Select timestamp from local_index_datasync where table_name='"+ Table_Name +"'");
     }
 
+    public static void Populate_Index_Table(){
+        Connection C = new Connection(dbContext);
+        C.SaveData("Insert into local_index_datasync(table_name,timestamp,modifydate) Select TableName,'','"+ Global.DateTimeNowYMDHMS() +"' from DatabaseTab where not exists(select * from local_index_datasync where table_name=DatabaseTab.TableName)");
+    }
     public void Sync_Download(String TableName, String Server_TableName, String WhereClause) {
-        //Populate Index Table
-        //SaveData("Insert into local_index_datasync(table_name,timestamp,modifydate) Select TableName,'','"+ Global.DateTimeNowYMDHMS() +"' from DatabaseTab where not exists(select * from local_index_datasync where table_name=DatabaseTab.TableName)");
         String TIMESTAMP = Get_TimeStamp(TableName);
 
         //Request for Download Parameter from Server
@@ -1260,12 +1262,17 @@ public class Connection extends SQLiteOpenHelper {
     {
         try {
             Connection C = new Connection(dbContext);
-            //Populate Index Table
-            C.SaveData("Insert into local_index_datasync(table_name,timestamp,modifydate) Select TableName,'','"+ Global.DateTimeNowYMDHMS() +"' from DatabaseTab where not exists(select * from local_index_datasync where table_name=DatabaseTab.TableName)");
+            Connection.Populate_Index_Table();
 
             C.Sync_DatabaseStructure();
             C.Sync_Download("DataCollector","DataCollector", "");
             C.Sync_Download("Language","Language", "");
+
+            C.Sync_Download("zilla","zilla", "");
+            C.Sync_Download("upazila","upazila", "");
+            C.Sync_Download("unions","unions", "");
+            C.Sync_Download("mouza","mouza", "");
+            C.Sync_Download("village","village", "");
         }
         catch(Exception ex)
         {

@@ -58,8 +58,8 @@ public class PreparingDatabase extends AppCompatActivity {
 
     private void ProcessDatabase()
     {
-        String zipFile_URL = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder + File.separator + ProjectSetting.zipDatabaseName;
-        String dbFile_URL = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder + File.separator + ProjectSetting.DatabaseName;
+        String zipFile_URL = ProjectSetting.Database_Folder_URL + File.separator + ProjectSetting.zipDatabaseName;
+        String dbFile_URL = ProjectSetting.Database_Folder_URL + File.separator + ProjectSetting.DatabaseName;
         networkAvailable = Connection.haveNetworkConnection(PreparingDatabase.this);
         if (new File(zipFile_URL).exists()) {
             File dbfile = new File(dbFile_URL);
@@ -79,7 +79,7 @@ public class PreparingDatabase extends AppCompatActivity {
                 String DeviceID = C.ReturnResult("ReturnSingleValue","sp_Request_DeviceID '"+ C.getDeviceUniqueID(this) +"',''");
                 String Setting = C.ReturnResult("Existence", "Select DeviceId from DeviceList where DeviceId='"+ DeviceID +"' and Setting='3' and Active='1'");
                 if (Setting.equals("2")) {
-                    lblMessage.setText("Device ID :"+ DeviceID +" is not allowed to configure a mobile device, contact with administrator.");
+                    lblMessage.setText("Device ID :"+ DeviceID +" is not allowed to configure in mobile device, please contact with administrator.");
                     lblMessage.setVisibility(View.VISIBLE);
                     btnTryAgain.setVisibility(View.VISIBLE);
                     return;
@@ -88,7 +88,7 @@ public class PreparingDatabase extends AppCompatActivity {
                 RebuildDatabase(DeviceID);
 
             }else {
-                lblMessage.setText("Internet connection is not available for building initial database.");
+                lblMessage.setText("Internet connection is not available for initial database creation.");
                 lblMessage.setVisibility(View.VISIBLE);
                 btnTryAgain.setVisibility(View.VISIBLE);
             }

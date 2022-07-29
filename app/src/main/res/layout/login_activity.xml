@@ -55,7 +55,7 @@
             android:singleLine="true" android:hint="Password" android:textColor="#006699"
             android:text=""
             android:stateListAnimator="@null"
-            style="@style/customEdit_grayline"
+            style="@style/customEdit"
             android:padding="8dp"/>
 
     </LinearLayout>

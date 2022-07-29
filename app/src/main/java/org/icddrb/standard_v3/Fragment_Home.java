@@ -10,6 +10,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -64,12 +65,23 @@ public class Fragment_Home extends Fragment {
                 {
                     if(position==0)
                     {
-                        IBundle.putString("typeid", "%");
-                        IBundle.putString("themeid", "%");
+                        //Household Listing
+                        //--------------------------------------------------------------------------
+                        //SelectVillageForm();
 
+                        //Household Listing for Mapping
+                        //--------------------------------------------------------------------------
+                        SelectVillageForm_Mapping();
+
+                        /*
+                        //Activity Call
+                        //--------------------------------------------------------------------------
+                        //Parameter
+                        //IBundle.putString("typeid", "%");
+                        //IBundle.putString("themeid", "%");
                         Intent I = new Intent(thiscontext, Indicator_List.class);
                         I.putExtras(IBundle);
-                        startActivity(I);
+                        startActivity(I);*/
                     }
                     else if(position==1) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(thiscontext);
@@ -224,12 +236,12 @@ public class Fragment_Home extends Fragment {
             dialog.setCancelable(false);
             dialog.setIcon(R.drawable.data_sync);
             dialog.show();
+
         }
 
         //@Override
         protected void onProgressUpdate(String... values) {
             dialog.setProgress(Integer.parseInt(values[0].toString().split(",")[1]));
-            //dialog.setMessage(values[0].toString().split(",")[2]);
         }
 
         @Override
@@ -248,13 +260,14 @@ public class Fragment_Home extends Fragment {
                             if (isServiceRunning(Sync_Service.class)) {
                                 thiscontext.stopService(new Intent(thiscontext, Sync_Service.class));
                             }
-                            thiscontext.startService(new Intent(thiscontext, Sync_Service.class));
 
                             //Update database level change
                             //----------------------------------------------------------------------
                             C.Sync_DatabaseStructure();
 
-                            //Upload
+                            Connection.Populate_Index_Table();
+
+                            //Upload data to server
                             //----------------------------------------------------------------------
                             List<String> tableList_upload = ProjectSetting.TableList_Upload();
 
@@ -271,7 +284,7 @@ public class Fragment_Home extends Fragment {
                             }
                             count = 50;
 
-                            //Download
+                            //Download data from server
                             //----------------------------------------------------------------------
                             List<String> tableList_download = ProjectSetting.TableList_Download();
                             if(tableList_download.size()!=0)
@@ -290,10 +303,8 @@ public class Fragment_Home extends Fragment {
 
                             onProgressUpdate(","+ "100");
 
-
                             //Database File Upload
-                            String DBREQUEST = ProjectSetting.Database_Upload;
-                            if (DBREQUEST.equals("yes")){
+                            if (ProjectSetting.Tab_Database_Upload){
                                 requireActivity().startService(new Intent(getActivity(),DatabaseFileSync_Service.class));
                             }
 
