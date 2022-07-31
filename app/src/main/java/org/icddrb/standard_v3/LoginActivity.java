@@ -21,6 +21,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import com.google.android.material.button.MaterialButton;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -115,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             spnLanguage.setAdapter(C.getArrayAdapter("select language_id||'-'||language_name from Language order by language_id"));
 
             //Login -----------------------------------------------------------------------
-            Button loginButton = (Button) findViewById(R.id.btnLogin);
+            MaterialButton loginButton = findViewById(R.id.btnLogin);
             loginButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     if(!C.Existence("select Approval from DeviceList where DeviceID='"+ UniqueID +"' and Approval='1'")){

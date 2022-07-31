@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
     <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"
         android:gravity="center_vertical|center_horizontal" android:layout_marginBottom="100sp">
 
@@ -79,13 +80,22 @@
         </LinearLayout>
     <LinearLayout android:layout_marginLeft="50sp" android:weightSum="1" android:layout_marginRight="50sp"  android:orientation="horizontal" android:layout_marginTop="0sp" android:layout_marginBottom="20sp"
         android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="center">
-        <Button android:id="@+id/btnLogin"  android:background="@drawable/button_style_circle_fill"
-            android:layout_width="0dp" android:layout_weight="1"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/icddrb.custom_app.button_style"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:stateListAnimator="@null"
-            android:layout_marginBottom="10sp" android:paddingTop="10dp" android:paddingBottom="10dp"
-            android:text="Login" android:textColor="@drawable/button_style_fill_text_color"/>
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:paddingStart="38dp"
+            android:paddingEnd="38dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text=" Login "
+            app:rippleColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
     </LinearLayout>
 

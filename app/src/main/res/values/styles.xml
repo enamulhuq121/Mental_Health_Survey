@@ -76,6 +76,23 @@
         <!--<item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>-->
         <!--<item name="android:spinnerDropDownItemStyle">@style/icddrb_SpinnerItem</item>-->
         <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="tabStyle">@style/Widget.App.TabLayout</item>
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
+    </style>
+
+    <!--Tab Layout-->
+    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
+        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@assets/font/Roboto-Regular</item>
+        <item name="android:fontFamily">@assets/font/Roboto-Regular</item>
+    </style>
+    <style name="ThemeOverlay.App.TabLayout" parent="">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSurface">@color/colorPrimaryVariant</item>
+        <item name="colorOnSurface">@color/color_semi_dark_gray</item>
     </style>
 
     <!--Material Shape Appearance-->
@@ -95,8 +112,14 @@
         <item name="cornerSize">16dp</item>
     </style>
 
-
-
+    <!--Material Button-->
+    <style name="icddrb.custom_app.button_style"
+        parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/custom_buttom_Theme_overlay</item>
+    </style>
+    <style name="custom_buttom_Theme_overlay">
+        <item name="colorPrimary">@color/colorPrimaryVariant</item>
+    </style>
 
     <style name="customEdit_grayline" parent="Widget.AppCompat.EditText">
         <item name="android:textSize">@dimen/edittext_text_size</item>
