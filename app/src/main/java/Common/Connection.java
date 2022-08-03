@@ -365,7 +365,7 @@ public class Connection extends SQLiteOpenHelper {
 
     public List<String> DataListJSON(String SQL) {
         Gson gson = new Gson();
-        DownloadDataJSON dload = new DownloadDataJSON();
+        DownloadDataList dload = new DownloadDataList();
         String response = null;
         try {
             response = dload.execute(SQL).get();

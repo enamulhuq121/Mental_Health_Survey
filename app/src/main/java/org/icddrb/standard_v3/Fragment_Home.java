@@ -67,11 +67,11 @@ public class Fragment_Home extends Fragment {
                     {
                         //Household Listing
                         //--------------------------------------------------------------------------
-                        //SelectVillageForm();
+                        SelectVillageForm();
 
                         //Household Listing for Mapping
                         //--------------------------------------------------------------------------
-                        SelectVillageForm_Mapping();
+                        //SelectVillageForm_Mapping();
 
                         /*
                         //Activity Call
