@@ -26,6 +26,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.icddrb.standard_v3.R;
+import org.icddrb.standard_v3.adapter.CustomSpinnerAdapter;
 
 import java.io.File;
 import java.lang.reflect.Type;
@@ -122,6 +123,27 @@ public class Connection extends SQLiteOpenHelper {
             }
         });
 
+    }
+
+    //Array adapter for spinner item
+    //----------------------------------------------------------------------------------------------
+    public CustomSpinnerAdapter getArrayAdapter(String SQL) {
+        List<String> dataList = new ArrayList<String>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(SQL, null);
+        if (cursor.moveToFirst()) {
+            do {
+                dataList.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        // Creating adapter for spinner
+        //return new ArrayAdapter<String>(this.dbContext, R.layout.multiline_spinner_dropdown_item, dataList);
+
+        // Creating custom adapter for spinner
+        return new CustomSpinnerAdapter(this.dbContext,new ArrayList<>(dataList));
     }
 
     public static void ConfirmationDialog(final Context ClassName, final String Msg) {
@@ -334,7 +356,7 @@ public class Connection extends SQLiteOpenHelper {
 
     //Array adapter for spinner item
     //----------------------------------------------------------------------------------------------
-    public ArrayAdapter<String> getArrayAdapter(String SQL) {
+    /*public ArrayAdapter<String> getArrayAdapter(String SQL) {
         List<String> dataList = new ArrayList<String>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(SQL, null);
@@ -348,7 +370,7 @@ public class Connection extends SQLiteOpenHelper {
 
         // Creating adapter for spinner
         return new ArrayAdapter<String>(this.dbContext, R.layout.multiline_spinner_dropdown_item, dataList);
-    }
+    }*/
 
     //Find the variable positions in an array list
     //----------------------------------------------------------------------------------------------

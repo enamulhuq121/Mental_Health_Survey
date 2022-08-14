@@ -43,7 +43,7 @@ public class MakeAutoCompleteText {
         autoComplete_Text.setId(generateViewId());
         autoComplete_Text.setLayoutParams(layout_192);
         autoComplete_Text.setInputType(InputType.TYPE_CLASS_TEXT);
-        autoComplete_Text.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(R.drawable.close), null);
+        autoComplete_Text.setCompoundDrawablesWithIntrinsicBounds(null, null, context.getResources().getDrawable(androidx.mediarouter.R.drawable.ic_dialog_close_dark), null);
         autoComplete_Text.setThreshold(1);
 
 

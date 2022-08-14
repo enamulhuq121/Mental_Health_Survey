@@ -41,13 +41,18 @@
     <color name="theme_color">@color/colorPrimary</color>
     <color name="primaryColor">#467E9D</color>
     <color name="secondaryColor">@color/theme_color</color>
-    <color name="textColor">@color/color_white</color>
+    <color name="textColor">#000000</color>
     <color name="primaryAccentColor">@color/secondaryColor</color>
 
+    <!--AppBarLayout-->
+    <color name="AppBar_Back_Color">@color/color_white</color>
+    <color name="AppBar_Text_Color">@color/colorPrimaryVariant</color>
+    <color name="AppBar_Icon_Color">@color/colorPrimaryVariant</color>
+
     <!--Navigation Bar-->
-    <color name="NavBar_Back_Color">@color/theme_color</color>
-    <color name="NavBar_Text_Color">@color/color_white</color>
-    <color name="NavBar_Icon_Color">@color/color_white</color>
+    <color name="NavBar_Back_Color">@color/color_white</color>
+    <color name="NavBar_Text_Color">@color/colorPrimaryVariant</color>
+    <color name="NavBar_Icon_Color">@color/colorPrimaryVariant</color>
 
     <!--Bottom navigation bar-->
     <color name="bottomNavColor">@color/secondaryColor</color>
@@ -103,6 +108,8 @@
     <color name="white100">#64ffffff</color>
 
     <color name="text_color">#383a3e</color>
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_pressed">@color/colorPrimaryDark</color>
     <color name="hint_text_color">#cccace</color>
     <color name="info_text_color">#909090</color>
     <color name="text_disable">#a5a5a5</color>

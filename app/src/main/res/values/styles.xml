@@ -33,8 +33,6 @@
     </style>
 
 
-    <!--<style name="CustomTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
-    <!--<style name="CustomTheme" parent="Theme.MaterialComponents.Light">-->
     <style name="CustomTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- AppCompat Attributes -->
         <!--colorPrimary – The color of the app bar.-->
@@ -46,7 +44,7 @@
 
         <!--Material Attributes-->
         <!--https://material.io/design/material-theming/implementing-your-theme.html#color-->
-        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimary">@color/color_white</item>
         <item name="colorPrimaryDark">@color/theme_color</item>
         <item name="colorPrimaryVariant">@color/theme_color</item>
         <item name="colorAccent">@color/theme_color</item>
@@ -60,7 +58,7 @@
         <!--windowBackground – The color of the screen background.-->
         <item name="android:windowBackground">@color/form_background_color</item>
         <!--textColorPrimary – The color of UI text in the app bar.-->
-        <item name="android:textColor">#000000</item>
+        <item name="android:textColor">@color/text_color</item>
         <!--statusBarColor – The color of the status bar.-->
         <!--navigationBarColor – The color of the navigation bar-->
 
@@ -80,6 +78,38 @@
         <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
     </style>
 
+    <!--<style name="CustomTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        &lt;!&ndash; AppCompat Attributes &ndash;&gt;
+        &lt;!&ndash;colorPrimary – The color of the app bar.&ndash;&gt;
+        <item name="colorPrimary">@color/theme_color</item>
+        &lt;!&ndash;colorPrimaryDark – The color of the status bar and contextual app bars; this is normally a dark version of colorPrimary.&ndash;&gt;
+        <item name="colorPrimaryDark">@color/theme_color</item>
+        &lt;!&ndash;colorAccent – The color of UI controls such as check boxes, radio buttons, and edit text boxes.&ndash;&gt;
+        <item name="colorAccent">@color/theme_color</item>
+        &lt;!&ndash;windowBackground – The color of the screen background.&ndash;&gt;
+        <item name="android:windowBackground">@color/form_background_color</item>
+        &lt;!&ndash;textColorPrimary – The color of UI text in the app bar.&ndash;&gt;
+        <item name="android:textColor">#000000</item>
+        &lt;!&ndash;statusBarColor – The color of the status bar.&ndash;&gt;
+        &lt;!&ndash;navigationBarColor – The color of the navigation bar&ndash;&gt;
+
+        <item name="android:colorBackground">@color/form_background_color</item>
+        <item name="android:textSize">18sp</item>
+
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:typeface">serif</item>
+        &lt;!&ndash;<item name="android:editTextStyle">@style/customEdit</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:spinnerStyle">@style/customEdit_grayline</item>&ndash;&gt;
+        <item name="android:spinnerStyle">@style/spinner_grayline</item>
+        <item name="android:spinnerItemStyle">@style/spinnerItem_grayline</item>
+        &lt;!&ndash;<item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItem</item>&ndash;&gt;
+        &lt;!&ndash;<item name="android:spinnerDropDownItemStyle">@style/icddrb_SpinnerItem</item>&ndash;&gt;
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        &lt;!&ndash;<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MyApp.MediumComponent.Rounded</item>&ndash;&gt;
+
+    </style>-->
+
     <!--Tab Layout-->
     <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
@@ -97,7 +127,7 @@
 
     <!--Material Shape Appearance-->
     <style name="ShapeAppearance.App.SmallComponent"
-       parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>
@@ -123,18 +153,20 @@
 
     <style name="customEdit_grayline" parent="Widget.AppCompat.EditText">
         <item name="android:textSize">@dimen/edittext_text_size</item>
-        <item name="android:textColor">#006699</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:background">@drawable/edittext_round_grayline</item>
         <item name="android:padding">4sp</item>
     </style>
     <style name="spinner_grayline" parent="Widget.AppCompat.EditText">
         <item name="android:textSize">@dimen/edittext_text_size</item>
-        <item name="android:textColor">#006699</item>
+        <item name="android:textColor">@color/text_color</item>
         <item name="android:background">@drawable/spinner_round_grayline</item>
         <item name="android:padding">0sp</item>
     </style>
     <style name="spinnerItem_grayline" parent="Widget.AppCompat.DropDownItem.Spinner">
         <item name="android:textSize">@dimen/edittext_text_size</item>
+        <item name="android:divider">#d1d1d1</item>
+        <item name="android:dividerHeight">0.5dp</item>
         <!--<item name="android:padding">4sp</item>-->
     </style>
 
@@ -266,7 +298,6 @@
         <item name="android:background">@drawable/edittext_round</item>
         <item name="android:padding">4sp</item>
     </style>
-
 
     <style name="customEditGridMenu">
         <!-- <item name="android:typeface">serif</item>  -->

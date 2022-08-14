@@ -74,7 +74,7 @@ public class Fragment_Main extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.color_white));
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.NavBar_Text_Color));
 
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-           <solid android:color="@color/edittext_background_color"/>
+            <solid android:color="@color/edittext_background_color"/>
             <corners android:radius="@dimen/edittext_corner_radius" />
             <stroke android:color="@color/edittext_border_color"
-                    android:width="@dimen/edittext_border_stroke"/>
+                android:width="@dimen/edittext_border_stroke"/>
         </shape>
     </item>
 </layer-list>

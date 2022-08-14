@@ -9,6 +9,7 @@
                 <corners android:radius="@dimen/spinner_corner_radius" />
                 <padding android:right="8dp"
                     android:top="3dp"
+                    android:bottom="3dp"
                     android:left="5dp"/>
             </shape>
         </item>

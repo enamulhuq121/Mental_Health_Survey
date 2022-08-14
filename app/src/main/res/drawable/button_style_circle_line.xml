@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
-            <corners 
+            <corners
                 android:bottomLeftRadius="90dp"
                 android:bottomRightRadius="90dp"
                 android:topLeftRadius="90dp"
@@ -14,7 +12,7 @@
     </item>
     <item>
         <shape android:shape="rectangle">
-            <corners 
+            <corners
                 android:bottomLeftRadius="90dp"
                 android:bottomRightRadius="90dp"
                 android:topLeftRadius="90dp"
