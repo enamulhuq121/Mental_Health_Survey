@@ -44,7 +44,7 @@
 
         <!--Material Attributes-->
         <!--https://material.io/design/material-theming/implementing-your-theme.html#color-->
-        <item name="colorPrimary">@color/color_white</item>
+        <item name="colorPrimary">@color/theme_color</item>
         <item name="colorPrimaryDark">@color/theme_color</item>
         <item name="colorPrimaryVariant">@color/theme_color</item>
         <item name="colorAccent">@color/theme_color</item>
@@ -297,6 +297,21 @@
         <item name="android:textColor">#006699</item>
         <item name="android:background">@drawable/edittext_round</item>
         <item name="android:padding">4sp</item>
+    </style>
+
+    <style name="icddrb_menu_cardView" parent="android:Widget">
+        <item name="android:layout_width">140dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:gravity">center</item>
+
+
+        <item name="cardBackgroundColor">@color/primaryAccentColor</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_marginEnd">1dp</item>
+        <item name="android:layout_marginStart">1dp</item>
     </style>
 
     <style name="customEditGridMenu">
