@@ -1722,12 +1722,15 @@ public class Connection extends SQLiteOpenHelper {
                             RESOURCE_NAME_SPINNER = "spn" + VARIABLE_NAME;
                             RESOURCE_ID_SPINNER = con.getResources().getIdentifier(RESOURCE_NAME_SPINNER, "id", con.getPackageName());
                             sp = (Spinner) con.findViewById(RESOURCE_ID_SPINNER);
-                            sp.setAdapter(adptrSpinner);
+                            //sp.setAdapter(adptrSpinner);
+                            //sp.setAdapter(new CustomSpinnerAdapter(dbContext,new ArrayList<>(spinner_item)));
 
                             for (int i = 0; i < spinner_item.length; i++) {
-                                adptrSpinner.add(spinner_item[i].toString());
+                                //adptrSpinner.add(spinner_item[i].toString());
+                                listSpinner.add(spinner_item[i].toString());
                             }
-                            adptrSpinner.notifyDataSetChanged();
+                            sp.setAdapter(new CustomSpinnerAdapter(dbContext,new ArrayList<>(listSpinner)));
+                            //adptrSpinner.notifyDataSetChanged();
                         }
                     } else {
 

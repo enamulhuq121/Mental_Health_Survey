@@ -451,6 +451,26 @@ public class Global {
 		return pos;
 	}
 
+	public static int SpinnerItemPositionAnyLength_WithoutSplit(Spinner spn, String Value)
+	{
+		int pos = 0;
+		if(Value.length()!=0)
+		{
+			for(int i=0;i<spn.getCount();i++)
+			{
+				if(spn.getItemAtPosition(i).toString().length()!=0)
+				{
+					if(spn.getItemAtPosition(i).toString().equalsIgnoreCase(Value))
+					{
+						pos = i;
+						i   = spn.getCount();
+					}
+				}
+			}
+		}
+		return pos;
+	}
+
 	//...........................................................................................................
 	// GPS Coordinates
 	//...........................................................................................................
