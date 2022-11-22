@@ -4,14 +4,19 @@ package org.icddrb.standard_v3;
  * Created by thossain on 02/12/2017.
  */
 
+import static android.os.Build.VERSION.SDK_INT;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.provider.Settings;
 import android.util.Log;
 
 import androidx.activity.result.ActivityResult;
@@ -56,6 +61,14 @@ public class Splash_Screen extends Activity {
         super.onCreate(icicle);
         setContentView(R.layout.splash_screen);
         C = new Connection(this);
+
+        if (SDK_INT >= Build.VERSION_CODES.R) {
+            if (!Environment.isExternalStorageManager()) {
+                Intent intent = new Intent();
+                intent.setAction(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                startActivityForResult(intent, 2296);
+            }
+        }
 
         checkPermission();
 
