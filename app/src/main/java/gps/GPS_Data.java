@@ -13,11 +13,14 @@
  import android.content.Intent;
  import android.content.pm.PackageManager;
  import android.graphics.Color;
+ import android.location.GnssStatus;
  import android.location.Location;
  import android.location.LocationListener;
  import android.location.LocationManager;
+ import android.os.Build;
  import android.os.Bundle;
 
+ import androidx.annotation.NonNull;
  import androidx.appcompat.app.AppCompatActivity;
  import androidx.core.app.ActivityCompat;
  import androidx.core.content.ContextCompat;
@@ -251,19 +254,53 @@
          }});
  }
 
- private void GPS_Start(){
-     try {
-         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-         listener = new GPSLocationListener();
-         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-             return;
-         }
-         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 4000, 0, listener);
-         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 4000, 0, listener);
-     }catch (Exception ex){
+     GnssStatus.Callback mGnssStatusCallback;
+     private void GPS_Start(){
+         try {
+             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+             listener = new GPSLocationListener();
+             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                 return;
+             }
+             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                 mGnssStatusCallback = new GnssStatus.Callback() {
+                     @Override
+                     public void onSatelliteStatusChanged(@NonNull GnssStatus status) {
+                         super.onSatelliteStatusChanged(status);
+                         Log.d("TAG", "onSatelliteStatusChanged: gps_ count "+status.getSatelliteCount());
+                         int satelliteCount = status.getSatelliteCount();
+                         int usedCount = 0;
+                         for (int i = 0; i < satelliteCount; ++i) {
+                             if (status.usedInFix(i))
+                                 ++usedCount;
+                         }
 
+                         Log.d("TAG", "onSatelliteStatusChanged: gps_ count fix "+status.getSatelliteCount());
+
+                         String satCount = txtSatelites.getText().toString();
+
+                         if (!satCount.isEmpty()){
+                             try {
+                                 int satCountInt = Integer.parseInt(satCount);
+                                 if(usedCount > satCountInt){
+                                     txtSatelites.setText(String.valueOf(usedCount));
+                                 }
+                             } catch (NumberFormatException e) {
+                                 e.printStackTrace();
+                             }
+                         }else{
+                             txtSatelites.setText(String.valueOf(usedCount));
+                         }
+                     }
+                 };
+                 locationManager.registerGnssStatusCallback(mGnssStatusCallback);
+             }
+             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 4000, 0, listener);
+             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 4000, 0, listener);
+         }catch (Exception ex){
+
+         }
      }
- }
 
  private void Initialization()
  {
@@ -694,63 +731,75 @@
   };
 
 
- protected boolean isBetterLocation(Location location, Location currentBestLocation) {
-     if (currentBestLocation == null) {
-         // A new location is always better than no location
-         return true;
-     }
+     protected boolean isBetterLocation(Location location, Location currentBestLocation) {
+         if (currentBestLocation == null) {
+             // A new location is always better than no location
+             return true;
+         }
 
-     // Check whether the new location fix is newer or older
-     long timeDelta = location.getTime() - currentBestLocation.getTime();
-     boolean isSignificantlyNewer = timeDelta > TWO_MINUTES;
-     boolean isSignificantlyOlder = timeDelta < -TWO_MINUTES;
-     boolean isNewer = timeDelta > 0;
+         // Check whether the new location fix is newer or older
+         long timeDelta = location.getTime() - currentBestLocation.getTime();
+         boolean isSignificantlyNewer = timeDelta > TWO_MINUTES;
+         boolean isSignificantlyOlder = timeDelta < -TWO_MINUTES;
+         boolean isNewer = timeDelta > 0;
 
-     // If it's been more than two minutes since the current location, use the new location
-     // because the user has likely moved
-     if (isSignificantlyNewer) {
-         return true;
-         // If the new location is more than two minutes older, it must be worse
-     } else if (isSignificantlyOlder) {
+         // If it's been more than two minutes since the current location, use the new location
+         // because the user has likely moved
+         if (isSignificantlyNewer) {
+             return true;
+             // If the new location is more than two minutes older, it must be worse
+         } else if (isSignificantlyOlder) {
+             return false;
+         }
+
+         // Check whether the new location fix is more or less accurate
+         int accuracyDelta = (int) (location.getAccuracy() - currentBestLocation.getAccuracy());
+         boolean isLessAccurate = accuracyDelta > 0;
+         boolean isMoreAccurate = accuracyDelta < 0;
+         boolean isSignificantlyLessAccurate = accuracyDelta > 200;
+
+         // Check if the old and new location are from the same provider
+         boolean isFromSameProvider = isSameProvider(location.getProvider(),
+                 currentBestLocation.getProvider());
+
+         // Determine location quality using a combination of timeliness and accuracy
+         if (isMoreAccurate) {
+             return true;
+         } else if (isNewer && !isLessAccurate) {
+             return true;
+         } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
+             return true;
+         }
          return false;
      }
 
-     // Check whether the new location fix is more or less accurate
-     int accuracyDelta = (int) (location.getAccuracy() - currentBestLocation.getAccuracy());
-     boolean isLessAccurate = accuracyDelta > 0;
-     boolean isMoreAccurate = accuracyDelta < 0;
-     boolean isSignificantlyLessAccurate = accuracyDelta > 200;
-
-     // Check if the old and new location are from the same provider
-     boolean isFromSameProvider = isSameProvider(location.getProvider(),
-             currentBestLocation.getProvider());
-
-     // Determine location quality using a combination of timeliness and accuracy
-     if (isMoreAccurate) {
-         return true;
-     } else if (isNewer && !isLessAccurate) {
-         return true;
-     } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-         return true;
+     /** Checks whether two providers are the same */
+     private boolean isSameProvider(String provider1, String provider2) {
+         if (provider1 == null) {
+             return provider2 == null;
+         }
+         return provider1.equals(provider2);
      }
-     return false;
- }
-
- /** Checks whether two providers are the same */
- private boolean isSameProvider(String provider1, String provider2) {
-     if (provider1 == null) {
-         return provider2 == null;
-     }
-     return provider1.equals(provider2);
- }
 
      // turning off the GPS if its in on state. to avoid the battery drain.
- @Override
- protected void onDestroy() {
-     // TODO Auto-generated method stub
-     super.onDestroy();
-     locationManager.removeUpdates(listener);
- }
+     @Override
+     protected void onDestroy() {
+         // TODO Auto-generated method stub
+         super.onDestroy();
+         locationManager.removeUpdates(listener);
+     }
+
+     @Override
+     protected void onStop() {
+
+         locationManager.removeUpdates(listener);
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+             locationManager.unregisterGnssStatusCallback(
+                     mGnssStatusCallback
+             );
+         }
+         super.onStop();
+     }
 
  public static Thread performOnBackgroundThread(final Runnable runnable) {
      final Thread t = new Thread() {
@@ -767,36 +816,42 @@
      return t;
  }
 
- public class GPSLocationListener implements LocationListener {
-     public void onLocationChanged(final Location loc) {
-         Log.i("**********", "Location changed");
-         if (isBetterLocation(loc, previousBestLocation)) {
-                 if(GPS_SCAN_START==true) {
-                     txtLatitude.setText(String.valueOf(loc.getLatitude()));
-                     txtLongitude.setText(String.valueOf(loc.getLongitude()));
-                     txtAltitude.setText(String.valueOf(loc.getAltitude()));
-                     txtAccuracy.setText(String.valueOf(loc.getAccuracy()));
-                     txtSatelites.setText(String.valueOf(loc.getExtras().getInt("satellites", 0)));
+     public class GPSLocationListener implements LocationListener {
+         public void onLocationChanged(final Location loc) {
+             try{
+                 Log.i("**********", "Location changed");
+                 if (isBetterLocation(loc, previousBestLocation)) {
+                     if(GPS_SCAN_START) {
+                         txtLatitude.setText(String.valueOf(loc.getLatitude()));
+                         txtLongitude.setText(String.valueOf(loc.getLongitude()));
+                         txtAltitude.setText(String.valueOf(loc.getAltitude()));
+                         txtAccuracy.setText(String.valueOf(loc.getAccuracy()));
+                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                             txtSatelites.setText(String.valueOf(loc.getExtras().getInt("satellites", 0)));
+                         }
+                     }
+                     Toast.makeText(context, "Latitude" + loc.getLatitude() + "\nLongitude" + loc.getLongitude(), Toast.LENGTH_SHORT).show();
+                     intent.putExtra("Latitude", loc.getLatitude());
+                     intent.putExtra("Longitude", loc.getLongitude());
+                     intent.putExtra("Provider", loc.getProvider());
+                     sendBroadcast(intent);
                  }
-             Toast.makeText(context, "Latitude" + loc.getLatitude() + "\nLongitude" + loc.getLongitude(), Toast.LENGTH_SHORT).show();
-             intent.putExtra("Latitude", loc.getLatitude());
-             intent.putExtra("Longitude", loc.getLongitude());
-             intent.putExtra("Provider", loc.getProvider());
-             sendBroadcast(intent);
+             }catch (Exception ex){
+                 ex.printStackTrace();
+                 //Log.d("TAG", "onLocationChanged: gps_ exception_ "+ex.toString());
+             }
          }
 
-     }
+         public void onProviderDisabled(String provider) {
+             Toast.makeText(getApplicationContext(), "Gps Disabled", Toast.LENGTH_SHORT).show();
+         }
 
-     public void onProviderDisabled(String provider) {
-         Toast.makeText(getApplicationContext(), "Gps Disabled", Toast.LENGTH_SHORT).show();
-     }
+         public void onProviderEnabled(String provider) {
+             Toast.makeText(getApplicationContext(), "Gps Enabled", Toast.LENGTH_SHORT).show();
+         }
 
-     public void onProviderEnabled(String provider) {
-         Toast.makeText(getApplicationContext(), "Gps Enabled", Toast.LENGTH_SHORT).show();
+         public void onStatusChanged(String provider, int status, Bundle extras) {
+             Toast.makeText(getApplicationContext(), "Status Changed", Toast.LENGTH_SHORT).show();
+         }
      }
-
-     public void onStatusChanged(String provider, int status, Bundle extras) {
-         Toast.makeText(getApplicationContext(), "Status Changed", Toast.LENGTH_SHORT).show();
-     }
- }
  }

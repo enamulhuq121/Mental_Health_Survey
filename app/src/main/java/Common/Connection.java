@@ -391,9 +391,7 @@ public class Connection extends SQLiteOpenHelper {
         String response = null;
         try {
             response = dload.execute(SQL).get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         List<String> data;
@@ -527,7 +525,7 @@ public class Connection extends SQLiteOpenHelper {
 
                     Res = DownloadJSON(Final_RequestSQL, TableName, VariableList, UniqueField);
 
-                    if(i==totalBatch-1){
+                    if(i==totalBatch-1 & Res.length()==0){
                         SaveData("Update local_index_datasync set timestamp='"+ TIMESTAMP +"' where table_name='"+ TableName +"'");
                     }
                 }
