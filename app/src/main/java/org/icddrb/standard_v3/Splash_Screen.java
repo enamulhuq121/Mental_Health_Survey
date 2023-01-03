@@ -74,18 +74,23 @@ public class Splash_Screen extends Activity {
 
     }
 
-/*    @Override
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == Activity.RESULT_OK) {
-            // There are no request codes
-            //Intent data = result.getData();
-
-            Intent mainIntent = new Intent(Splash_Screen.this,Bottom_Navigation_MainActivity.class);
-            startActivity(mainIntent);
-            finish();
+        //************** Please do not write any code before that
+        if (requestCode == 2296) {
+            if (SDK_INT >= Build.VERSION_CODES.R) {
+                if (Environment.isExternalStorageManager()) {
+                    // perform action when allow permission success
+                    Activity_Load();
+                } else {
+                    Intent intent = new Intent();
+                    intent.setAction(Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION);
+                    startActivityForResult(intent, 2296);
+                }
+            }
         }
-    }*/
+    }
 
     private void Activity_Load()
     {
