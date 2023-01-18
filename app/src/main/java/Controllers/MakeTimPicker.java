@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TimePicker;
 
-import org.icddrb.standard_v3.R;
+import org.icddrb.kalaazar_pkdl.R;
 
 import java.util.Calendar;
 

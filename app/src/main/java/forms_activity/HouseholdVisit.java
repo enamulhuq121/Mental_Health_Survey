@@ -41,7 +41,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import org.icddrb.standard_v3.R;
+import org.icddrb.kalaazar_pkdl.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

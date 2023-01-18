@@ -29,7 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.icddrb.standard_v3.R;
+import org.icddrb.kalaazar_pkdl.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.icddrb.standard_v3;
+package org.icddrb.kalaazar_pkdl;
 
 /**
  * Created by thossain on 02/12/2017.
@@ -19,16 +19,11 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import Common.Connection;
-import Common.Global;
 
 public class Splash_Screen extends Activity {
     Connection C;

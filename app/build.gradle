@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "org.icddrb.standard"
+        applicationId "org.icddrb.kalaazar_pkdl"
         minSdk 19
         targetSdk 31
         versionCode 1

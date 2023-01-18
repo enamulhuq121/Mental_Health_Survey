@@ -30,8 +30,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.icddrb.standard_v3.Chart_Activity;
-import org.icddrb.standard_v3.R;
+import org.icddrb.kalaazar_pkdl.Chart_Activity;
+import org.icddrb.kalaazar_pkdl.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

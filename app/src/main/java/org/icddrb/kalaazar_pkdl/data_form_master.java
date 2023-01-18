@@ -1,4 +1,4 @@
-package org.icddrb.standard_v3;
+package org.icddrb.kalaazar_pkdl;
 
 import android.app.Activity;
 import android.app.TabActivity;
@@ -263,7 +263,7 @@ public class data_form_master extends TabActivity implements AppCompatCallback {
                     if(tabId.equals("ecd_status")){
 
                     }else {
-                        org.icddrb.standard_v3.data_from_content activity = (org.icddrb.standard_v3.data_from_content) getLocalActivityManager().getActivity(tabId);
+                        org.icddrb.kalaazar_pkdl.data_from_content activity = (org.icddrb.kalaazar_pkdl.data_from_content) getLocalActivityManager().getActivity(tabId);
                         activity.prepareVariableListData(MODULEID, DATAID, SERIAL, VISIT, section_name.get(tabId));
                     }
                 }catch (Exception ex){
@@ -308,7 +308,7 @@ public class data_form_master extends TabActivity implements AppCompatCallback {
                 IDbundle.putString("FooterMsg", "y");
             }*/
 
-            Intent intbirthObj = new Intent(this, org.icddrb.standard_v3.data_from_content.class);
+            Intent intbirthObj = new Intent(this, org.icddrb.kalaazar_pkdl.data_from_content.class);
             intbirthObj.putExtras(IDbundle);
 
             birthObj.setContent(intbirthObj);

@@ -1,7 +1,4 @@
-package org.icddrb.standard_v3;
-
-import static com.google.android.gms.cast.CastRemoteDisplayLocalService.startService;
-import static com.google.android.gms.cast.CastRemoteDisplayLocalService.stopService;
+package org.icddrb.kalaazar_pkdl;
 
 import android.app.ActivityManager;
 import android.app.AlertDialog;
@@ -10,7 +7,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -30,14 +26,11 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import Common.Connection;
 import Common.ProjectSetting;
 import forms_activity.Household_list;
-import forms_activity.Indicator_List;
 import forms_activity.Mapping_Household_list;
 
 public class Fragment_Home extends Fragment {

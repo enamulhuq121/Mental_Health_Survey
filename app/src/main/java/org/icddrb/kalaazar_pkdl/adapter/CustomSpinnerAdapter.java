@@ -1,4 +1,4 @@
-package org.icddrb.standard_v3.adapter;
+package org.icddrb.kalaazar_pkdl.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.icddrb.standard_v3.R;
+import org.icddrb.kalaazar_pkdl.R;
 
 import java.util.ArrayList;
 

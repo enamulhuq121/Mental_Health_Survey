@@ -12,8 +12,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import org.icddrb.standard_v3.R;
-
 import Common.Connection;
 import Interfaces.MyInterface;
 import forms_datamodel.module_variable_DataModel;

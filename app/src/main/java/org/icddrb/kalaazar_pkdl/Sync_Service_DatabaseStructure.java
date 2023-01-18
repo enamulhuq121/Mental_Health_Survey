@@ -1,4 +1,4 @@
-package org.icddrb.standard_v3;
+package org.icddrb.kalaazar_pkdl;
 
 import android.app.Service;
 import android.content.ComponentName;
@@ -15,12 +15,13 @@ import Utility.MySharedPreferences;
 /*
  * Created by TanvirHossain on 08/03/2015.
  */
-public class Sync_Service extends Service {
-    public Sync_Service m_service;
+public class Sync_Service_DatabaseStructure extends Service {
+    public Sync_Service_DatabaseStructure m_service;
+    MySharedPreferences sp;
 
     public class MyBinder extends Binder {
-        public Sync_Service getService() {
-            return Sync_Service.this;
+        public Sync_Service_DatabaseStructure getService() {
+            return Sync_Service_DatabaseStructure.this;
         }
     }
 
@@ -45,7 +46,6 @@ public class Sync_Service extends Service {
         // TODO Auto-generated method stub
         super.onCreate();
     }
-
 
     private void handleIntent(Intent intent) {
         // check the global background data setting
@@ -91,21 +91,18 @@ public class Sync_Service extends Service {
 
         @Override
         protected Void doInBackground(String... params) {
-
             try {
-
                 new Thread() {
                     public void run() {
                         try {
-                            boolean networkAvailable = Connection.haveNetworkConnection(Sync_Service.this);
-                            if (networkAvailable) {
-                                Connection.SyncDataService();
-                            }
+                            Connection.SyncDataService_DatabaseStructure();
+
                         } catch (Exception ignored) {
 
                         }
                     }
                 }.start();
+
             } catch (Exception ignored) {
 
             }

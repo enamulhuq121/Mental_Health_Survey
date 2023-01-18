@@ -43,8 +43,8 @@
  import androidx.appcompat.app.AppCompatActivity;
  import androidx.core.content.ContextCompat;
 
- import org.icddrb.standard_v3.Fragment_Main;
- import org.icddrb.standard_v3.R;
+ import org.icddrb.kalaazar_pkdl.Fragment_Main;
+ import org.icddrb.kalaazar_pkdl.R;
 
  import forms_datamodel.data_registration_DataModel;
 

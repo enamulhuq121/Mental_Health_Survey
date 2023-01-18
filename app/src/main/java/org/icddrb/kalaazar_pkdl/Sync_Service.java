@@ -1,6 +1,5 @@
-package org.icddrb.standard_v3;
+package org.icddrb.kalaazar_pkdl;
 
-import android.app.NotificationManager;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -8,23 +7,19 @@ import android.content.ServiceConnection;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.IBinder;
-import android.os.PowerManager;
 
 import Common.Connection;
-import Utility.MySharedPreferences;
 
 /*
  * Created by TanvirHossain on 08/03/2015.
  */
-public class DatabaseFileSync_Service extends Service {
-    public DatabaseFileSync_Service m_service;
-    MySharedPreferences sp;
+public class Sync_Service extends Service {
+    public Sync_Service m_service;
 
     public class MyBinder extends Binder {
-        public DatabaseFileSync_Service getService() {
-            return DatabaseFileSync_Service.this;
+        public Sync_Service getService() {
+            return Sync_Service.this;
         }
     }
 
@@ -38,11 +33,6 @@ public class DatabaseFileSync_Service extends Service {
         }
     };
 
-    private NotificationManager mManager;
-    PowerManager.WakeLock wakeLock;
-    PowerManager c;
-    Bundle IDbundle;
-
     @Override
     public IBinder onBind(Intent arg0) {
         // TODO Auto-generated method stub
@@ -53,13 +43,7 @@ public class DatabaseFileSync_Service extends Service {
     public void onCreate() {
         // TODO Auto-generated method stub
         super.onCreate();
-        // obtain the wake lock
-        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyWakelockTag");
-        //wakeLock = powerManager.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "MyWakelockTag");
     }
-
-    static String DEVICEID  = "";
 
 
     private void handleIntent(Intent intent) {
@@ -70,10 +54,8 @@ public class DatabaseFileSync_Service extends Service {
             return;
         }
 
-        DEVICEID    = sp.getValue(this, "deviceid");
-
         // do the actual work, in a separate thread
-        new DataSyncTask().execute(DEVICEID);
+        new DataSyncTask().execute();
     }
 
 
@@ -82,7 +64,6 @@ public class DatabaseFileSync_Service extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         handleIntent(intent);
-        wakeLock.acquire();
     }
 
     @Override
@@ -97,7 +78,6 @@ public class DatabaseFileSync_Service extends Service {
     public void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
-        wakeLock.release();
     }
 
 
@@ -110,20 +90,22 @@ public class DatabaseFileSync_Service extends Service {
 
         @Override
         protected Void doInBackground(String... params) {
-            final String[] ID = params[0].toString().split("-");
+
             try {
+
                 new Thread() {
                     public void run() {
                         try {
-                            Connection.DatabaseUploadZip(DEVICEID);
-                            
-                        } catch (Exception e) {
+                            boolean networkAvailable = Connection.haveNetworkConnection(Sync_Service.this);
+                            if (networkAvailable) {
+                                Connection.SyncDataService();
+                            }
+                        } catch (Exception ignored) {
 
                         }
                     }
                 }.start();
-
-            } catch (Exception e) {
+            } catch (Exception ignored) {
 
             }
             // do stuff!

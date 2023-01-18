@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import org.icddrb.standard_v3.DataSyncService;
+import org.icddrb.kalaazar_pkdl.DataSyncService;
 
 import Common.Connection;
 

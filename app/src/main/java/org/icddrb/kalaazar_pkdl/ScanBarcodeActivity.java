@@ -1,4 +1,4 @@
-package org.icddrb.standard_v3;
+package org.icddrb.kalaazar_pkdl;
 
 import static Common.Common.BarcodeReaderHelper.CARD_TYPE;
 import static Common.Common.BarcodeReaderHelper.HID_CARD;

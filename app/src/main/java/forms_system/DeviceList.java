@@ -37,7 +37,7 @@
  import androidx.appcompat.app.AppCompatActivity;
  import androidx.core.content.ContextCompat;
 
- import org.icddrb.standard_v3.R;
+ import org.icddrb.kalaazar_pkdl.R;
 
  public class DeviceList extends AppCompatActivity {
     //Disabled Back/Home key

@@ -25,8 +25,8 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.icddrb.standard_v3.R;
-import org.icddrb.standard_v3.adapter.CustomSpinnerAdapter;
+import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.kalaazar_pkdl.adapter.CustomSpinnerAdapter;
 
 import java.io.File;
 import java.lang.reflect.Type;

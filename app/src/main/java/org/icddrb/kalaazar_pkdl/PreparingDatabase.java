@@ -1,4 +1,4 @@
-package org.icddrb.standard_v3;
+package org.icddrb.kalaazar_pkdl;
 
 import android.Manifest;
 import android.annotation.SuppressLint;

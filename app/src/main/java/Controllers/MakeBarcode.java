@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import org.icddrb.standard_v3.R;
-import org.icddrb.standard_v3.Scan_Barcode_Activity;
+import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.kalaazar_pkdl.Scan_Barcode_Activity;
 
 import forms_datamodel.module_variable_DataModel;
 

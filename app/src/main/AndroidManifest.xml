@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.icddrb.standard_v3"
+    package="org.icddrb.kalaazar_pkdl"
     android:installLocation="preferExternal">
 
 
@@ -42,10 +42,10 @@
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="org.icddrb.standard_v3.Chart_Activity"
+            android:name="org.icddrb.kalaazar_pkdl.Chart_Activity"
             android:exported="false" />
         <activity
-            android:name="org.icddrb.standard_v3.PreparingDatabase"
+            android:name="org.icddrb.kalaazar_pkdl.PreparingDatabase"
             android:exported="false" />
 
         <provider
@@ -59,10 +59,10 @@
         </provider>
 
         <activity
-            android:name="org.icddrb.standard_v3.SettingForm"
+            android:name="org.icddrb.kalaazar_pkdl.SettingForm"
             android:label="Device Setting" /> <!-- Android Manifest Code -->
         <activity
-            android:name="org.icddrb.standard_v3.Splash_Screen"
+            android:name="org.icddrb.kalaazar_pkdl.Splash_Screen"
             android:exported="true"
             android:label="@string/app_name" >
             <intent-filter>
@@ -71,16 +71,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- Activity -->
-        <activity android:name="org.icddrb.standard_v3.LoginActivity" />
-        <activity android:name="org.icddrb.standard_v3.data_form_master" />
-        <activity android:name="org.icddrb.standard_v3.data_from_content" />
+        <activity android:name="org.icddrb.kalaazar_pkdl.LoginActivity" />
+        <activity android:name="org.icddrb.kalaazar_pkdl.data_form_master" />
+        <activity android:name="org.icddrb.kalaazar_pkdl.data_from_content" />
         <activity android:name="print.PrintExampleActivity" />
-        <activity android:name="org.icddrb.standard_v3.Scan_Barcode_Activity" />
-        <service android:name="org.icddrb.standard_v3.DataSyncService" />
-        <service android:name="org.icddrb.standard_v3.Sync_Service" />
-        <service android:name="org.icddrb.standard_v3.GPSService" />
-        <service android:name="org.icddrb.standard_v3.DatabaseFileSync_Service" />
-        <service android:name="org.icddrb.standard_v3.Sync_Service_DatabaseStructure" />
+        <activity android:name="org.icddrb.kalaazar_pkdl.Scan_Barcode_Activity" />
+        <service android:name="org.icddrb.kalaazar_pkdl.DataSyncService" />
+        <service android:name="org.icddrb.kalaazar_pkdl.Sync_Service" />
+        <service android:name="org.icddrb.kalaazar_pkdl.GPSService" />
+        <service android:name="org.icddrb.kalaazar_pkdl.DatabaseFileSync_Service" />
+        <service android:name="org.icddrb.kalaazar_pkdl.Sync_Service_DatabaseStructure" />
 
         <activity android:name="forms_system.DeviceList" />
         <activity android:name="forms_system.DeviceList_list" />
@@ -93,7 +93,7 @@
         <activity android:name="gps.GPS_Data" />
         <activity android:name="gps.GPS_Landmark_Data" />
         <activity android:name="forms_activity.Indicator_List" />
-        <activity android:name="org.icddrb.standard_v3.Fragment_Main" />
+        <activity android:name="org.icddrb.kalaazar_pkdl.Fragment_Main" />
         <activity android:name="forms_activity.data_registration" />
     </application>
 </manifest>

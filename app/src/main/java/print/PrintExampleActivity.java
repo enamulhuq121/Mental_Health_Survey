@@ -26,7 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.print.PrintHelper;
 
-import org.icddrb.standard_v3.R;
+import org.icddrb.kalaazar_pkdl.R;
 
 import java.io.File;
 import java.io.FileOutputStream;

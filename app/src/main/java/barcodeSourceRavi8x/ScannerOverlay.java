@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 
-import org.icddrb.standard_v3.R;
+import org.icddrb.kalaazar_pkdl.R;
 
 /**
  * Created by ravi on 04/05/17.

@@ -15,5 +15,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "StandardProject_V3"
+rootProject.name = "KalaAzar_PKDL"
 include ':app'

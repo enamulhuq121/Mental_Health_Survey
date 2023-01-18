@@ -14,8 +14,8 @@ public class ProjectSetting {
 
     //Project and Server link Information
     //==============================================================================================
-    public static String ProjectName    = "standard_v3";
-    public static String ServerURL      = "http://chu.icddrb.org/";
+    public static String ProjectName    = "kalaazar_pkdl";
+    public static String ServerURL      = "http://mchdweb.icddrb.org/";
 
     //Database Location
     //==============================================================================================
