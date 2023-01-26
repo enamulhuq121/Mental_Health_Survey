@@ -69,7 +69,7 @@ public class SettingForm extends Activity {
                         progDailog.setProgress(0);
                         progDailog.show();
 
-                        new Thread() {
+                       /* new Thread() {
                             public void run() {
                                 try {
                                     C.RebuildDatabase(progDailog, progressHandler, DeviceID);
@@ -85,7 +85,7 @@ public class SettingForm extends Activity {
                                 startActivity(f1);
 
                             }
-                        }.start();
+                        }.start();*/
                     }
                     catch(Exception ex)
                     {

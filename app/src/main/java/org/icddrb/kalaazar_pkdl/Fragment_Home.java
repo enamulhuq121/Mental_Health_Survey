@@ -75,8 +75,46 @@ public class Fragment_Home extends Fragment {
                         Intent I = new Intent(thiscontext, Indicator_List.class);
                         I.putExtras(IBundle);
                         startActivity(I);*/
+                    }else if(position==1)
+                    {
+                        //Household Listing
+                        //--------------------------------------------------------------------------
+                        SelectVillageForm();
+
+                        //Household Listing for Mapping
+                        //--------------------------------------------------------------------------
+                        //SelectVillageForm_Mapping();
+
+                        /*
+                        //Activity Call
+                        //--------------------------------------------------------------------------
+                        //Parameter
+                        //IBundle.putString("typeid", "%");
+                        //IBundle.putString("themeid", "%");
+                        Intent I = new Intent(thiscontext, Indicator_List.class);
+                        I.putExtras(IBundle);
+                        startActivity(I);*/
+                    }else if(position==2)
+                    {
+                        //Household Listing
+                        //--------------------------------------------------------------------------
+                        SelectVillageForm();
+
+                        //Household Listing for Mapping
+                        //--------------------------------------------------------------------------
+                        //SelectVillageForm_Mapping();
+
+                        /*
+                        //Activity Call
+                        //--------------------------------------------------------------------------
+                        //Parameter
+                        //IBundle.putString("typeid", "%");
+                        //IBundle.putString("themeid", "%");
+                        Intent I = new Intent(thiscontext, Indicator_List.class);
+                        I.putExtras(IBundle);
+                        startActivity(I);*/
                     }
-                    else if(position==1) {
+                    else if(position==3) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(thiscontext);
                         builder
                                 .setTitle("Data Sync")
@@ -106,7 +144,7 @@ public class Fragment_Home extends Fragment {
                                 .setNegativeButton("No", null)	//Do nothing on no
                                 .show();
                     }
-                    else if(position==2)
+                    else if(position==4)
                     {
                         AlertDialog.Builder builder = new AlertDialog.Builder(thiscontext);
                         builder
@@ -199,13 +237,17 @@ public class Fragment_Home extends Fragment {
         }
 
         private final String[] menu_list={
-                "Data Entry",
+                "Index Patient",
+                "Camp",
+                "Facility",
                 "Data Sync",
                 "Exit"
         };
 
         //references to our images
         private final Integer[] menu_list_image = {
+                R.drawable.new_entry,
+                R.drawable.new_entry,
                 R.drawable.new_entry,
                 R.drawable.data_sync,
                 R.drawable.exit,
