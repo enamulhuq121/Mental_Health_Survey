@@ -97,6 +97,10 @@ public class Splash_Screen extends Activity {
                 /* Create an Intent that will start the Menu-Activity. */
                 String TotalTab = C.ReturnSingleValue("SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name != 'android_metadata' AND name != 'sqlite_sequence'");
                 Intent mainIntent;
+
+                /// temp start
+                //mainIntent = new Intent(Splash_Screen.this, PreparingDatabase.class);
+                /// temp end
                 if (Integer.parseInt(TotalTab) == 0) {
                     mainIntent = new Intent(Splash_Screen.this, PreparingDatabase.class);
                     //someActivityResultLauncher.launch(mainIntent);

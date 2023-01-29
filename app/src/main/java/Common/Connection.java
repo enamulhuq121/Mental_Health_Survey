@@ -794,7 +794,7 @@ public class Connection extends SQLiteOpenHelper {
         return response;
     }
 
-    public boolean RebuildDatabase(final ProgressDialog progDialog, Handler progHandler, String DeviceID) {
+    public boolean RebuildDatabase(final ProgressDialog progDialog, Handler progHandler, String DeviceID, String upazilaid) {
         boolean process_successfull = false;
         try {
             progHandler.post(new Runnable() {
@@ -818,11 +818,24 @@ public class Connection extends SQLiteOpenHelper {
                     progDialog.setMessage("Downloading Master Data ...");
                 }
             });
-
             this.Sync_Download("DeviceList", "DeviceList","DeviceID='"+ DeviceID +"'");
             this.Sync_Download("DatabaseTab", "DatabaseTab","");
-            this.Sync_Download("DataCollector", "DataCollector", "");
             this.Sync_Download("Language", "Language", "");
+
+            this.Sync_Download("DataCollector", "DataCollector", "");
+            this.Sync_Download("facility", "facility", "");
+            this.Sync_Download("index_patient", "index_patient", "");
+            this.Sync_Download("camp", "camp", "");
+
+            /*this.Sync_Download("DataCollector", "DataCollector", "upcode='"+ upazilaid +"'");
+            this.Sync_Download("facility", "facility", "upcode='"+ upazilaid +"'");
+            this.Sync_Download("index_patient", "index_patient", "upcode='"+ upazilaid +"'");
+            this.Sync_Download("camp", "camp", "upcode='"+ upazilaid +"'");*/
+
+            this.Sync_Download("facility_provider", "facility_provider", "");
+            this.Sync_Download("provider_camp", "provider_camp", "");
+            this.Sync_Download("role_list", "role_list", "");
+            this.Sync_Download("user_role", "user_role", "");
 
             //Master Database Sync (Required for any database system)
             //--------------------------------------------------------------------------------------

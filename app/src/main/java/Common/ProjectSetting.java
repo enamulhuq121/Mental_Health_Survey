@@ -21,12 +21,13 @@ public class ProjectSetting {
     //==============================================================================================
     public static String DatabaseName   = ProjectName.toUpperCase() +"Database.db";
     public static String DatabaseFolder = ProjectName.toUpperCase() +"DB";
-    public static final String Database_Folder_URL = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder;
+    //public static final String Database_Folder_URL = Environment.getExternalStorageDirectory() + File.separator + ProjectSetting.DatabaseFolder;
+    public static final String Database_Folder_URL = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ProjectSetting.DatabaseFolder;
     //Internal Memory
-    public static final String Database_Location = DatabaseName;
+    //public static final String Database_Location = DatabaseName;
 
     //External Storage
-    //public static final String Database_Location = Database_Folder_URL + File.separator + DatabaseName;
+    public static final String Database_Location = Database_Folder_URL + File.separator + DatabaseName;
     //public static final String Database_Location = Database_Folder_URL + File.separator + DatabaseName;
 
     //New Release

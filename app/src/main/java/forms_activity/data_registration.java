@@ -478,7 +478,7 @@
          progDailog.setProgress(0);
          progDailog.show();
 
-         new Thread() {
+        /* new Thread() {
              public void run() {
                  try {
                      if(C.RebuildDatabase(progDailog, progressHandler, DeviceID)){
@@ -496,7 +496,7 @@
 
                  }
              }
-         }.start();
+         }.start();*/
 
 
      }

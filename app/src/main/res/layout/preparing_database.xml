@@ -7,52 +7,52 @@
     android:layout_gravity="center_vertical"
     tools:context=".PreparingDatabase">
 
-    <include  android:id="@+id/secTitle"
-        layout="@layout/form_heading"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/lblHlblListing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:text="Device Setting"
-        app:layout_constraintTop_toBottomOf="@+id/secTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView android:id="@+id/lblDeviceTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Your Device Unique ID Number"
-        app:layout_constraintTop_toBottomOf="@+id/lblHlblListing"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <TextView android:id="@+id/lblDeviceIDNo"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/theme_color"
-        android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@+id/lblDeviceTitle"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingBottom="80dp">
 
-    <TextView
-        android:id="@+id/lblTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Preparing Database, Please wait . . ."
-        app:layout_constraintTop_toBottomOf="@+id/lblDeviceIDNo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        <include
+            android:id="@+id/secTitle"
+            layout="@layout/form_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <TextView
+        <TextView
+            android:id="@+id/lblHlblListing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="Device Setting"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/lblDeviceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Device Unique ID Number"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/lblDeviceIDNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/theme_color"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Preparing Database, Please wait . . ." />
+
+        <!--<TextView
         android:id="@+id/lblMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -61,9 +61,141 @@
         android:text="Message" android:textColor="#ff0000"
         app:layout_constraintTop_toBottomOf="@+id/lblTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <Button
+        <LinearLayout
+            android:id="@+id/ll_config_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_config_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:id="@+id/configure_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Configure Device"
+                    android:textSize="@dimen/sp_24"
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:id="@+id/setup_the_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Setup the device first and go to the login."
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
+            <!--row 1-->
+            <LinearLayout
+                android:id="@+id/ll_row_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="District"
+                    android:textSize="@dimen/text_size_field_label" />
+
+                <Spinner
+                    android:id="@+id/spnDistrict"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_marginTop="4dp"
+
+                    />
+            </LinearLayout>
+
+            <!--row 2-->
+            <LinearLayout
+                android:id="@+id/ll_row_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Upazila "
+                    android:textSize="@dimen/text_size_field_label" />
+
+                <Spinner
+                    android:id="@+id/spnUpazila"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!--row 3-->
+            <LinearLayout
+                android:id="@+id/ll_row_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textSize="@dimen/text_size_field_label" />
+
+                <EditText
+                    android:id="@+id/password"
+                    style="@style/customEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_48"
+                    android:layout_marginTop="4dp"
+                    android:hint="Type password ..."
+                    android:inputType="numberPassword"
+                    android:textSize="@dimen/sp_18" />
+            </LinearLayout>
+            <!--row 4-->
+            <TextView
+                android:id="@+id/lblMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_14"
+                android:visibility="gone" />
+            <!--row 5-->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSetup"
+                style="@style/icddrb_materialButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Setup" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTryAgain"
+                style="@style/icddrb_materialButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Try Again" />
+
+        </LinearLayout>
+
+        <!--<Button
         android:id="@+id/btnTryAgain"
         android:layout_width="150sp"
         android:layout_height="wrap_content"
@@ -75,5 +207,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lblMessage" />
+        -->
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
