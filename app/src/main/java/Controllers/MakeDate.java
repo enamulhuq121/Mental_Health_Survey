@@ -9,7 +9,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.mental_health_survey.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

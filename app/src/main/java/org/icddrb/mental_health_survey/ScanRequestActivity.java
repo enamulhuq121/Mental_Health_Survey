@@ -1,4 +1,4 @@
-package org.icddrb.kalaazar_pkdl;
+package org.icddrb.mental_health_survey;
 
 import static Common.Common.BarcodeReaderHelper.CARD_TYPE;
 import static Common.Common.BarcodeReaderHelper.HID_CARD;
@@ -67,7 +67,7 @@ public class ScanRequestActivity extends AppCompatActivity {
 
                /* Intent intent=new Intent(ScanRequestActivity.this,Scan_Barcode_Activity.class);
                 startActivityForResult(intent,MY_REQUEST_CODE_SMART);*/
-                Intent intent = new Intent(ScanRequestActivity.this, org.icddrb.kalaazar_pkdl.ScanBarcode.class);
+                Intent intent = new Intent(ScanRequestActivity.this, org.icddrb.mental_health_survey.ScanBarcode.class);
                 intent.putExtra(CARD_TYPE, SMART_CARD);
                 startActivityForResult(intent, MY_REQUEST_CODE_SMART);
             }
@@ -76,7 +76,7 @@ public class ScanRequestActivity extends AppCompatActivity {
         btnOld.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ScanRequestActivity.this, org.icddrb.kalaazar_pkdl.ScanBarcode.class);
+                Intent intent = new Intent(ScanRequestActivity.this, org.icddrb.mental_health_survey.ScanBarcode.class);
                 intent.putExtra(CARD_TYPE, Old_NID_CARD);
                 startActivityForResult(intent, MY_REQUEST_CODE_OLD);
             }
@@ -85,7 +85,7 @@ public class ScanRequestActivity extends AppCompatActivity {
         btnHid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ScanRequestActivity.this, org.icddrb.kalaazar_pkdl.ScanBarcode.class);
+                Intent intent = new Intent(ScanRequestActivity.this, org.icddrb.mental_health_survey.ScanBarcode.class);
                 intent.putExtra(CARD_TYPE, HID_CARD);
                 startActivityForResult(intent, MY_REQUEST_CODE_HID);
             }

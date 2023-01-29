@@ -14,7 +14,7 @@ public class ProjectSetting {
 
     //Project and Server link Information
     //==============================================================================================
-    public static String ProjectName    = "kalaazar_pkdl";
+    public static String ProjectName    = "mental_health_survey";
     public static String ServerURL      = "http://mchdweb.icddrb.org/";
 
     //Database Location

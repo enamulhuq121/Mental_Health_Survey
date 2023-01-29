@@ -41,7 +41,7 @@
  import android.widget.TimePicker;
  import android.widget.Toast;
 
- import org.icddrb.kalaazar_pkdl.R;
+ import org.icddrb.mental_health_survey.R;
 
  import java.util.ArrayList;
  import java.util.Calendar;

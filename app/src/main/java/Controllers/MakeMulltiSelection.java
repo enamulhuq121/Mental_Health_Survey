@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.mental_health_survey.R;
 
 import java.util.ArrayList;
 

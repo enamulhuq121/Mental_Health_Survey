@@ -25,8 +25,8 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.icddrb.kalaazar_pkdl.R;
-import org.icddrb.kalaazar_pkdl.adapter.CustomSpinnerAdapter;
+import org.icddrb.mental_health_survey.R;
+import org.icddrb.mental_health_survey.adapter.CustomSpinnerAdapter;
 
 import java.io.File;
 import java.lang.reflect.Type;
@@ -794,7 +794,7 @@ public class Connection extends SQLiteOpenHelper {
         return response;
     }
 
-    public boolean RebuildDatabase(final ProgressDialog progDialog, Handler progHandler, String DeviceID, String upazilaid) {
+    public boolean RebuildDatabase(final ProgressDialog progDialog, Handler progHandler, String DeviceID, String facilityid) {
         boolean process_successfull = false;
         try {
             progHandler.post(new Runnable() {
@@ -822,20 +822,8 @@ public class Connection extends SQLiteOpenHelper {
             this.Sync_Download("DatabaseTab", "DatabaseTab","");
             this.Sync_Download("Language", "Language", "");
 
-            this.Sync_Download("DataCollector", "DataCollector", "");
-            this.Sync_Download("facility", "facility", "");
-            this.Sync_Download("index_patient", "index_patient", "");
-            this.Sync_Download("camp", "camp", "");
-
-            /*this.Sync_Download("DataCollector", "DataCollector", "upcode='"+ upazilaid +"'");
-            this.Sync_Download("facility", "facility", "upcode='"+ upazilaid +"'");
-            this.Sync_Download("index_patient", "index_patient", "upcode='"+ upazilaid +"'");
-            this.Sync_Download("camp", "camp", "upcode='"+ upazilaid +"'");*/
-
-            this.Sync_Download("facility_provider", "facility_provider", "");
-            this.Sync_Download("provider_camp", "provider_camp", "");
-            this.Sync_Download("role_list", "role_list", "");
-            this.Sync_Download("user_role", "user_role", "");
+            this.Sync_Download("DataCollector", "DataCollector", "facilityid='"+ facilityid +"'");
+            this.Sync_Download("facility", "facility", "facilityid='"+ facilityid +"'");
 
             //Master Database Sync (Required for any database system)
             //--------------------------------------------------------------------------------------
@@ -854,12 +842,6 @@ public class Connection extends SQLiteOpenHelper {
                     progDialog.setMessage("Downloading Master Data ...");
                 }
             });
-            this.Sync_Download("module_variable","module_variable", "");
-            this.Sync_Download("module_variable_agegrp","module_variable_agegrp", "");
-            this.Sync_Download("module_variable_language","module_variable_language", "");
-            this.Sync_Download("module_variable_list","module_variable_list", "");
-            this.Sync_Download("module_content","module_content", "");
-            this.Sync_Download("module_control_type","module_control_type", "");
 
             //Download data from server
             //------------------------------------------------------------------------------
@@ -869,12 +851,8 @@ public class Connection extends SQLiteOpenHelper {
                     progDialog.setMessage("Downloading Catchment Area Data ...");
                 }
             });
-            this.Sync_Download("zilla","zilla aa", "");
+            this.Sync_Download("zilla","zilla", "");
             this.Sync_Download("upazila","upazila", "");
-            this.Sync_Download("unions","unions", "");
-            this.Sync_Download("Cluster","Cluster", "");
-            this.Sync_Download("mouza","mouza", "");
-            this.Sync_Download("village","village", "");
 
             //Update status on server
             //--------------------------------------------------------------------------------------
@@ -1298,14 +1276,11 @@ public class Connection extends SQLiteOpenHelper {
             Connection.Populate_Index_Table();
 
             C.Sync_DatabaseStructure();
-            C.Sync_Download("DataCollector","DataCollector", "");
-            C.Sync_Download("Language","Language", "");
+            //C.Sync_Download("DataCollector","DataCollector", "");
+            //C.Sync_Download("Language","Language", "");
 
-            C.Sync_Download("zilla","zilla", "");
-            C.Sync_Download("upazila","upazila", "");
-            C.Sync_Download("unions","unions", "");
-            C.Sync_Download("mouza","mouza", "");
-            C.Sync_Download("village","village", "");
+            //C.Sync_Download("zilla","zilla", "");
+            //C.Sync_Download("upazila","upazila", "");
         }
         catch(Exception ex)
         {

@@ -31,7 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.mental_health_survey.R;
 
 import java.util.ArrayList;
 import java.util.List;

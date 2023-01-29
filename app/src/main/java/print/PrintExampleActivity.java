@@ -26,7 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.print.PrintHelper;
 
-import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.mental_health_survey.R;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package org.icddrb.kalaazar_pkdl;
+package org.icddrb.mental_health_survey;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
-import org.icddrb.kalaazar_pkdl.adapter.CustomSpinnerAdapter;
+import org.icddrb.mental_health_survey.adapter.CustomSpinnerAdapter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ import Utility.CompressZip;
 
 public class PreparingDatabase extends AppCompatActivity {
     Connection C;
-    Spinner spnUpazila;
+    Spinner spnFacility;
     Spinner spnDistrict;
     EditText password;
     TextView lblMessage;
@@ -53,7 +53,7 @@ public class PreparingDatabase extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSetup = findViewById(R.id.btnSetup);
         btnTryAgain = findViewById(R.id.btnTryAgain);
-        spnUpazila =findViewById(R.id.spnUpazila);
+        spnFacility =findViewById(R.id.spnFacility);
         spnDistrict=findViewById(R.id.spnDistrict);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -94,7 +94,6 @@ public class PreparingDatabase extends AppCompatActivity {
         }
 
 
-        //SpinnerItem(spnDistrict,"select dcode+'-'+dname district from zilla where implemented=1");
         SpinnerItem(spnDistrict,"select dcode+'-'+dname district from zilla");
 
         spnDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -102,8 +101,7 @@ public class PreparingDatabase extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 String dcode = spnDistrict.getSelectedItemPosition()==0?"":spnDistrict.getSelectedItem().toString().split("-")[0];
                 if (dcode != null && !dcode.isEmpty()) {
-                    //SpinnerItem(spnFacility,"select 'Select ' union select FaciCode+'-'+FaciName from facility where dcode='"+ dcode +"'");
-                    SpinnerItem(spnUpazila,"select upcode+'-'+upname from upazila where dcode='"+ dcode +"'");
+                    SpinnerItem(spnFacility,"select facilityid+'-'+facility_name from facility where dcode='"+ dcode +"'");
                 }
             }
 
@@ -120,15 +118,15 @@ public class PreparingDatabase extends AppCompatActivity {
                     Connection.MessageBox(PreparingDatabase.this,"Select a valid district name from the list.");
                     return;
                 }
-                if(spnUpazila.getSelectedItemPosition()==0){
+                if(spnFacility.getSelectedItemPosition()==0){
                     Connection.MessageBox(PreparingDatabase.this,"Select a valid facility name from the list.");
                     return;
                 }
-                String FacilityID = spnUpazila.getSelectedItem().toString().split("-")[0];
+                String FacilityID = spnFacility.getSelectedItem().toString().split("-")[0];
                 String Pass = password.getText().toString();
-                //String Access = C.ReturnResult("Existence", "SELECT * from Facility where FaciCode='"+ FacilityID +"' and SettingPassword='"+ Pass +"'");
+
                 if(Pass.equals("123"))
-                    ProcessDatabase(spnUpazila.getSelectedItem().toString().split("-")[0]);
+                    ProcessDatabase(spnFacility.getSelectedItem().toString().split("-")[0]);
                 else{
                     Connection.MessageBox(PreparingDatabase.this,"You are not authorized to configure the device. Try again with a valid password.");
                     password.requestFocus();
@@ -151,7 +149,7 @@ public class PreparingDatabase extends AppCompatActivity {
         SpinnerName.setAdapter(adptrList);
     }
 
-    private void ProcessDatabase(String upazilaid)
+    private void ProcessDatabase(String facilityid)
     {
         String zipFile_URL = ProjectSetting.Database_Folder_URL + File.separator + ProjectSetting.zipDatabaseName;
         String dbFile_URL = ProjectSetting.Database_Folder_URL + File.separator + ProjectSetting.DatabaseName;
@@ -182,7 +180,7 @@ public class PreparingDatabase extends AppCompatActivity {
                     return;
                 }
 
-                RebuildDatabase(DeviceID,upazilaid);
+                RebuildDatabase(DeviceID,facilityid);
 
             }else {
                 lblMessage.setText("Internet connection is not available for initial database creation.");
@@ -193,7 +191,7 @@ public class PreparingDatabase extends AppCompatActivity {
     }
 
     ProgressDialog progDailog;
-    private void RebuildDatabase(String DeviceID, String upazilaid)
+    private void RebuildDatabase(String DeviceID, String facilityid)
     {
         lblMessage.setVisibility(View.GONE);
         btnSetup.setVisibility(View.GONE);
@@ -210,7 +208,7 @@ public class PreparingDatabase extends AppCompatActivity {
         new Thread() {
             public void run() {
                 try {
-                    if(C.RebuildDatabase(progDailog, progressHandler, DeviceID,upazilaid)){
+                    if(C.RebuildDatabase(progDailog, progressHandler, DeviceID,facilityid)){
                         progDailog.dismiss();
                         finish();
                         Intent mainIntent = new Intent(PreparingDatabase.this, LoginActivity.class);

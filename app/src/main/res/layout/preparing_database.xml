@@ -134,11 +134,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Upazila "
+                    android:text="Facility"
                     android:textSize="@dimen/text_size_field_label" />
 
                 <Spinner
-                    android:id="@+id/spnUpazila"
+                    android:id="@+id/spnFacility"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp_48"
                     android:layout_marginTop="4dp" />

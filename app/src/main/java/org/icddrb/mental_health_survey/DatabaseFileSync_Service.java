@@ -1,5 +1,6 @@
-package org.icddrb.kalaazar_pkdl;
+package org.icddrb.mental_health_survey;
 
+import android.app.NotificationManager;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -7,19 +8,23 @@ import android.content.ServiceConnection;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
+import android.os.PowerManager;
 
 import Common.Connection;
+import Utility.MySharedPreferences;
 
 /*
  * Created by TanvirHossain on 08/03/2015.
  */
-public class Sync_Service extends Service {
-    public Sync_Service m_service;
+public class DatabaseFileSync_Service extends Service {
+    public DatabaseFileSync_Service m_service;
+    MySharedPreferences sp;
 
     public class MyBinder extends Binder {
-        public Sync_Service getService() {
-            return Sync_Service.this;
+        public DatabaseFileSync_Service getService() {
+            return DatabaseFileSync_Service.this;
         }
     }
 
@@ -33,6 +38,11 @@ public class Sync_Service extends Service {
         }
     };
 
+    private NotificationManager mManager;
+    PowerManager.WakeLock wakeLock;
+    PowerManager c;
+    Bundle IDbundle;
+
     @Override
     public IBinder onBind(Intent arg0) {
         // TODO Auto-generated method stub
@@ -43,7 +53,13 @@ public class Sync_Service extends Service {
     public void onCreate() {
         // TODO Auto-generated method stub
         super.onCreate();
+        // obtain the wake lock
+        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyWakelockTag");
+        //wakeLock = powerManager.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "MyWakelockTag");
     }
+
+    static String DEVICEID  = "";
 
 
     private void handleIntent(Intent intent) {
@@ -54,8 +70,10 @@ public class Sync_Service extends Service {
             return;
         }
 
+        DEVICEID    = sp.getValue(this, "deviceid");
+
         // do the actual work, in a separate thread
-        new DataSyncTask().execute();
+        new DataSyncTask().execute(DEVICEID);
     }
 
 
@@ -64,6 +82,7 @@ public class Sync_Service extends Service {
     public void onStart(Intent intent, int startId) {
         super.onStart(intent, startId);
         handleIntent(intent);
+        wakeLock.acquire();
     }
 
     @Override
@@ -78,6 +97,7 @@ public class Sync_Service extends Service {
     public void onDestroy() {
         // TODO Auto-generated method stub
         super.onDestroy();
+        wakeLock.release();
     }
 
 
@@ -90,22 +110,20 @@ public class Sync_Service extends Service {
 
         @Override
         protected Void doInBackground(String... params) {
-
+            final String[] ID = params[0].toString().split("-");
             try {
-
                 new Thread() {
                     public void run() {
                         try {
-                            boolean networkAvailable = Connection.haveNetworkConnection(Sync_Service.this);
-                            if (networkAvailable) {
-                                Connection.SyncDataService();
-                            }
-                        } catch (Exception ignored) {
+                            Connection.DatabaseUploadZip(DEVICEID);
+                            
+                        } catch (Exception e) {
 
                         }
                     }
                 }.start();
-            } catch (Exception ignored) {
+
+            } catch (Exception e) {
 
             }
             // do stuff!

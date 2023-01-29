@@ -1,4 +1,4 @@
-package org.icddrb.kalaazar_pkdl;
+package org.icddrb.mental_health_survey;
 
 /**
  * Created by thossain on 02/12/2017.

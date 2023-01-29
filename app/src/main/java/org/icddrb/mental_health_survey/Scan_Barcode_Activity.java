@@ -1,4 +1,4 @@
-package org.icddrb.kalaazar_pkdl;
+package org.icddrb.mental_health_survey;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;

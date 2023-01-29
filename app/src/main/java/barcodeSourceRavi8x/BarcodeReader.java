@@ -41,7 +41,7 @@ import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
-import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.mental_health_survey.R;
 
 import java.io.IOException;
 import java.util.List;

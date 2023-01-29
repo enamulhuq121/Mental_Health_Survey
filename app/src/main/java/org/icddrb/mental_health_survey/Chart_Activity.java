@@ -1,4 +1,4 @@
-package org.icddrb.kalaazar_pkdl;
+package org.icddrb.mental_health_survey;
 
 import android.database.Cursor;
 import android.graphics.Color;

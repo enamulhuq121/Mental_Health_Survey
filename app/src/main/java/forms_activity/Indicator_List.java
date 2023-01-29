@@ -30,8 +30,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.icddrb.kalaazar_pkdl.Chart_Activity;
-import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.mental_health_survey.Chart_Activity;
+import org.icddrb.mental_health_survey.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;

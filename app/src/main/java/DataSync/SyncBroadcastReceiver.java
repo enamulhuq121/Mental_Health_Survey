@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import org.icddrb.kalaazar_pkdl.DataSyncService;
+import org.icddrb.mental_health_survey.DataSyncService;
 
 import Common.Connection;
 

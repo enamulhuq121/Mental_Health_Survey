@@ -15,5 +15,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "KalaAzar_PKDL"
+rootProject.name = "mental_health_survey"
 include ':app'

@@ -1,4 +1,4 @@
-package org.icddrb.kalaazar_pkdl.adapter;
+package org.icddrb.mental_health_survey.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.icddrb.kalaazar_pkdl.R;
+import org.icddrb.mental_health_survey.R;
 
 import java.util.ArrayList;
 
