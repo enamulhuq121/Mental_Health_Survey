@@ -95,5 +95,7 @@
         <activity android:name="forms_activity.Indicator_List" />
         <activity android:name="org.icddrb.mental_health_survey.Fragment_Main" />
         <activity android:name="forms_activity.data_registration" />
+        <activity android:name="forms_activity.Patient_list" />
+        <activity android:name="forms_activity.Patient" />
     </application>
 </manifest>

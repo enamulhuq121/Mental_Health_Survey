@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
             sp.save(this, "lat", "");
             sp.save(this, "lon", "");
             sp.save(this, "bdbrequest", "");
+            sp.save(this, "facilityid", "");
 
             final TextView UniqueUserId = (TextView) findViewById(R.id.UniqueUserId);
             final Spinner uid = (Spinner) findViewById(R.id.userId);
@@ -114,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
 
             uid.setAdapter(C.getArrayAdapter("select UserId||'-'||UserName User from DataCollector order by UserName"));
             spnLanguage.setAdapter(C.getArrayAdapter("select language_id||'-'||language_name from Language order by language_id"));
+            sp.save(LoginActivity.this, "facilityid", C.ReturnSingleValue("select facilityid from facility limit 1"));
 
             //Login -----------------------------------------------------------------------
             MaterialButton loginButton = findViewById(R.id.btnLogin);

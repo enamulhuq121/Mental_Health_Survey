@@ -30,8 +30,10 @@ import java.util.List;
 
 import Common.Connection;
 import Common.ProjectSetting;
+import Utility.MySharedPreferences;
 import forms_activity.Household_list;
 import forms_activity.Mapping_Household_list;
+import forms_activity.Patient_list;
 
 public class Fragment_Home extends Fragment {
     public static Fragment_Home newInstance() {
@@ -42,13 +44,15 @@ public class Fragment_Home extends Fragment {
     Context thiscontext;
     Bundle IBundle;
     Connection C;
-
+    private  static String FACILITYID ="";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         thiscontext=container.getContext();
         IBundle = new Bundle();
         C = new Connection(thiscontext);
+
+        FACILITYID = MySharedPreferences.getValue(thiscontext, "facilityid");
 
         GridView gv = rootView.findViewById(R.id.gridview);
         gv.setAdapter(new menuAdapter(thiscontext));
@@ -60,9 +64,10 @@ public class Fragment_Home extends Fragment {
                     {
                         //Activity Call
                         //--------------------------------------------------------------------------
-                        /*Intent I = new Intent(thiscontext, Indicator_List.class);
+                        IBundle.putString("facilityid", FACILITYID);
+                        Intent I = new Intent(thiscontext, Patient_list.class);
                         I.putExtras(IBundle);
-                        startActivity(I);*/
+                        startActivity(I);
                     }
                     else if(position==1) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(thiscontext);

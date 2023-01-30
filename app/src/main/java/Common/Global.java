@@ -53,6 +53,24 @@ public class Global {
 		return text.substring(start, text.length() - start);
 	}
 
+	public static String GetDATE_ID(String DeviceID)
+	{
+		Calendar c = Calendar.getInstance();
+		int mYear  = c.get(Calendar.YEAR);
+		int mMonth = c.get(Calendar.MONTH)+1;
+		int mDay   = c.get(Calendar.DAY_OF_MONTH);
+
+		String M = Right("00"+String.valueOf(mMonth),2);
+		String Y = String.valueOf(mYear);
+		String D = Right("00"+String.valueOf(mDay),2);
+
+		String second = Right("00"+String.valueOf(c.get(Calendar.SECOND)),2);
+		String minute = Right("00"+String.valueOf(c.get(Calendar.MINUTE)),2);
+		String hour   = Right("00"+String.valueOf(c.get(Calendar.HOUR_OF_DAY)),2);  //24 hour format
+
+		return DeviceID+Y+M+D+hour+minute+second;
+	}
+
 	//Year, Month
 	public static String CurrentYear()
 	{
