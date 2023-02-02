@@ -97,5 +97,13 @@
         <activity android:name="forms_activity.data_registration" />
         <activity android:name="forms_activity.Patient_list" />
         <activity android:name="forms_activity.Patient" />
+        <activity android:name="forms_activity.SectionA" />
+        <activity android:name="forms_activity.SectionB" />
+        <activity android:name="forms_activity.SectionC" />
+        <activity android:name="forms_activity.SectionD" />
+        <activity android:name="forms_activity.SectionE" />
+        <activity android:name="forms_activity.SectionF" />
+        <activity android:name="forms_activity.SectionG" />
+        <activity android:name="forms_activity.SectionH" />
     </application>
 </manifest>

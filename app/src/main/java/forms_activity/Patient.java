@@ -36,9 +36,7 @@
  import android.view.WindowManager;
  import androidx.appcompat.app.AppCompatActivity;
  import androidx.core.content.ContextCompat;
-
  import org.icddrb.mental_health_survey.R;
-
  import forms_datamodel.Patient_DataModel;
  import Utility.*;
  import Common.*;
@@ -295,8 +293,14 @@
              Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
              setResult(Activity.RESULT_OK, returnIntent);
-
              Connection.MessageBox(Patient.this, "Saved Successfully");
+             finish();
+             Bundle IDbundle = new Bundle();
+             IDbundle.putString("PatientID", PATIENTID);
+             IDbundle.putString("FacilityID", FACILITYID);
+             Intent f1 = new Intent(getApplicationContext(), SectionA.class);
+             f1.putExtras(IDbundle);
+             startActivityForResult(f1, 1);
          }
          else{
              Connection.MessageBox(Patient.this, status);
