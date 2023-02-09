@@ -35,6 +35,7 @@ import forms_activity.Household_list;
 import forms_activity.Mapping_Household_list;
 import forms_activity.Patient_list;
 import forms_activity.Provider_list;
+import forms_activity.Women_list;
 
 public class Fragment_Home extends Fragment {
     public static Fragment_Home newInstance() {
@@ -79,7 +80,16 @@ public class Fragment_Home extends Fragment {
                         I.putExtras(IBundle);
                         startActivity(I);
                     }
-                    else if(position==2) {
+                    else if(position==2)
+                    {
+                        //Activity Call
+                        //--------------------------------------------------------------------------
+                        IBundle.putString("facilityid", FACILITYID);
+                        Intent I = new Intent(thiscontext, Women_list.class);
+                        I.putExtras(IBundle);
+                        startActivity(I);
+                    }
+                    else if(position==3) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(thiscontext);
                         builder
                                 .setTitle("Data Sync")
@@ -109,7 +119,7 @@ public class Fragment_Home extends Fragment {
                                 .setNegativeButton("No", null)	//Do nothing on no
                                 .show();
                     }
-                    else if(position==3)
+                    else if(position==4)
                     {
                         AlertDialog.Builder builder = new AlertDialog.Builder(thiscontext);
                         builder
@@ -204,12 +214,14 @@ public class Fragment_Home extends Fragment {
         private final String[] menu_list={
                 "Patient",
                 "Provider",
+                "Women",
                 "Data Sync",
                 "Exit"
         };
 
         //references to our images
         private final Integer[] menu_list_image = {
+                R.drawable.new_entry,
                 R.drawable.new_entry,
                 R.drawable.new_entry,
                 R.drawable.data_sync,

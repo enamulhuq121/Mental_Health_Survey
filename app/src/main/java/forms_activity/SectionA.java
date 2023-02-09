@@ -356,6 +356,7 @@
          lineAScore=(View)findViewById(R.id.lineAScore);
          VlblAScore=(TextView) findViewById(R.id.VlblAScore);
          txtAScore=(EditText) findViewById(R.id.txtAScore);
+
      }
      catch(Exception  e)
      {
