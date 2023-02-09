@@ -105,5 +105,7 @@
         <activity android:name="forms_activity.SectionF" />
         <activity android:name="forms_activity.SectionG" />
         <activity android:name="forms_activity.SectionH" />
+        <activity android:name="forms_activity.Provider_list" />
+        <activity android:name="forms_activity.Provider" />
     </application>
 </manifest>

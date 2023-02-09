@@ -649,9 +649,9 @@
              ValidationMsg += "\nC1. Required field: কত সপ্তাহের গর্ভবতী.";
              secC1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(secC1.isShown() & (Integer.valueOf(txtC1.getText().toString().length()==0 ? "04" : txtC1.getText().toString()) < 04 || Integer.valueOf(txtC1.getText().toString().length()==0 ? "42" : txtC1.getText().toString()) > 42))
+         if(secC1.isShown() & (Integer.valueOf(txtC1.getText().toString().length()==0 ? "04" : txtC1.getText().toString()) < 04 || Integer.valueOf(txtC1.getText().toString().length()==0 ? "40" : txtC1.getText().toString()) > 40))
            {
-             ValidationMsg += "\nC1. Value should be between 04 and 42(কত সপ্তাহের গর্ভবতী).";
+             ValidationMsg += "\nC1. Value should be between 04 and 40(কত সপ্তাহের গর্ভবতী).";
              secC1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
          if(txtC2.getText().toString().length()==0 & secC2.isShown())
@@ -699,6 +699,30 @@
              ValidationMsg += "\nRequired field: অন্যান্য হলে নির্দিষ্ট করুন.";
              secC8xSp.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
+
+         if (chkC8z.isChecked() & (chkC8a.isChecked() || chkC8b.isChecked() || chkC8c.isChecked()|| chkC8d.isChecked() || chkC8e.isChecked() || chkC8f.isChecked() || chkC8g.isChecked() || chkC8h.isChecked()|| chkC8i.isChecked()|| chkC8j.isChecked()|| chkC8k.isChecked()|| chkC8l.isChecked() || chkC8m.isChecked() || chkC8n.isChecked() || chkC8o.isChecked() || chkC8p.isChecked() || chkC8q.isChecked() || chkC8x.isChecked()) & chkC8a.isShown())
+         {
+             ValidationMsg += "\n C8. 98 জানিনা হয় তাহলে 1-18 হবেনা";
+             chkC8a.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8b.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8c.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8d.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8e.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8f.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8g.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8h.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8i.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8j.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8k.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8l.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8m.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8n.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8o.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8p.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8q.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8x.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             chkC8z.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+         }
      }
      catch(Exception  e)
      {

@@ -208,9 +208,11 @@
          linePatientID=(View)findViewById(R.id.linePatientID);
          VlblPatientID=(TextView) findViewById(R.id.VlblPatientID);
          txtPatientID=(EditText) findViewById(R.id.txtPatientID);
+
          if(PATIENTID.length()==0) txtPatientID.setText(Global.GetDATE_ID(DEVICEID));
          else txtPatientID.setText(PATIENTID);
          txtPatientID.setEnabled(false);
+
          secFacilityID=(LinearLayout)findViewById(R.id.secFacilityID);
          lineFacilityID=(View)findViewById(R.id.lineFacilityID);
          VlblFacilityID=(TextView) findViewById(R.id.VlblFacilityID);
@@ -296,7 +298,7 @@
              Connection.MessageBox(Patient.this, "Saved Successfully");
              finish();
              Bundle IDbundle = new Bundle();
-             IDbundle.putString("PatientID", PATIENTID);
+             IDbundle.putString("PatientID", txtPatientID.getText().toString());
              IDbundle.putString("FacilityID", FACILITYID);
              Intent f1 = new Intent(getApplicationContext(), SectionA.class);
              f1.putExtras(IDbundle);

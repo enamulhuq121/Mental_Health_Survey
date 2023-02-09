@@ -264,6 +264,21 @@
          lineE1Dk=(View)findViewById(R.id.lineE1Dk);
          VlblE1Dk=(TextView) findViewById(R.id.VlblE1Dk);
          chkE1Dk=(CheckBox) findViewById(R.id.chkE1Dk);
+         chkE1Dk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtE1.setText("");
+                     txtE1.setEnabled(false);
+                 }else{
+                     txtE1.setEnabled(true);
+                 }
+             }
+         });
+
          secE2=(LinearLayout)findViewById(R.id.secE2);
          lineE2=(View)findViewById(R.id.lineE2);
          VlblE2=(TextView) findViewById(R.id.VlblE2);
@@ -272,6 +287,20 @@
          lineE2Dk=(View)findViewById(R.id.lineE2Dk);
          VlblE2Dk=(TextView) findViewById(R.id.VlblE2Dk);
          chkE2Dk=(CheckBox) findViewById(R.id.chkE2Dk);
+         chkE2Dk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+         {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+             {
+                 if ( isChecked )
+                 {
+                     txtE2.setText("");
+                     txtE2.setEnabled(false);
+                 }else{
+                     txtE2.setEnabled(true);
+                 }
+             }
+         });
          secE3=(LinearLayout)findViewById(R.id.secE3);
          lineE3=(View)findViewById(R.id.lineE3);
          VlblE3 = (TextView) findViewById(R.id.VlblE3);
@@ -419,7 +448,7 @@
              ValidationMsg += "\nRequired field: Facility ID.";
              secFacilityID.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(txtE1.getText().toString().length()==0 & secE1.isShown())
+         if (!chkE1Dk.isChecked() & (txtE1.getText().toString().length()==0 & secE1.isShown()))
            {
              ValidationMsg += "\nE1. Required field: আপনার বাড়ি থেকে এই হাসপাতালের দুরত্ব (কিঃমিঃ).";
              secE1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
@@ -429,7 +458,7 @@
              ValidationMsg += "\nE1. Value should be between 00 and 999(আপনার বাড়ি থেকে এই হাসপাতালের দুরত্ব (কিঃমিঃ)).";
              secE1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(txtE2.getText().toString().length()==0 & secE2.isShown())
+         if (!chkE2Dk.isChecked() & txtE2.getText().toString().length()==0 & secE2.isShown())
            {
              ValidationMsg += "\nE2. Required field: বাড়ি থেকে এই জেলা হাসপাতালে যাতায়াতের সময় (যে যানবাহনেই আসুক না কেন, সেটার জন্য) (মিনিট).";
              secE2.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));

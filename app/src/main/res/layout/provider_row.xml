@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scrollbars="vertical">
+    <LinearLayout android:id="@+id/secListRow" android:background="?android:selectableItemBackground" android:paddingTop="10sp" android:paddingBottom="10sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView android:id="@+id/FacilityID" android:layout_width="100dp" android:gravity="center" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/ProviderID" android:layout_width="180dp" android:gravity="center" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/Name" android:layout_width="150dp" android:gravity="center" android:layout_height="wrap_content"/>
+<!--        <TextView android:id="@+id/ProfeTitle" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/Ward" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/Expe" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/ExpeFaci" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/ExpeWard" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+        <TextView android:id="@+id/MobileNo" android:layout_width="150dp" android:gravity="center" android:layout_height="wrap_content"/>
+<!--        <TextView android:id="@+id/A1" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A2" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A3" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A4" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A5" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A6" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A7" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A8" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A9" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A10" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A11" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A12" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A13" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+<!--        <TextView android:id="@+id/A14" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content"/>-->
+    </LinearLayout>
+ </LinearLayout>

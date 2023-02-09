@@ -164,6 +164,16 @@
     RadioButton rdoA72;
     RadioButton rdoA73;
     RadioButton rdoA74;
+
+     LinearLayout secA8;
+     View lineA8;
+     TextView VlblA8;
+     RadioGroup rdogrpA8;
+     RadioButton rdoA81;
+     RadioButton rdoA82;
+     RadioButton rdoA83;
+     RadioButton rdoA84;
+
     LinearLayout secA9;
     View lineA9;
     TextView VlblA9;
@@ -230,12 +240,7 @@
         Initialization();
         Connection.LocalizeLanguage(SectionA.this, MODULEID, LANGUAGEID);
 
-
-
-
-
          //Hide all skip variables
-
 
         DataSearch(PATIENTID,FACILITYID);
 
@@ -331,6 +336,14 @@
          rdoA72 = (RadioButton) findViewById(R.id.rdoA72);
          rdoA73 = (RadioButton) findViewById(R.id.rdoA73);
          rdoA74 = (RadioButton) findViewById(R.id.rdoA74);
+         secA8=(LinearLayout)findViewById(R.id.secA8);
+         lineA8=(View)findViewById(R.id.lineA8);
+         VlblA8 = (TextView) findViewById(R.id.VlblA8);
+         rdogrpA8 = (RadioGroup) findViewById(R.id.rdogrpA8);
+         rdoA81 = (RadioButton) findViewById(R.id.rdoA81);
+         rdoA82 = (RadioButton) findViewById(R.id.rdoA82);
+         rdoA83 = (RadioButton) findViewById(R.id.rdoA83);
+         rdoA84 = (RadioButton) findViewById(R.id.rdoA84);
          secA9=(LinearLayout)findViewById(R.id.secA9);
          lineA9=(View)findViewById(R.id.lineA9);
          VlblA9 = (TextView) findViewById(R.id.VlblA9);
@@ -422,6 +435,14 @@
          {
              rb = (RadioButton)rdogrpA7.getChildAt(i);
              if (rb.isChecked()) objSave.setA7(d_rdogrpA7[i]);
+         }
+
+         String[] d_rdogrpA8 = new String[] {"0","1","2","3"};
+         objSave.setA8("");
+         for (int i = 0; i < rdogrpA8.getChildCount(); i++)
+         {
+             rb = (RadioButton)rdogrpA8.getChildAt(i);
+             if (rb.isChecked()) objSave.setA8(d_rdogrpA8[i]);
          }
 
          String[] d_rdogrpA9 = new String[] {"0","1","2","3"};
@@ -518,6 +539,11 @@
              ValidationMsg += "\nA7. Required field: যে কোন বিষয়ে মনোযোগ স্থাপনে অসুবিধা— যেমন পড়াশুনা ও অন্যান্য কাজ ইত্যাদি?.";
              secA7.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
+         if(!rdoA81.isChecked() & !rdoA82.isChecked() & !rdoA83.isChecked() & !rdoA84.isChecked() & secA8.isShown())
+         {
+             ValidationMsg += "\nA8. Required field: এত ধীরে ধীরে চলাফেরা বা কথা বলছেন যাতে অন্য লোকেরা লক্ষ্য করতে পারে অথবা, এত অস্থির বা দ্রুত কাজকর্ম বা কথাবার্তা বলছেন যা আপনার স্বাভাবিক মাত্রার চেয়ে অনেক বেশি?.";
+             secA8.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+         }
          if(!rdoA91.isChecked() & !rdoA92.isChecked() & !rdoA93.isChecked() & !rdoA94.isChecked() & secA9.isShown())
            {
              ValidationMsg += "\nA9. Required field: মনে হয়েছিল যেন আপনি এখন মারা গেলে কিংবা নিজেকে নিজে শেষ করে ফেলতে পারলে বেশ ভালো হতো?.";
@@ -555,6 +581,7 @@
              secA5.setBackgroundColor(Color.WHITE);
              secA6.setBackgroundColor(Color.WHITE);
              secA7.setBackgroundColor(Color.WHITE);
+             secA8.setBackgroundColor(Color.WHITE);
              secA9.setBackgroundColor(Color.WHITE);
              secAScore.setBackgroundColor(Color.WHITE);
              secAScore.setBackgroundColor(Color.WHITE);
@@ -638,6 +665,15 @@
                      rb.setChecked(true);
                  }
              }
+               String[] d_rdogrpA8 = new String[] {"0","1","2","3"};
+               for (int i = 0; i < d_rdogrpA8.length; i++)
+               {
+                   if (String.valueOf(item.getA8()).equals(String.valueOf(d_rdogrpA8[i])))
+                   {
+                       rb = (RadioButton)rdogrpA8.getChildAt(i);
+                       rb.setChecked(true);
+                   }
+               }
              String[] d_rdogrpA9 = new String[] {"0","1","2","3"};
              for (int i = 0; i < d_rdogrpA9.length; i++)
              {

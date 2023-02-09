@@ -114,6 +114,8 @@
 
     Bundle IDbundle;
     static String USERID = "";
+     static String PATIENTID = "";
+     static String FACILITYID = "";
 
  public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -130,6 +132,8 @@
          ENTRYUSER = MySharedPreferences.getValue(this, "userid");
 
          IDbundle = getIntent().getExtras();
+         PATIENTID = IDbundle.getString("PatientID");
+         FACILITYID = IDbundle.getString("FacilityID");
          USERID = "";//IDbundle.getString("userid");
 
          TableName = "data_registration";
@@ -271,9 +275,14 @@
              Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
              setResult(Activity.RESULT_OK, returnIntent);
-
              Connection.MessageBox(data_registration.this, "Saved Successfully");
-             ProcessDatabase();
+             finish();
+             Bundle IDbundle = new Bundle();
+             IDbundle.putString("PatientID", PATIENTID);
+             IDbundle.putString("FacilityID", FACILITYID);
+             Intent f1 = new Intent(getApplicationContext(), SectionA.class);
+             f1.putExtras(IDbundle);
+             startActivityForResult(f1, 1);
          }
          else{
              Connection.MessageBox(data_registration.this, status);

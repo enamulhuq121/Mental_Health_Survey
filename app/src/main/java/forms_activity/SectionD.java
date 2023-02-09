@@ -130,6 +130,7 @@
     RadioButton rdoD31;
     RadioButton rdoD32;
     RadioButton rdoD33;
+    RadioButton rdoD34;
     LinearLayout secD3Oth;
     View lineD3Oth;
     TextView VlblD3Oth;
@@ -286,13 +287,13 @@
 
              if(rbData.equalsIgnoreCase("5"))
              {
-                 secD2Oth.setVisibility(View.GONE);
-                 lineD2Oth.setVisibility(View.GONE);
+                 secD2Oth.setVisibility(View.VISIBLE);
+                 lineD2Oth.setVisibility(View.VISIBLE);
              }
              else
              {
-                 secD2Oth.setVisibility(View.VISIBLE);
-                 lineD2Oth.setVisibility(View.VISIBLE);
+                 secD2Oth.setVisibility(View.GONE);
+                 lineD2Oth.setVisibility(View.GONE);
              }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
@@ -332,12 +333,13 @@
          rdoD31 = (RadioButton) findViewById(R.id.rdoD31);
          rdoD32 = (RadioButton) findViewById(R.id.rdoD32);
          rdoD33 = (RadioButton) findViewById(R.id.rdoD33);
+         rdoD34 = (RadioButton) findViewById(R.id.rdoD34);
          rdogrpD3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
          @Override
          public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
              String rbData = "";
              RadioButton rb;
-             String[] d_rdogrpD3 = new String[] {"1","2","3"};
+             String[] d_rdogrpD3 = new String[] {"1","2","3","4"};
              for (int i = 0; i < rdogrpD3.getChildCount(); i++)
              {
                rb = (RadioButton)rdogrpD3.getChildAt(i);
@@ -346,13 +348,13 @@
 
              if(rbData.equalsIgnoreCase("3"))
              {
-                 secD3Oth.setVisibility(View.GONE);
-                 lineD3Oth.setVisibility(View.GONE);
+                 secD3Oth.setVisibility(View.VISIBLE);
+                 lineD3Oth.setVisibility(View.VISIBLE);
              }
              else
              {
-                 secD3Oth.setVisibility(View.VISIBLE);
-                 lineD3Oth.setVisibility(View.VISIBLE);
+                 secD3Oth.setVisibility(View.GONE);
+                 lineD3Oth.setVisibility(View.GONE);
              }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
@@ -409,13 +411,13 @@
 
              if(rbData.equalsIgnoreCase("6"))
              {
-                 secD4Oth.setVisibility(View.GONE);
-                 lineD4Oth.setVisibility(View.GONE);
+                 secD4Oth.setVisibility(View.VISIBLE);
+                 lineD4Oth.setVisibility(View.VISIBLE);
              }
              else
              {
-                 secD4Oth.setVisibility(View.VISIBLE);
-                 lineD4Oth.setVisibility(View.VISIBLE);
+                 secD4Oth.setVisibility(View.GONE);
+                 lineD4Oth.setVisibility(View.GONE);
              }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
@@ -491,7 +493,7 @@
          }
 
          objSave.setD2Oth(txtD2Oth.getText().toString());
-         String[] d_rdogrpD3 = new String[] {"1","2","3"};
+         String[] d_rdogrpD3 = new String[] {"1","2","3","4"};
          objSave.setD3("");
          for (int i = 0; i < rdogrpD3.getChildCount(); i++)
          {
@@ -581,7 +583,7 @@
              ValidationMsg += "\nRequired field: অন্যান্য (নির্দিষ্ট করুন).";
              secD2Oth.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(!rdoD31.isChecked() & !rdoD32.isChecked() & !rdoD33.isChecked() & secD3.isShown())
+         if(!rdoD31.isChecked() & !rdoD32.isChecked() & !rdoD33.isChecked() & !rdoD34.isChecked() & secD3.isShown())
            {
              ValidationMsg += "\nD3. Required field: বর্তমান বৈবাহিক অবস্থা.";
              secD3.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
@@ -676,7 +678,7 @@
                  }
              }
              txtD2Oth.setText(item.getD2Oth());
-             String[] d_rdogrpD3 = new String[] {"1","2","3"};
+             String[] d_rdogrpD3 = new String[] {"1","2","3","4"};
              for (int i = 0; i < d_rdogrpD3.length; i++)
              {
                  if (String.valueOf(item.getD3()).equals(String.valueOf(d_rdogrpD3[i])))

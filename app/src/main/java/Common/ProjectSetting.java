@@ -42,7 +42,16 @@ public class ProjectSetting {
     public static List<String> TableList_Upload(){
         List<String> tableList_Up   = new ArrayList<String>();
         //tableList_Up.add("patientinfo");
-
+        tableList_Up.add("Patient");
+        tableList_Up.add("Provider");
+        tableList_Up.add("SectionA");
+        tableList_Up.add("SectionB");
+        tableList_Up.add("SectionC");
+        tableList_Up.add("SectionD");
+        tableList_Up.add("SectionE");
+        tableList_Up.add("SectionF");
+        tableList_Up.add("SectionG");
+        tableList_Up.add("SectionH");
         return tableList_Up;
     }
 

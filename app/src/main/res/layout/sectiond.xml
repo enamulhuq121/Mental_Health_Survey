@@ -70,6 +70,7 @@
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD31" android:text="বিবাহিত" android:paddingLeft="5dp"/>
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD32" android:text="তালাকপ্রাপ্ত" android:paddingLeft="5dp"/>
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD33" android:text="অন্যান্য" android:paddingLeft="5dp"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD34" android:text="অবিবাহিত" android:paddingLeft="5dp"/>
         </RadioGroup>
     </LinearLayout>
     <View android:id="@+id/lineD3" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
