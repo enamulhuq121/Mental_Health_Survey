@@ -52,6 +52,7 @@ public class ProjectSetting {
         tableList_Up.add("SectionF");
         tableList_Up.add("SectionG");
         tableList_Up.add("SectionH");
+        tableList_Up.add("Women");
         return tableList_Up;
     }
 
