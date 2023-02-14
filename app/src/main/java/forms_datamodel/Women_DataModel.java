@@ -10,12 +10,19 @@ import android.content.Context;
  import android.content.ContentValues;
  public class Women_DataModel{
 
-        private String _WomenID = "";
-        public String getWomenID(){
-              return _WomenID;
+        private String _PatientID = "";
+        public String getPatientID(){
+              return _PatientID;
          }
-        public void setWomenID(String newValue){
-              _WomenID = newValue;
+        public void setPatientID(String newValue){
+              _PatientID = newValue;
+         }
+        private String _FacilityID = "";
+        public String getFacilityID(){
+              return _FacilityID;
+         }
+        public void setFacilityID(String newValue){
+              _FacilityID = newValue;
          }
         private String _Q1 = "";
         public String getQ1(){
@@ -194,7 +201,7 @@ import android.content.Context;
             String SQL = "";
             try
             {
-                 if(C.Existence("Select * from "+ TableName +"  Where WomenID='"+ _WomenID +"' "))
+                 if(C.Existence("Select * from "+ TableName +"  Where PatientID='"+ _PatientID +"' and FacilityID='"+ _FacilityID +"' "))
                     response = UpdateData(context);
                  else
                     response = SaveData(context);
@@ -214,7 +221,8 @@ import android.content.Context;
             try
               {
                  ContentValues contentValues = new ContentValues();
-                 contentValues.put("WomenID", _WomenID);
+                 contentValues.put("PatientID", _PatientID);
+                 contentValues.put("FacilityID", _FacilityID);
                  contentValues.put("Q1", _Q1);
                  contentValues.put("Q2", _Q2);
                  contentValues.put("Q3", _Q3);
@@ -260,7 +268,8 @@ import android.content.Context;
             try
               {
                  ContentValues contentValues = new ContentValues();
-                 contentValues.put("WomenID", _WomenID);
+                 contentValues.put("PatientID", _PatientID);
+                 contentValues.put("FacilityID", _FacilityID);
                  contentValues.put("Q1", _Q1);
                  contentValues.put("Q2", _Q2);
                  contentValues.put("Q3", _Q3);
@@ -283,7 +292,7 @@ import android.content.Context;
                  contentValues.put("Q20", _Q20);
                  contentValues.put("Upload", _Upload);
                  contentValues.put("modifyDate", _modifyDate);
-                 C.UpdateData(TableName, "WomenID", (""+ _WomenID +""), contentValues);
+                 C.UpdateData(TableName, "PatientID,FacilityID", (""+ _PatientID +", "+ _FacilityID +""), contentValues);
               }
               catch(Exception  e)
               {
@@ -306,7 +315,8 @@ import android.content.Context;
                 Count += 1;
                 d = new Women_DataModel();
                 d._Count = Count;
-                d._WomenID = cur.getString(cur.getColumnIndex("WomenID"));
+                d._PatientID = cur.getString(cur.getColumnIndex("PatientID"));
+                d._FacilityID = cur.getString(cur.getColumnIndex("FacilityID"));
                 d._Q1 = cur.getString(cur.getColumnIndex("Q1"));
                 d._Q2 = cur.getString(cur.getColumnIndex("Q2"));
                 d._Q3 = cur.getString(cur.getColumnIndex("Q3"));

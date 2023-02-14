@@ -97,6 +97,12 @@
     View linemobile;
     TextView Vlblmobile;
     EditText txtmobile;
+
+     LinearLayout secProvID;
+     View lineProvID;
+     TextView VlblProvID;
+     EditText txtProvID;
+
     LinearLayout secrecv_service;
     View linerecv_service;
     TextView Vlblrecv_service;
@@ -116,6 +122,7 @@
     Bundle IDbundle;
     static String PATIENTID = "";
     static String FACILITYID = "";
+    static String WoName = "";
 
  public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -134,6 +141,7 @@
          IDbundle = getIntent().getExtras();
          PATIENTID = IDbundle.getString("PatientID");
          FACILITYID = IDbundle.getString("FacilityID");
+         WoName = IDbundle.getString("WoName");
 
          TableName = "Patient";
          MODULEID = 10;
@@ -239,6 +247,12 @@
          linemobile=(View)findViewById(R.id.linemobile);
          Vlblmobile=(TextView) findViewById(R.id.Vlblmobile);
          txtmobile=(EditText) findViewById(R.id.txtmobile);
+
+         secProvID=(LinearLayout)findViewById(R.id.secProvID);
+         lineProvID=(View)findViewById(R.id.lineProvID);
+         VlblProvID=(TextView) findViewById(R.id.VlblProvID);
+         txtProvID=(EditText) findViewById(R.id.txtProvID);
+
          secrecv_service=(LinearLayout)findViewById(R.id.secrecv_service);
          linerecv_service=(View)findViewById(R.id.linerecv_service);
          Vlblrecv_service = (TextView) findViewById(R.id.Vlblrecv_service);
@@ -282,6 +296,7 @@
              rb = (RadioButton)rdogrprecv_service.getChildAt(i);
              if (rb.isChecked()) objSave.setrecv_service(d_rdogrprecv_service[i]);
          }
+         objSave.setProvID(txtProvID.getText().toString());
 
          objSave.setStartTime(STARTTIME);
          objSave.setEndTime(g.CurrentTime24());
@@ -300,7 +315,8 @@
              Bundle IDbundle = new Bundle();
              IDbundle.putString("PatientID", txtPatientID.getText().toString());
              IDbundle.putString("FacilityID", FACILITYID);
-             Intent f1 = new Intent(getApplicationContext(), SectionA.class);
+             IDbundle.putString("WoName", txtpat_name.getText().toString());
+             Intent f1 = new Intent(getApplicationContext(), Menu_Patient.class);
              f1.putExtras(IDbundle);
              startActivityForResult(f1, 1);
          }
@@ -422,6 +438,7 @@
                      rb.setChecked(true);
                  }
              }
+               txtProvID.setText(item.getProvID());
            }
         }
         catch(Exception  e)

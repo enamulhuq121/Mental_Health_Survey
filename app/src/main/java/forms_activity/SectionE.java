@@ -407,7 +407,7 @@
 
          String status = objSave.SaveUpdateData(this);
          if(status.length()==0) {
-             Intent returnIntent = new Intent();
+/*             Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
              setResult(Activity.RESULT_OK, returnIntent);
              Connection.MessageBox(SectionE.this, "Saved Successfully");
@@ -417,7 +417,13 @@
              IDbundle.putString("FacilityID", FACILITYID);
              Intent f1 = new Intent(getApplicationContext(), SectionF.class);
              f1.putExtras(IDbundle);
-             startActivityForResult(f1, 1);
+             startActivityForResult(f1, 1);*/
+
+             Intent returnIntent = new Intent();
+             returnIntent.putExtra("res", "");
+             setResult(Activity.RESULT_OK, returnIntent);
+             Connection.MessageBox(SectionE.this, "Saved Successfully");
+             finish();
          }
          else{
              Connection.MessageBox(SectionE.this, status);

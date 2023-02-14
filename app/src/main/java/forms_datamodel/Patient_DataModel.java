@@ -59,6 +59,15 @@ import android.content.Context;
         public void setmobile(String newValue){
               _mobile = newValue;
          }
+
+     private String _ProvID = "";
+     public String getProvID(){
+         return _ProvID;
+     }
+     public void setProvID(String newValue){
+         _ProvID = newValue;
+     }
+
         private String _recv_service = "";
         public String getrecv_service(){
               return _recv_service;
@@ -131,6 +140,7 @@ import android.content.Context;
                  contentValues.put("pat_age", _pat_age);
                  contentValues.put("mobile", _mobile);
                  contentValues.put("recv_service", _recv_service);
+                  contentValues.put("ProvID", _ProvID);
                  contentValues.put("StartTime", _StartTime);
                  contentValues.put("EndTime", _EndTime);
                  contentValues.put("DeviceID", _DeviceID);
@@ -163,6 +173,7 @@ import android.content.Context;
                  contentValues.put("pat_name", _pat_name);
                  contentValues.put("pat_age", _pat_age);
                  contentValues.put("mobile", _mobile);
+                  contentValues.put("ProvID", _ProvID);
                  contentValues.put("recv_service", _recv_service);
                  contentValues.put("Upload", _Upload);
                  contentValues.put("modifyDate", _modifyDate);
@@ -197,6 +208,7 @@ import android.content.Context;
                 d._pat_age = cur.getString(cur.getColumnIndex("pat_age"));
                 d._mobile = cur.getString(cur.getColumnIndex("mobile"));
                 d._recv_service = cur.getString(cur.getColumnIndex("recv_service"));
+                d._ProvID = cur.getString(cur.getColumnIndex("ProvID"));
                 data.add(d);
 
                 cur.moveToNext();

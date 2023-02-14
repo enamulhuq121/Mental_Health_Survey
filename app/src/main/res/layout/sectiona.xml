@@ -150,7 +150,7 @@
         <TextView android:id="@+id/VlblAScore" android:text="Total Score" android:layout_width="250sp" android:layout_height="wrap_content"  android:layout_marginBottom="10sp"/>
          <EditText android:id="@+id/txtAScore" android:maxLength="2" android:layout_width="60sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" />
     </LinearLayout>
-    <View android:id="@+id/lineAScore" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+    <View android:id="@+id/lineAScore"  android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
        <LinearLayout android:layout_width="fill_parent" android:paddingTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
        	<Button android:id="@+id/cmdSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button_style_circle_line"
        			android:text=" Save -> Continue " android:textColor="@drawable/button_style_line_text_color" android:layout_marginBottom="20sp" android:layout_marginLeft="20sp" android:layout_marginRight="20sp"/>

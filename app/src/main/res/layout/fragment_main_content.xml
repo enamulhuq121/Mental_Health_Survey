@@ -49,16 +49,15 @@
                     android:gravity="center_vertical"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical" >
 
-                    <ImageView
+                    <!--<ImageView
                         android:id="@+id/iv_usaid"
                         android:layout_width="wrap_content"
                         android:layout_height="45dp"
                         android:layout_gravity="center"
                         app:srcCompat="@drawable/logo_app"
-                        app:tint="@color/AppBar_Icon_Color" />
+                        app:tint="@color/AppBar_Icon_Color" />-->
                 </LinearLayout>
 
             </RelativeLayout>

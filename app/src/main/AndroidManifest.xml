@@ -107,7 +107,7 @@
         <activity android:name="forms_activity.SectionH" />
         <activity android:name="forms_activity.Provider_list" />
         <activity android:name="forms_activity.Provider" />
+        <activity android:name="forms_activity.Menu_Patient" />
         <activity android:name="forms_activity.Women" />
-        <activity android:name="forms_activity.Women_list" />
     </application>
 </manifest>

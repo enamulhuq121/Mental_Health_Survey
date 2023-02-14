@@ -95,10 +95,14 @@
     SimpleAdapter dataAdapter;
     ArrayList<HashMap<String, String>> dataList = new ArrayList<HashMap<String, String>>();
     TextView lblHeading;
-    LinearLayout secWomenID;
-    View lineWomenID;
-    TextView VlblWomenID;
-    EditText txtWomenID;
+    LinearLayout secPatientID;
+    View linePatientID;
+    TextView VlblPatientID;
+    EditText txtPatientID;
+    LinearLayout secFacilityID;
+    View lineFacilityID;
+    TextView VlblFacilityID;
+    EditText txtFacilityID;
     LinearLayout seclbl01;
     View linelbl01;
     LinearLayout seclbl02;
@@ -242,7 +246,8 @@
     MySharedPreferences sp;
 
     Bundle IDbundle;
-    static String WOMENID = "";
+    static String PATIENTID = "";
+    static String FACILITYID = "";
 
  public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -259,7 +264,8 @@
          ENTRYUSER = MySharedPreferences.getValue(this, "userid");
 
          IDbundle = getIntent().getExtras();
-         WOMENID = IDbundle.getString("WomenID");
+         PATIENTID = IDbundle.getString("PatientID");
+         FACILITYID = IDbundle.getString("FacilityID");
 
          TableName = "Women";
          MODULEID = 11;
@@ -290,7 +296,7 @@
          //Hide all skip variables
 
 
-        DataSearch(WOMENID);
+        DataSearch(PATIENTID,FACILITYID);
 
 
         Button cmdSave = (Button) findViewById(R.id.cmdSave);
@@ -310,14 +316,18 @@
  {
    try
      {
-         secWomenID=(LinearLayout)findViewById(R.id.secWomenID);
-         lineWomenID=(View)findViewById(R.id.lineWomenID);
-         VlblWomenID=(TextView) findViewById(R.id.VlblWomenID);
-         txtWomenID=(EditText) findViewById(R.id.txtWomenID);
-         if(WOMENID.length()==0) txtWomenID.setText(Global.GetDATE_ID(DEVICEID));
-         else txtWomenID.setText(WOMENID);
-         txtWomenID.setEnabled(false);
-
+         secPatientID=(LinearLayout)findViewById(R.id.secPatientID);
+         linePatientID=(View)findViewById(R.id.linePatientID);
+         VlblPatientID=(TextView) findViewById(R.id.VlblPatientID);
+         txtPatientID=(EditText) findViewById(R.id.txtPatientID);
+         txtPatientID.setText(PATIENTID);
+         txtPatientID.setEnabled(false);
+         secFacilityID=(LinearLayout)findViewById(R.id.secFacilityID);
+         lineFacilityID=(View)findViewById(R.id.lineFacilityID);
+         VlblFacilityID=(TextView) findViewById(R.id.VlblFacilityID);
+         txtFacilityID=(EditText) findViewById(R.id.txtFacilityID);
+         txtFacilityID.setText(FACILITYID);
+         txtFacilityID.setEnabled(false);
          seclbl01=(LinearLayout)findViewById(R.id.seclbl01);
          linelbl01=(View)findViewById(R.id.linelbl01);
          seclbl02=(LinearLayout)findViewById(R.id.seclbl02);
@@ -473,7 +483,8 @@
          RadioButton rb;
 
          Women_DataModel objSave = new Women_DataModel();
-         objSave.setWomenID(txtWomenID.getText().toString());
+         objSave.setPatientID(txtPatientID.getText().toString());
+         objSave.setFacilityID(txtFacilityID.getText().toString());
          String[] d_rdogrpQ1 = new String[] {"1","2"};
          objSave.setQ1("");
          for (int i = 0; i < rdogrpQ1.getChildCount(); i++)
@@ -646,7 +657,6 @@
              Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
              setResult(Activity.RESULT_OK, returnIntent);
-
              Connection.MessageBox(Women.this, "Saved Successfully");
              finish();
          }
@@ -669,10 +679,15 @@
    try
      {
          ResetSectionColor();
-         if(txtWomenID.getText().toString().length()==0 & secWomenID.isShown())
+         if(txtPatientID.getText().toString().length()==0 & secPatientID.isShown())
            {
-             ValidationMsg += "\nRequired field: Women ID.";
-             secWomenID.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+             ValidationMsg += "\nRequired field: Patient ID.";
+             secPatientID.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+           }
+         if(txtFacilityID.getText().toString().length()==0 & secFacilityID.isShown())
+           {
+             ValidationMsg += "\nRequired field: Facility ID.";
+             secFacilityID.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
          if(!rdoQ11.isChecked() & !rdoQ12.isChecked() & secQ1.isShown())
            {
@@ -787,7 +802,8 @@
  {
    try
      {
-             secWomenID.setBackgroundColor(Color.WHITE);
+             secPatientID.setBackgroundColor(Color.WHITE);
+             secFacilityID.setBackgroundColor(Color.WHITE);
              secQ1.setBackgroundColor(Color.WHITE);
              secQ2.setBackgroundColor(Color.WHITE);
              secQ3.setBackgroundColor(Color.WHITE);
@@ -814,16 +830,17 @@
      }
  }
 
- private void DataSearch(String WomenID)
+ private void DataSearch(String PatientID, String FacilityID)
      {
        try
         {     
            RadioButton rb;
            Women_DataModel d = new Women_DataModel();
-           String SQL = "Select * from "+ TableName +"  Where WomenID='"+ WomenID +"'";
+           String SQL = "Select * from "+ TableName +"  Where PatientID='"+ PatientID +"' and FacilityID='"+ FacilityID +"'";
            List<Women_DataModel> data = d.SelectAll(this, SQL);
            for(Women_DataModel item : data){
-             txtWomenID.setText(item.getWomenID());
+             txtPatientID.setText(item.getPatientID());
+             txtFacilityID.setText(item.getFacilityID());
              String[] d_rdogrpQ1 = new String[] {"1","2"};
              for (int i = 0; i < d_rdogrpQ1.length; i++)
              {
