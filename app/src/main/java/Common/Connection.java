@@ -1784,6 +1784,11 @@ public class Connection extends SQLiteOpenHelper {
         return deviceUniqueIdentifier;
     }*/
 
+    public String NewPatientID(String DeviceNo)
+    {
+        String PID = ReturnSingleValue("Select (ifnull(max(cast(patientid as numeric(10))),0)+1)MaxId from Patient where DeviceID='"+ DeviceNo +"'");
+        return DeviceNo + Global.Right("0000000000"+PID,5);
+    }
 
     //Bari Number
     public String NewBariNumber_ByCluster(String DCode, String UPCode, String UNCode,String Cluster, String VCode, int TotalDigit)

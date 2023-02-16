@@ -44,7 +44,7 @@
     <LinearLayout android:id="@+id/secpat_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
         <TextView android:id="@+id/lblpat_name" android:text="3." android:layout_width="40sp" android:layout_height="wrap_content" />
         <TextView android:id="@+id/Vlblpat_name" android:text="নাম" android:layout_width="250sp" android:layout_height="wrap_content"  android:layout_marginBottom="10sp"/>
-        <EditText android:id="@+id/txtpat_name" android:maxLength="60" android:layout_width="match_parent" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp"/>
+        <EditText android:id="@+id/txtpat_name" android:maxLength="60" android:layout_width="match_parent" android:inputType="textCapWords" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp"/>
     </LinearLayout>
     <View android:id="@+id/linepat_name" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secpat_age" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
@@ -53,14 +53,33 @@
          <EditText android:id="@+id/txtpat_age" android:maxLength="2" android:layout_width="60sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" />
     </LinearLayout>
     <View android:id="@+id/linepat_age" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/secpat_sex" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblpat_sex" android:text="5." android:layout_width="40sp" android:layout_height="wrap_content" />
+            <TextView android:id="@+id/Vlblpat_sex" android:text="লিঙ্গ" android:layout_width="250sp" android:layout_height="wrap_content"  android:layout_marginBottom="10sp"/>
+            <RadioGroup android:id="@+id/rdogrppat_sex" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdopat_sex1" android:text="পুরুষ" android:paddingLeft="5dp"/>
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdopat_sex2" android:text="মহিলা" android:paddingLeft="5dp"/>
+            </RadioGroup>
+        </LinearLayout>
+        <View android:id="@+id/linepat_sex" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+        <LinearLayout android:id="@+id/secpat_cat" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:id="@+id/lblpat_cat" android:text="6." android:layout_width="40sp" android:layout_height="wrap_content" />
+            <TextView android:id="@+id/Vlblpat_cat" android:text="রোগীর ধরন" android:layout_width="250sp" android:layout_height="wrap_content"  android:layout_marginBottom="10sp"/>
+            <RadioGroup android:id="@+id/rdogrppat_cat" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdopat_cat1" android:text="গর্ভবতী" android:paddingLeft="5dp"/>
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdopat_cat2" android:text="প্রসবোত্তর" android:paddingLeft="5dp"/>
+                <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdopat_cat3" android:text="সাধারন" android:paddingLeft="5dp"/>
+            </RadioGroup>
+        </LinearLayout>
+        <View android:id="@+id/linepat_cat" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secmobile" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblmobile" android:text="5." android:layout_width="40sp" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lblmobile" android:text="7." android:layout_width="40sp" android:layout_height="wrap_content" />
         <TextView android:id="@+id/Vlblmobile" android:text="মোবাইল নাম্বার" android:layout_width="250sp" android:layout_height="wrap_content"  android:layout_marginBottom="10sp"/>
         <EditText android:id="@+id/txtmobile" android:maxLength="11" android:layout_width="match_parent" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp"/>
     </LinearLayout>
     <View android:id="@+id/linemobile" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secrecv_service" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-        <TextView android:id="@+id/lblrecv_service" android:text="6." android:layout_width="40sp" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lblrecv_service" android:text="8." android:layout_width="40sp" android:layout_height="wrap_content" />
         <TextView android:id="@+id/Vlblrecv_service" android:text="মন-স্বাস্থ্য কেন্দ্র থেকে সেবা গ্রহন" android:layout_width="250sp" android:layout_height="wrap_content"  android:layout_marginBottom="10sp"/>
         <RadioGroup android:id="@+id/rdogrprecv_service" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">         
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdorecv_service1" android:text="হ্যাঁ" android:paddingLeft="5dp"/>
@@ -69,7 +88,7 @@
     </LinearLayout>
     <View android:id="@+id/linerecv_service" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
         <LinearLayout android:id="@+id/secProvID" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
-            <TextView android:id="@+id/lblProvID" android:text="7." android:layout_width="40sp" android:layout_height="wrap_content" />
+            <TextView android:id="@+id/lblProvID" android:text="9." android:layout_width="40sp" android:layout_height="wrap_content" />
             <TextView android:id="@+id/VlblProvID" android:text="মন-স্বাস্থ্য কেন্দ্রে সেবাগ্রহনকারীর আইডি" android:layout_width="250sp" android:layout_height="wrap_content"  android:layout_marginBottom="10sp"/>
             <EditText android:id="@+id/txtProvID" android:maxLength="20" android:layout_width="match_parent" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp"/>
         </LinearLayout>

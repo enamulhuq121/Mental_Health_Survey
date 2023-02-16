@@ -60,6 +60,20 @@ import android.content.Context;
               _mobile = newValue;
          }
 
+     private String _pat_sex = "";
+     public String getpat_sex(){
+         return _pat_sex;
+     }
+     public void setpat_sex(String newValue){
+         _pat_sex = newValue;
+     }
+     private String _pat_cat = "";
+     public String getpat_cat(){
+         return _pat_cat;
+     }
+     public void setpat_cat(String newValue){
+         _pat_cat = newValue;
+     }
      private String _ProvID = "";
      public String getProvID(){
          return _ProvID;
@@ -141,6 +155,8 @@ import android.content.Context;
                  contentValues.put("mobile", _mobile);
                  contentValues.put("recv_service", _recv_service);
                   contentValues.put("ProvID", _ProvID);
+                  contentValues.put("pat_sex", _pat_sex);
+                  contentValues.put("pat_cat", _pat_cat);
                  contentValues.put("StartTime", _StartTime);
                  contentValues.put("EndTime", _EndTime);
                  contentValues.put("DeviceID", _DeviceID);
@@ -174,6 +190,8 @@ import android.content.Context;
                  contentValues.put("pat_age", _pat_age);
                  contentValues.put("mobile", _mobile);
                   contentValues.put("ProvID", _ProvID);
+                  contentValues.put("pat_sex", _pat_sex);
+                  contentValues.put("pat_cat", _pat_cat);
                  contentValues.put("recv_service", _recv_service);
                  contentValues.put("Upload", _Upload);
                  contentValues.put("modifyDate", _modifyDate);
@@ -209,6 +227,8 @@ import android.content.Context;
                 d._mobile = cur.getString(cur.getColumnIndex("mobile"));
                 d._recv_service = cur.getString(cur.getColumnIndex("recv_service"));
                 d._ProvID = cur.getString(cur.getColumnIndex("ProvID"));
+                d._pat_sex = cur.getString(cur.getColumnIndex("pat_sex"));
+                d._pat_cat = cur.getString(cur.getColumnIndex("pat_cat"));
                 data.add(d);
 
                 cur.moveToNext();

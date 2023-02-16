@@ -374,7 +374,8 @@
          lineProviderID=(View)findViewById(R.id.lineProviderID);
          VlblProviderID=(TextView) findViewById(R.id.VlblProviderID);
          txtProviderID=(EditText) findViewById(R.id.txtProviderID);
-         if(PROVIDERID.length()==0) txtProviderID.setText(Global.GetDATE_ID(DEVICEID));
+
+         if(PROVIDERID.length()==0) txtProviderID.setText(C.NewPatientID(DEVICEID));
          else txtProviderID.setText(PROVIDERID);
          txtProviderID.setEnabled(false);
 
