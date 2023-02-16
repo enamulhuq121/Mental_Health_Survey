@@ -354,6 +354,22 @@
          secC8xSp.setVisibility(View.GONE);
          lineC8xSp.setVisibility(View.GONE);
 
+         if (PatCatPreg.equals("1")){
+             secC1.setVisibility(View.VISIBLE);
+             lineC1.setVisibility(View.VISIBLE);
+         }else if (PatCatPreg.equals("2")){
+             secC1.setVisibility(View.GONE);
+             lineC1.setVisibility(View.GONE);
+             txtC1.setText("");
+         }
+
+         if (PatCatDeliv.equals("1")){
+             secC2.setVisibility(View.VISIBLE);
+             lineC2.setVisibility(View.VISIBLE);
+         }else if (PatCatDeliv.equals("2")){
+             secC2.setVisibility(View.GONE);
+             lineC2.setVisibility(View.GONE);
+         }
 
         DataSearch(PATIENTID,FACILITYID);
 
@@ -408,159 +424,18 @@
                rb = (RadioButton)rdogrpPatientCat.getChildAt(i);
                if (rb.isChecked()) rbData = d_rdogrpPatientCat[i];
              }
-
-             /*if(rbData.equalsIgnoreCase("2"))
-             {
-                 secC1.setVisibility(View.GONE);
-                 lineC1.setVisibility(View.GONE);
-                 txtC1.setText("");
-                 secC2.setVisibility(View.GONE);
-                 lineC2.setVisibility(View.GONE);
-                 txtC2.setText("");
-                 secC3.setVisibility(View.GONE);
-                 lineC3.setVisibility(View.GONE);
-                 txtC3.setText("");
-                 secC4.setVisibility(View.GONE);
-                 lineC4.setVisibility(View.GONE);
-                 rdogrpC4.clearCheck();
-                 secC5.setVisibility(View.GONE);
-                 lineC5.setVisibility(View.GONE);
-                 rdogrpC5.clearCheck();
-                 secC6.setVisibility(View.GONE);
-                 lineC6.setVisibility(View.GONE);
-                 rdogrpC6.clearCheck();
-                 secC7.setVisibility(View.GONE);
-                 lineC7.setVisibility(View.GONE);
-                 rdogrpC7.clearCheck();
-                 seclblC8.setVisibility(View.GONE);
-                 linelblC8.setVisibility(View.GONE);
-                 secC8a.setVisibility(View.GONE);
-                 lineC8a.setVisibility(View.GONE);
-                 chkC8a.setChecked(false);
-                 secC8b.setVisibility(View.GONE);
-                 lineC8b.setVisibility(View.GONE);
-                 chkC8b.setChecked(false);
-                 secC8c.setVisibility(View.GONE);
-                 lineC8c.setVisibility(View.GONE);
-                 chkC8c.setChecked(false);
-                 secC8d.setVisibility(View.GONE);
-                 lineC8d.setVisibility(View.GONE);
-                 chkC8d.setChecked(false);
-                 secC8e.setVisibility(View.GONE);
-                 lineC8e.setVisibility(View.GONE);
-                 chkC8e.setChecked(false);
-                 secC8f.setVisibility(View.GONE);
-                 lineC8f.setVisibility(View.GONE);
-                 chkC8f.setChecked(false);
-                 secC8g.setVisibility(View.GONE);
-                 lineC8g.setVisibility(View.GONE);
-                 chkC8g.setChecked(false);
-                 secC8h.setVisibility(View.GONE);
-                 lineC8h.setVisibility(View.GONE);
-                 chkC8h.setChecked(false);
-                 secC8i.setVisibility(View.GONE);
-                 lineC8i.setVisibility(View.GONE);
-                 chkC8i.setChecked(false);
-                 secC8j.setVisibility(View.GONE);
-                 lineC8j.setVisibility(View.GONE);
-                 chkC8j.setChecked(false);
-                 secC8k.setVisibility(View.GONE);
-                 lineC8k.setVisibility(View.GONE);
-                 chkC8k.setChecked(false);
-                 secC8l.setVisibility(View.GONE);
-                 lineC8l.setVisibility(View.GONE);
-                 chkC8l.setChecked(false);
-                 secC8m.setVisibility(View.GONE);
-                 lineC8m.setVisibility(View.GONE);
-                 chkC8m.setChecked(false);
-                 secC8n.setVisibility(View.GONE);
-                 lineC8n.setVisibility(View.GONE);
-                 chkC8n.setChecked(false);
-                 secC8o.setVisibility(View.GONE);
-                 lineC8o.setVisibility(View.GONE);
-                 chkC8o.setChecked(false);
-                 secC8p.setVisibility(View.GONE);
-                 lineC8p.setVisibility(View.GONE);
-                 chkC8p.setChecked(false);
-                 secC8q.setVisibility(View.GONE);
-                 lineC8q.setVisibility(View.GONE);
-                 chkC8q.setChecked(false);
-                 secC8x.setVisibility(View.GONE);
-                 lineC8x.setVisibility(View.GONE);
-                 chkC8x.setChecked(false);
-                 secC8xSp.setVisibility(View.GONE);
-                 lineC8xSp.setVisibility(View.GONE);
-                 txtC8xSp.setText("");
-                 secC8z.setVisibility(View.GONE);
-                 lineC8z.setVisibility(View.GONE);
-                 chkC8z.setChecked(false);
-             }
-             else
-             {
-                 secC1.setVisibility(View.VISIBLE);
-                 lineC1.setVisibility(View.VISIBLE);
-                 secC2.setVisibility(View.VISIBLE);
-                 lineC2.setVisibility(View.VISIBLE);
-                 secC3.setVisibility(View.VISIBLE);
-                 lineC3.setVisibility(View.VISIBLE);
-                 secC4.setVisibility(View.VISIBLE);
-                 lineC4.setVisibility(View.VISIBLE);
-                 secC5.setVisibility(View.VISIBLE);
-                 lineC5.setVisibility(View.VISIBLE);
-                 secC6.setVisibility(View.VISIBLE);
-                 lineC6.setVisibility(View.VISIBLE);
-                 secC7.setVisibility(View.VISIBLE);
-                 lineC7.setVisibility(View.VISIBLE);
-                 seclblC8.setVisibility(View.VISIBLE);
-                 linelblC8.setVisibility(View.VISIBLE);
-                 secC8a.setVisibility(View.VISIBLE);
-                 lineC8a.setVisibility(View.VISIBLE);
-                 secC8b.setVisibility(View.VISIBLE);
-                 lineC8b.setVisibility(View.VISIBLE);
-                 secC8c.setVisibility(View.VISIBLE);
-                 lineC8c.setVisibility(View.VISIBLE);
-                 secC8d.setVisibility(View.VISIBLE);
-                 lineC8d.setVisibility(View.VISIBLE);
-                 secC8e.setVisibility(View.VISIBLE);
-                 lineC8e.setVisibility(View.VISIBLE);
-                 secC8f.setVisibility(View.VISIBLE);
-                 lineC8f.setVisibility(View.VISIBLE);
-                 secC8g.setVisibility(View.VISIBLE);
-                 lineC8g.setVisibility(View.VISIBLE);
-                 secC8h.setVisibility(View.VISIBLE);
-                 lineC8h.setVisibility(View.VISIBLE);
-                 secC8i.setVisibility(View.VISIBLE);
-                 lineC8i.setVisibility(View.VISIBLE);
-                 secC8j.setVisibility(View.VISIBLE);
-                 lineC8j.setVisibility(View.VISIBLE);
-                 secC8k.setVisibility(View.VISIBLE);
-                 lineC8k.setVisibility(View.VISIBLE);
-                 secC8l.setVisibility(View.VISIBLE);
-                 lineC8l.setVisibility(View.VISIBLE);
-                 secC8m.setVisibility(View.VISIBLE);
-                 lineC8m.setVisibility(View.VISIBLE);
-                 secC8n.setVisibility(View.VISIBLE);
-                 lineC8n.setVisibility(View.VISIBLE);
-                 secC8o.setVisibility(View.VISIBLE);
-                 lineC8o.setVisibility(View.VISIBLE);
-                 secC8p.setVisibility(View.VISIBLE);
-                 lineC8p.setVisibility(View.VISIBLE);
-                 secC8q.setVisibility(View.VISIBLE);
-                 lineC8q.setVisibility(View.VISIBLE);
-                 secC8x.setVisibility(View.VISIBLE);
-                 lineC8x.setVisibility(View.VISIBLE);
-                 secC8z.setVisibility(View.VISIBLE);
-                 lineC8z.setVisibility(View.VISIBLE);
-             }*/
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
              return;
             } 
-         }); 
+         });
+
+
          secC1=(LinearLayout)findViewById(R.id.secC1);
          lineC1=(View)findViewById(R.id.lineC1);
          VlblC1=(TextView) findViewById(R.id.VlblC1);
          txtC1=(EditText) findViewById(R.id.txtC1);
+
          secC2=(LinearLayout)findViewById(R.id.secC2);
          lineC2=(View)findViewById(R.id.lineC2);
          VlblC2=(TextView) findViewById(R.id.VlblC2);
