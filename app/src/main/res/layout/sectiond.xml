@@ -71,6 +71,7 @@
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD32" android:text="তালাকপ্রাপ্ত" android:paddingLeft="5dp"/>
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD33" android:text="অন্যান্য" android:paddingLeft="5dp"/>
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD34" android:text="অবিবাহিত" android:paddingLeft="5dp"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD35" android:text="বিধবা" android:paddingLeft="5dp"/>
         </RadioGroup>
     </LinearLayout>
     <View android:id="@+id/lineD3" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
@@ -90,6 +91,9 @@
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD44" android:text="কৃষি" android:paddingLeft="5dp"/>
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD45" android:text="অক্ষমতার কারনে কাজ করতে না পারা" android:paddingLeft="5dp"/>
            <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD46" android:text="অন্যান্য" android:paddingLeft="5dp"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD47" android:text="শিক্ষার্থী" android:paddingLeft="5dp"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD48" android:text="শ্রমিক" android:paddingLeft="5dp"/>
+           <RadioButton android:layout_height="wrap_content" android:layout_width="wrap_content" android:paddingRight="10dp" android:id="@+id/rdoD49" android:text="বেকার" android:paddingLeft="5dp"/>
         </RadioGroup>
     </LinearLayout>
     <View android:id="@+id/lineD4" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
