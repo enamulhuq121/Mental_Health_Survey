@@ -245,8 +245,6 @@
     Bundle IDbundle;
     static String PATIENTID = "";
     static String FACILITYID = "";
-     static String PatCatPreg = "";
-     static String PatCatDeliv = "";
 
  public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
@@ -265,8 +263,6 @@
          IDbundle = getIntent().getExtras();
          PATIENTID = IDbundle.getString("PatientID");
          FACILITYID = IDbundle.getString("FacilityID");
-         PatCatPreg = IDbundle.getString("PatCatPreg");
-         PatCatDeliv = IDbundle.getString("PatCatDeliv");
 
          TableName = "SectionC";
          MODULEID = 3;
@@ -295,81 +291,11 @@
 
 
          //Hide all skip variables
-//         secC1.setVisibility(View.GONE);
-//         lineC1.setVisibility(View.GONE);
-//         secC2.setVisibility(View.GONE);
-//         lineC2.setVisibility(View.GONE);
-//         secC3.setVisibility(View.GONE);
-//         lineC3.setVisibility(View.GONE);
-//         secC4.setVisibility(View.GONE);
-//         lineC4.setVisibility(View.GONE);
-//         secC5.setVisibility(View.GONE);
-//         lineC5.setVisibility(View.GONE);
-//         secC6.setVisibility(View.GONE);
-//         lineC6.setVisibility(View.GONE);
-//         secC7.setVisibility(View.GONE);
-//         lineC7.setVisibility(View.GONE);
-//         seclblC8.setVisibility(View.GONE);
-//         linelblC8.setVisibility(View.GONE);
-//         secC8a.setVisibility(View.GONE);
-//         lineC8a.setVisibility(View.GONE);
-//         secC8b.setVisibility(View.GONE);
-//         lineC8b.setVisibility(View.GONE);
-//         secC8c.setVisibility(View.GONE);
-//         lineC8c.setVisibility(View.GONE);
-//         secC8d.setVisibility(View.GONE);
-//         lineC8d.setVisibility(View.GONE);
-//         secC8e.setVisibility(View.GONE);
-//         lineC8e.setVisibility(View.GONE);
-//         secC8f.setVisibility(View.GONE);
-//         lineC8f.setVisibility(View.GONE);
-//         secC8g.setVisibility(View.GONE);
-//         lineC8g.setVisibility(View.GONE);
-//         secC8h.setVisibility(View.GONE);
-//         lineC8h.setVisibility(View.GONE);
-//         secC8i.setVisibility(View.GONE);
-//         lineC8i.setVisibility(View.GONE);
-//         secC8j.setVisibility(View.GONE);
-//         lineC8j.setVisibility(View.GONE);
-//         secC8k.setVisibility(View.GONE);
-//         lineC8k.setVisibility(View.GONE);
-//         secC8l.setVisibility(View.GONE);
-//         lineC8l.setVisibility(View.GONE);
-//         secC8m.setVisibility(View.GONE);
-//         lineC8m.setVisibility(View.GONE);
-//         secC8n.setVisibility(View.GONE);
-//         lineC8n.setVisibility(View.GONE);
-//         secC8o.setVisibility(View.GONE);
-//         lineC8o.setVisibility(View.GONE);
-//         secC8p.setVisibility(View.GONE);
-//         lineC8p.setVisibility(View.GONE);
-//         secC8q.setVisibility(View.GONE);
-//         lineC8q.setVisibility(View.GONE);
-//         secC8x.setVisibility(View.GONE);
-//         lineC8x.setVisibility(View.GONE);
-         secC8xSp.setVisibility(View.GONE);
-         lineC8xSp.setVisibility(View.GONE);
-//         secC8z.setVisibility(View.GONE);
-//         lineC8z.setVisibility(View.GONE);
+         secC1.setVisibility(View.GONE);
+         lineC1.setVisibility(View.GONE);
          secC8xSp.setVisibility(View.GONE);
          lineC8xSp.setVisibility(View.GONE);
 
-         if (PatCatPreg.equals("1")){
-             secC1.setVisibility(View.VISIBLE);
-             lineC1.setVisibility(View.VISIBLE);
-         }else if (PatCatPreg.equals("2")){
-             secC1.setVisibility(View.GONE);
-             lineC1.setVisibility(View.GONE);
-             txtC1.setText("");
-         }
-
-         if (PatCatDeliv.equals("1")){
-             secC2.setVisibility(View.VISIBLE);
-             lineC2.setVisibility(View.VISIBLE);
-         }else if (PatCatDeliv.equals("2")){
-             secC2.setVisibility(View.GONE);
-             lineC2.setVisibility(View.GONE);
-         }
 
         DataSearch(PATIENTID,FACILITYID);
 
@@ -424,18 +350,27 @@
                rb = (RadioButton)rdogrpPatientCat.getChildAt(i);
                if (rb.isChecked()) rbData = d_rdogrpPatientCat[i];
              }
+
+             if(rbData.equalsIgnoreCase("2"))
+             {
+                    secC1.setVisibility(View.GONE);
+                    lineC1.setVisibility(View.GONE);
+                    txtC1.setText("");
+             }
+             else
+             {
+                    secC1.setVisibility(View.VISIBLE);
+                    lineC1.setVisibility(View.VISIBLE);
+             }
             }
          public void onNothingSelected(AdapterView<?> adapterView) {
              return;
             } 
-         });
-
-
+         }); 
          secC1=(LinearLayout)findViewById(R.id.secC1);
          lineC1=(View)findViewById(R.id.lineC1);
          VlblC1=(TextView) findViewById(R.id.VlblC1);
          txtC1=(EditText) findViewById(R.id.txtC1);
-
          secC2=(LinearLayout)findViewById(R.id.secC2);
          lineC2=(View)findViewById(R.id.lineC2);
          VlblC2=(TextView) findViewById(R.id.VlblC2);
@@ -663,7 +598,7 @@
 
          String status = objSave.SaveUpdateData(this);
          if(status.length()==0) {
-/*             Intent returnIntent = new Intent();
+             Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
              setResult(Activity.RESULT_OK, returnIntent);
              Connection.MessageBox(SectionC.this, "Saved Successfully");
@@ -673,13 +608,7 @@
              IDbundle.putString("FacilityID", FACILITYID);
              Intent f1 = new Intent(getApplicationContext(), SectionD.class);
              f1.putExtras(IDbundle);
-             startActivityForResult(f1, 1);*/
-
-             Intent returnIntent = new Intent();
-             returnIntent.putExtra("res", "");
-             setResult(Activity.RESULT_OK, returnIntent);
-             Connection.MessageBox(SectionC.this, "Saved Successfully");
-             finish();
+             startActivityForResult(f1, 1);
          }
          else{
              Connection.MessageBox(SectionC.this, status);
@@ -720,9 +649,9 @@
              ValidationMsg += "\nC1. Required field: কত সপ্তাহের গর্ভবতী.";
              secC1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(secC1.isShown() & (Integer.valueOf(txtC1.getText().toString().length()==0 ? "04" : txtC1.getText().toString()) < 04 || Integer.valueOf(txtC1.getText().toString().length()==0 ? "40" : txtC1.getText().toString()) > 40))
+         if(secC1.isShown() & (Integer.valueOf(txtC1.getText().toString().length()==0 ? "04" : txtC1.getText().toString()) < 04 || Integer.valueOf(txtC1.getText().toString().length()==0 ? "42" : txtC1.getText().toString()) > 42))
            {
-             ValidationMsg += "\nC1. Value should be between 04 and 40(কত সপ্তাহের গর্ভবতী).";
+             ValidationMsg += "\nC1. Value should be between 04 and 42(কত সপ্তাহের গর্ভবতী).";
              secC1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
          if(txtC2.getText().toString().length()==0 & secC2.isShown())
@@ -730,9 +659,9 @@
              ValidationMsg += "\nC2. Required field: প্রসবোত্তর সপ্তাহ.";
              secC2.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(secC2.isShown() & (Integer.valueOf(txtC2.getText().toString().length()==0 ? "00" : txtC2.getText().toString()) < 00 || Integer.valueOf(txtC2.getText().toString().length()==0 ? "6" : txtC2.getText().toString()) > 6))
+         if(secC2.isShown() & (Integer.valueOf(txtC2.getText().toString().length()==0 ? "00" : txtC2.getText().toString()) < 00 || Integer.valueOf(txtC2.getText().toString().length()==0 ? "42" : txtC2.getText().toString()) > 42))
            {
-             ValidationMsg += "\nC2. Value should be between 00 and 6(প্রসবোত্তর সপ্তাহ).";
+             ValidationMsg += "\nC2. Value should be between 00 and 42(প্রসবোত্তর সপ্তাহ).";
              secC2.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
          if(txtC3.getText().toString().length()==0 & secC3.isShown())
@@ -770,30 +699,6 @@
              ValidationMsg += "\nRequired field: অন্যান্য হলে নির্দিষ্ট করুন.";
              secC8xSp.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-
-         if (chkC8z.isChecked() & (chkC8a.isChecked() || chkC8b.isChecked() || chkC8c.isChecked()|| chkC8d.isChecked() || chkC8e.isChecked() || chkC8f.isChecked() || chkC8g.isChecked() || chkC8h.isChecked()|| chkC8i.isChecked()|| chkC8j.isChecked()|| chkC8k.isChecked()|| chkC8l.isChecked() || chkC8m.isChecked() || chkC8n.isChecked() || chkC8o.isChecked() || chkC8p.isChecked() || chkC8q.isChecked() || chkC8x.isChecked()) & chkC8a.isShown())
-         {
-             ValidationMsg += "\n C8. 98 জানিনা হয় তাহলে 1-18 হবেনা";
-             chkC8a.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8b.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8c.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8d.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8e.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8f.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8g.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8h.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8i.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8j.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8k.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8l.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8m.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8n.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8o.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8p.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8q.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8x.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-             chkC8z.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
-         }
      }
      catch(Exception  e)
      {

@@ -1,4 +1,6 @@
 package Common;
+import static java.util.UUID.randomUUID;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -30,6 +32,12 @@ public class Global {
 		}
 		return instance;
 	}
+	//UUID
+	public static String Get_UUID()
+	{
+		return randomUUID().toString();
+	}
+
 
 	private String _progressMessage;
 	public void setProgressMessage(String progressMessage){this._progressMessage = progressMessage;}

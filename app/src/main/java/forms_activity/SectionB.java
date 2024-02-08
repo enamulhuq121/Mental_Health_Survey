@@ -229,7 +229,7 @@
 
 
         DataSearch(PATIENTID,FACILITYID);
-         txtBScore.setText(String.valueOf(GetScore()));
+
 
         Button cmdSave = (Button) findViewById(R.id.cmdSave);
         cmdSave.setOnClickListener(new View.OnClickListener() {
@@ -243,60 +243,7 @@
          return;
      }
  }
-     private int GetScore(){
-         RadioButton rb;
-         int total_score = 0;
 
-         String[] d_rdogrpB1 = new String[] {"0","1","2","3"};
-         for (int i = 0; i < rdogrpB1.getChildCount(); i++)
-         {
-             rb = (RadioButton)rdogrpB1.getChildAt(i);
-             if (rb.isChecked()) total_score += Integer.parseInt(d_rdogrpB1[i]);
-         }
-
-         String[] d_rdogrpB2 = new String[] {"0","1","2","3"};
-         for (int i = 0; i < rdogrpB2.getChildCount(); i++)
-         {
-             rb = (RadioButton)rdogrpB2.getChildAt(i);
-             if (rb.isChecked()) total_score += Integer.parseInt(d_rdogrpB2[i]);
-         }
-
-         String[] d_rdogrpB3 = new String[] {"0","1","2","3"};
-         for (int i = 0; i < rdogrpB3.getChildCount(); i++)
-         {
-             rb = (RadioButton)rdogrpB3.getChildAt(i);
-             if (rb.isChecked()) total_score += Integer.parseInt(d_rdogrpB3[i]);
-         }
-
-         String[] d_rdogrpB4 = new String[] {"0","1","2","3"};
-         for (int i = 0; i < rdogrpB4.getChildCount(); i++)
-         {
-             rb = (RadioButton)rdogrpB4.getChildAt(i);
-             if (rb.isChecked()) total_score += Integer.parseInt(d_rdogrpB4[i]);
-         }
-
-         String[] d_rdogrpB5 = new String[] {"0","1","2","3"};
-         for (int i = 0; i < rdogrpB5.getChildCount(); i++)
-         {
-             rb = (RadioButton)rdogrpB5.getChildAt(i);
-             if (rb.isChecked()) total_score += Integer.parseInt(d_rdogrpB5[i]);
-         }
-
-         String[] d_rdogrpB6 = new String[] {"0","1","2","3"};
-         for (int i = 0; i < rdogrpB6.getChildCount(); i++)
-         {
-             rb = (RadioButton)rdogrpB6.getChildAt(i);
-             if (rb.isChecked()) total_score += Integer.parseInt(d_rdogrpB6[i]);
-         }
-
-         String[] d_rdogrpB7 = new String[] {"0","1","2","3"};
-         for (int i = 0; i < rdogrpB7.getChildCount(); i++)
-         {
-             rb = (RadioButton)rdogrpB7.getChildAt(i);
-             if (rb.isChecked()) total_score += Integer.parseInt(d_rdogrpB7[i]);
-         }
-         return  total_score;
-     }
  private void Initialization()
  {
    try
@@ -327,15 +274,6 @@
          rdoB12 = (RadioButton) findViewById(R.id.rdoB12);
          rdoB13 = (RadioButton) findViewById(R.id.rdoB13);
          rdoB14 = (RadioButton) findViewById(R.id.rdoB14);
-         rdogrpB1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
-                 txtBScore.setText(String.valueOf(GetScore()));
-             }
-             public void onNothingSelected(AdapterView<?> adapterView) {
-                 return;
-             }
-         });
          secB2=(LinearLayout)findViewById(R.id.secB2);
          lineB2=(View)findViewById(R.id.lineB2);
          VlblB2 = (TextView) findViewById(R.id.VlblB2);
@@ -344,15 +282,6 @@
          rdoB22 = (RadioButton) findViewById(R.id.rdoB22);
          rdoB23 = (RadioButton) findViewById(R.id.rdoB23);
          rdoB24 = (RadioButton) findViewById(R.id.rdoB24);
-         rdogrpB2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
-                 txtBScore.setText(String.valueOf(GetScore()));
-             }
-             public void onNothingSelected(AdapterView<?> adapterView) {
-                 return;
-             }
-         });
          secB3=(LinearLayout)findViewById(R.id.secB3);
          lineB3=(View)findViewById(R.id.lineB3);
          VlblB3 = (TextView) findViewById(R.id.VlblB3);
@@ -361,15 +290,6 @@
          rdoB32 = (RadioButton) findViewById(R.id.rdoB32);
          rdoB33 = (RadioButton) findViewById(R.id.rdoB33);
          rdoB34 = (RadioButton) findViewById(R.id.rdoB34);
-         rdogrpB3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
-                 txtBScore.setText(String.valueOf(GetScore()));
-             }
-             public void onNothingSelected(AdapterView<?> adapterView) {
-                 return;
-             }
-         });
          secB4=(LinearLayout)findViewById(R.id.secB4);
          lineB4=(View)findViewById(R.id.lineB4);
          VlblB4 = (TextView) findViewById(R.id.VlblB4);
@@ -378,15 +298,6 @@
          rdoB42 = (RadioButton) findViewById(R.id.rdoB42);
          rdoB43 = (RadioButton) findViewById(R.id.rdoB43);
          rdoB44 = (RadioButton) findViewById(R.id.rdoB44);
-         rdogrpB4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
-                 txtBScore.setText(String.valueOf(GetScore()));
-             }
-             public void onNothingSelected(AdapterView<?> adapterView) {
-                 return;
-             }
-         });
          secB5=(LinearLayout)findViewById(R.id.secB5);
          lineB5=(View)findViewById(R.id.lineB5);
          VlblB5 = (TextView) findViewById(R.id.VlblB5);
@@ -395,15 +306,6 @@
          rdoB52 = (RadioButton) findViewById(R.id.rdoB52);
          rdoB53 = (RadioButton) findViewById(R.id.rdoB53);
          rdoB54 = (RadioButton) findViewById(R.id.rdoB54);
-         rdogrpB5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
-                 txtBScore.setText(String.valueOf(GetScore()));
-             }
-             public void onNothingSelected(AdapterView<?> adapterView) {
-                 return;
-             }
-         });
          secB6=(LinearLayout)findViewById(R.id.secB6);
          lineB6=(View)findViewById(R.id.lineB6);
          VlblB6 = (TextView) findViewById(R.id.VlblB6);
@@ -412,15 +314,6 @@
          rdoB62 = (RadioButton) findViewById(R.id.rdoB62);
          rdoB63 = (RadioButton) findViewById(R.id.rdoB63);
          rdoB64 = (RadioButton) findViewById(R.id.rdoB64);
-         rdogrpB6.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
-                 txtBScore.setText(String.valueOf(GetScore()));
-             }
-             public void onNothingSelected(AdapterView<?> adapterView) {
-                 return;
-             }
-         });
          secB7=(LinearLayout)findViewById(R.id.secB7);
          lineB7=(View)findViewById(R.id.lineB7);
          VlblB7 = (TextView) findViewById(R.id.VlblB7);
@@ -429,20 +322,10 @@
          rdoB72 = (RadioButton) findViewById(R.id.rdoB72);
          rdoB73 = (RadioButton) findViewById(R.id.rdoB73);
          rdoB74 = (RadioButton) findViewById(R.id.rdoB74);
-         rdogrpB7.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-             @Override
-             public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
-                 txtBScore.setText(String.valueOf(GetScore()));
-             }
-             public void onNothingSelected(AdapterView<?> adapterView) {
-                 return;
-             }
-         });
          secBScore=(LinearLayout)findViewById(R.id.secBScore);
          lineBScore=(View)findViewById(R.id.lineBScore);
          VlblBScore=(TextView) findViewById(R.id.VlblBScore);
          txtBScore=(EditText) findViewById(R.id.txtBScore);
-         txtBScore.setEnabled(false);
      }
      catch(Exception  e)
      {
@@ -534,7 +417,7 @@
 
          String status = objSave.SaveUpdateData(this);
          if(status.length()==0) {
-/*             Intent returnIntent = new Intent();
+             Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
              setResult(Activity.RESULT_OK, returnIntent);
              Connection.MessageBox(SectionB.this, "Saved Successfully");
@@ -544,13 +427,7 @@
              IDbundle.putString("FacilityID", FACILITYID);
              Intent f1 = new Intent(getApplicationContext(), SectionC.class);
              f1.putExtras(IDbundle);
-             startActivityForResult(f1, 1);*/
-
-             Intent returnIntent = new Intent();
-             returnIntent.putExtra("res", "");
-             setResult(Activity.RESULT_OK, returnIntent);
-             Connection.MessageBox(SectionB.this, "Saved Successfully");
-             finish();
+             startActivityForResult(f1, 1);
          }
          else{
              Connection.MessageBox(SectionB.this, status);

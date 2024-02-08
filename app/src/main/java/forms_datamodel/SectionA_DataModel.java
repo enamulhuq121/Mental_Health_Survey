@@ -73,13 +73,6 @@ import android.content.Context;
         public void setA7(String newValue){
               _A7 = newValue;
          }
-         private String _A8 = "";
-         public String getA8(){
-             return _A8;
-         }
-         public void setA8(String newValue){
-             _A8 = newValue;
-         }
         private String _A9 = "";
         public String getA9(){
               return _A9;
@@ -160,7 +153,6 @@ import android.content.Context;
                  contentValues.put("A5", _A5);
                  contentValues.put("A6", _A6);
                  contentValues.put("A7", _A7);
-                 contentValues.put("A8", _A8);
                  contentValues.put("A9", _A9);
                  contentValues.put("AScore", _AScore);
                  contentValues.put("StartTime", _StartTime);
@@ -197,7 +189,6 @@ import android.content.Context;
                  contentValues.put("A5", _A5);
                  contentValues.put("A6", _A6);
                  contentValues.put("A7", _A7);
-                 contentValues.put("A8", _A8);
                  contentValues.put("A9", _A9);
                  contentValues.put("AScore", _AScore);
                  contentValues.put("Upload", _Upload);
@@ -234,7 +225,6 @@ import android.content.Context;
                 d._A5 = cur.getString(cur.getColumnIndex("A5"));
                 d._A6 = cur.getString(cur.getColumnIndex("A6"));
                 d._A7 = cur.getString(cur.getColumnIndex("A7"));
-                d._A8 = cur.getString(cur.getColumnIndex("A8"));
                 d._A9 = cur.getString(cur.getColumnIndex("A9"));
                 d._AScore = cur.getString(cur.getColumnIndex("AScore"));
                 data.add(d);

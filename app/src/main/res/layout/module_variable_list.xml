@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:background = "@color/form_background_color"> 
+    <androidx.appcompat.widget.Toolbar  android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/theme_color" tools:ignore="MissingConstraints">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal">
+            <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="50sp" android:layout_height="match_parent"/>
+            <TextView android:id="@+id/lblHeading" android:text="Variables List"  android:paddingLeft="10sp" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="20sp" android:textColor="@color/pageHeading"/>
+            <TextView android:id="@+id/lblTotal" android:text=" (Total:0)"  android:paddingLeft="10sp" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="20sp" android:textColor="@color/pageHeading"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:id = "@+id/ll_body"
+        android:layout_width = "match_parent"
+        android:layout_height = "0dp"
+        android:background = "#FAFAFA"
+        android:orientation = "vertical"
+        app:layout_constraintBottom_toTopOf = "@id/ll_footer"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@id/appBarLayout">
+        <LinearLayout android:visibility="gone"
+             android:id = "@+id/ll_header"
+             android:layout_width = "match_parent"
+             android:layout_height = "wrap_content"
+             android:layout_marginTop = "24dp"
+             android:layout_marginStart = "10dp"
+             android:layout_marginEnd = "24dp"
+             android:gravity = "center_vertical|left">
+             <TextView android:text="Date From  " android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+             <EditText android:id="@+id/txtFDate" android:drawableRight="@drawable/calendersmall" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:drawableTint="@color/colorPrimary"/>
+             <TextView android:text="To" android:layout_width="40sp" android:gravity="center" android:layout_height="wrap_content"/>
+             <EditText android:id="@+id/txtTDate" android:drawableRight="@drawable/calendersmall" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:drawableTint="@color/colorPrimary"/>
+         </LinearLayout>
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "10dp"
+        android:layout_marginStart = "10dp"
+        android:layout_marginEnd = "24dp"
+        android:gravity = "center_vertical|left">
+        <TextView android:id="@+id/lblmodule_title" android:text="module title" android:textSize="25dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center"/>
+
+    </LinearLayout>
+
+    <RelativeLayout android:padding="10sp" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <EditText android:id="@+id/txtSearch"
+            style="@style/icddrb_search_edittext"
+            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="text" android:hint="write your text here"
+            android:maxLength="100" android:layout_marginRight="0dp"
+            android:textSize="18sp" android:padding="10dp" android:layout_centerInParent="true"/>
+
+        <ImageButton
+            android:id="@+id/btnSearch" android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20sp"
+            android:background="@drawable/button_style_circle_line"
+            android:backgroundTint="@drawable/button_style_pressed"
+            android:paddingLeft="5sp"
+            android:paddingRight="5sp"
+            android:src="@drawable/ic_action_search"
+            android:textAllCaps="false"
+            android:textColor="@drawable/button_style_line_text_color"
+            android:textSize="18sp"
+            app:tint="@color/white" />
+    </RelativeLayout>
+       <!--<include android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/module_variableheading"/>-->
+        <FrameLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:layout_marginTop = "20dp" >
+           <androidx.recyclerview.widget.RecyclerView
+                android:id = "@+id/recycler_view"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:layout_marginBottom = "10dp"
+                android:background = "@color/form_background_color"
+                android:scrollbars = "vertical" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id = "@+id/ll_no_data"
+                android:layout_width = "match_parent"
+                android:layout_height = "match_parent"
+                android:gravity = "center_vertical|left"
+                android:orientation = "vertical"
+                android:layout_gravity = "center_horizontal"
+                android:visibility = "gone">
+                <ImageView
+                    android:id = "@+id/iv_nodata"
+                    android:layout_width = "0dp"
+                    android:layout_height = "0dp"
+                    app:srcCompat = "@drawable/img_no_data"
+                    app:layout_constraintStart_toStartOf = "parent"
+                    app:layout_constraintEnd_toEndOf = "parent"
+                    app:layout_constraintTop_toTopOf = "parent"
+                    app:layout_constraintBottom_toTopOf = "@id/guideline"/>
+                <TextView
+                    android:id = "@+id/tv_nodata"
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:layout_marginTop = "24dp"
+                    android:gravity = "center"
+                    android:text = "No data found"
+                    android:textSize = "20sp"
+                    android:textColor = "#333333"
+                    app:layout_constraintEnd_toEndOf = "parent"
+                    app:layout_constraintStart_toStartOf = "parent"
+                    app:layout_constraintTop_toBottomOf = "@id/guideline"/>
+                <ImageView
+                    android:id = "@+id/iv_add_direc"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "0dp"
+                    app:srcCompat = "@drawable/img_no_data_add_direction"
+                    android:layout_marginTop = "16dp"
+                    app:layout_constraintEnd_toEndOf = "parent"
+                    app:layout_constraintStart_toStartOf = "parent"
+                    app:layout_constraintTop_toBottomOf = "@id/tv_nodata"
+                    app:layout_constraintBottom_toBottomOf = "parent"/>
+                <androidx.constraintlayout.widget.Guideline
+                    android:id = "@+id/guideline"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
+                    android:orientation = "horizontal"
+                    app:layout_constraintGuide_percent = ".45" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id = "@+id/ll_footer"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:orientation = "horizontal"
+        android:padding = "16dp"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent" >
+
+        <RelativeLayout
+            android:layout_width = "fill_parent"
+            android:layout_height = "wrap_content"
+            android:background = "@color/color_white"
+            android:padding = "10sp" >
+            <androidx.appcompat.widget.AppCompatButton
+                android:id = "@+id/btnAdd" android:visibility="gone"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_centerHorizontal = "true"
+                android:background = "@drawable/button_style_circle_line_theme_back"
+                android:gravity = "center"
+                android:stateListAnimator = "@null"
+                android:text = "+ New Entry"
+                android:textColor = "@drawable/button_style_circle_text_color_white"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

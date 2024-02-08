@@ -345,8 +345,8 @@
              Intent returnIntent = new Intent();
              returnIntent.putExtra("res", "");
              setResult(Activity.RESULT_OK, returnIntent);
+
              Connection.MessageBox(SectionH.this, "Saved Successfully");
-             finish();
          }
          else{
              Connection.MessageBox(SectionH.this, status);
