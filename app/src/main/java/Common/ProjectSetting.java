@@ -32,7 +32,9 @@ public class ProjectSetting {
 
     //New Release
     //==============================================================================================
-    public static String VersionDate    = "14122021"; //Format: DDMMYYYY
+    public static String VersionDate    = "14012024"; //Format: DDMMYYYY
+//    public static String VersionDate    = "17102023"; //Format: DDMMYYYY
+
 
     //==============================================================================================
     // Data Sync

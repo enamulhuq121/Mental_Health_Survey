@@ -89,6 +89,15 @@ import android.content.Context;
         public void setrecv_service(String newValue){
               _recv_service = newValue;
          }
+
+     private String _Referred = "";
+     public String getReferred(){
+         return _Referred;
+     }
+     public void setReferred(String newValue){
+         _Referred = newValue;
+     }
+
         private String _StartTime = "";
         public void setStartTime(String newValue){
               _StartTime = newValue;
@@ -157,6 +166,7 @@ import android.content.Context;
                   contentValues.put("ProvID", _ProvID);
                   contentValues.put("pat_sex", _pat_sex);
                   contentValues.put("pat_cat", _pat_cat);
+                  contentValues.put("Referred", _Referred);
                  contentValues.put("StartTime", _StartTime);
                  contentValues.put("EndTime", _EndTime);
                  contentValues.put("DeviceID", _DeviceID);
@@ -193,6 +203,7 @@ import android.content.Context;
                   contentValues.put("pat_sex", _pat_sex);
                   contentValues.put("pat_cat", _pat_cat);
                  contentValues.put("recv_service", _recv_service);
+                  contentValues.put("Referred", _Referred);
                  contentValues.put("Upload", _Upload);
                  contentValues.put("modifyDate", _modifyDate);
                  C.UpdateData(TableName, "PatientID,FacilityID", (""+ _PatientID +", "+ _FacilityID +""), contentValues);
@@ -229,6 +240,7 @@ import android.content.Context;
                 d._ProvID = cur.getString(cur.getColumnIndex("ProvID"));
                 d._pat_sex = cur.getString(cur.getColumnIndex("pat_sex"));
                 d._pat_cat = cur.getString(cur.getColumnIndex("pat_cat"));
+                d._Referred = cur.getString(cur.getColumnIndex("Referred"));
                 data.add(d);
 
                 cur.moveToNext();

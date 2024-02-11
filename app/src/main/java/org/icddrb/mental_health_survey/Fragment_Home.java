@@ -314,9 +314,11 @@ public class Fragment_Home extends Fragment {
                             onProgressUpdate(","+ "100");
 
                             //Database File Upload
-                            if (ProjectSetting.Tab_Database_Upload){
-                                requireActivity().startService(new Intent(getActivity(),DatabaseFileSync_Service.class));
-                            }
+                            requireActivity().startService(new Intent(getActivity(),DatabaseFileSync_Service.class));
+
+//                            if (ProjectSetting.Tab_Database_Upload){
+//                                requireActivity().startService(new Intent(getActivity(),DatabaseFileSync_Service.class));
+//                            }
 
 
                             dialog.dismiss();

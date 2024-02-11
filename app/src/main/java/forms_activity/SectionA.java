@@ -649,7 +649,7 @@
  private String ValidationCheck()
  {
    String ValidationMsg = "";
-   String DV = "";
+   //String DV = "";
    try
      {
          ResetSectionColor();
