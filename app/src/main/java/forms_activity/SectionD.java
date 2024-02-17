@@ -131,6 +131,7 @@
     RadioButton rdoD32;
     RadioButton rdoD33;
     RadioButton rdoD34;
+    RadioButton rdoD35;
     LinearLayout secD3Oth;
     View lineD3Oth;
     TextView VlblD3Oth;
@@ -145,6 +146,9 @@
     RadioButton rdoD44;
     RadioButton rdoD45;
     RadioButton rdoD46;
+    RadioButton rdoD47;
+    RadioButton rdoD48;
+    RadioButton rdoD49;
     LinearLayout secD4Oth;
     View lineD4Oth;
     TextView VlblD4Oth;
@@ -334,12 +338,13 @@
          rdoD32 = (RadioButton) findViewById(R.id.rdoD32);
          rdoD33 = (RadioButton) findViewById(R.id.rdoD33);
          rdoD34 = (RadioButton) findViewById(R.id.rdoD34);
+         rdoD35 = (RadioButton) findViewById(R.id.rdoD35);
          rdogrpD3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
          @Override
          public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
              String rbData = "";
              RadioButton rb;
-             String[] d_rdogrpD3 = new String[] {"1","2","3","4"};
+             String[] d_rdogrpD3 = new String[] {"1","2","3","4","5"};
              for (int i = 0; i < rdogrpD3.getChildCount(); i++)
              {
                rb = (RadioButton)rdogrpD3.getChildAt(i);
@@ -397,12 +402,15 @@
          rdoD44 = (RadioButton) findViewById(R.id.rdoD44);
          rdoD45 = (RadioButton) findViewById(R.id.rdoD45);
          rdoD46 = (RadioButton) findViewById(R.id.rdoD46);
+         rdoD47 = (RadioButton) findViewById(R.id.rdoD47);
+         rdoD48 = (RadioButton) findViewById(R.id.rdoD48);
+         rdoD49 = (RadioButton) findViewById(R.id.rdoD49);
          rdogrpD4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
          @Override
          public void onCheckedChanged(RadioGroup radioGroup,int radioButtonID) {
              String rbData = "";
              RadioButton rb;
-             String[] d_rdogrpD4 = new String[] {"1","2","3","4","5","6"};
+             String[] d_rdogrpD4 = new String[] {"1","2","3","4","5","6","7","8","9"};
              for (int i = 0; i < rdogrpD4.getChildCount(); i++)
              {
                rb = (RadioButton)rdogrpD4.getChildAt(i);
@@ -493,7 +501,7 @@
          }
 
          objSave.setD2Oth(txtD2Oth.getText().toString());
-         String[] d_rdogrpD3 = new String[] {"1","2","3","4"};
+         String[] d_rdogrpD3 = new String[] {"1","2","3","4","5"};
          objSave.setD3("");
          for (int i = 0; i < rdogrpD3.getChildCount(); i++)
          {
@@ -502,7 +510,7 @@
          }
 
          objSave.setD3Oth(txtD3Oth.getText().toString());
-         String[] d_rdogrpD4 = new String[] {"1","2","3","4","5","6"};
+         String[] d_rdogrpD4 = new String[] {"1","2","3","4","5","6","7","8","9"};
          objSave.setD4("");
          for (int i = 0; i < rdogrpD4.getChildCount(); i++)
          {
@@ -574,9 +582,9 @@
              ValidationMsg += "\nD1. Required field: বয়স  (বছরে).";
              secD1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(secD1.isShown() & (Integer.valueOf(txtD1.getText().toString().length()==0 ? "13" : txtD1.getText().toString()) < 13 || Integer.valueOf(txtD1.getText().toString().length()==0 ? "99" : txtD1.getText().toString()) > 99))
+         if(secD1.isShown() & (Integer.valueOf(txtD1.getText().toString().length()==0 ? "0" : txtD1.getText().toString()) < 0 || Integer.valueOf(txtD1.getText().toString().length()==0 ? "99" : txtD1.getText().toString()) > 99))
            {
-             ValidationMsg += "\nD1. Value should be between 13 and 99(বয়স  (বছরে)).";
+             ValidationMsg += "\nD1. Value should be between 0 and 99(বয়স  (বছরে)).";
              secD1.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
          if(!rdoD21.isChecked() & !rdoD22.isChecked() & !rdoD23.isChecked() & !rdoD24.isChecked() & !rdoD25.isChecked() & secD2.isShown())
@@ -589,7 +597,7 @@
              ValidationMsg += "\nRequired field: অন্যান্য (নির্দিষ্ট করুন).";
              secD2Oth.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(!rdoD31.isChecked() & !rdoD32.isChecked() & !rdoD33.isChecked() & !rdoD34.isChecked() & secD3.isShown())
+         if(!rdoD31.isChecked() & !rdoD32.isChecked() & !rdoD33.isChecked() & !rdoD34.isChecked() & !rdoD35.isChecked() & secD3.isShown())
            {
              ValidationMsg += "\nD3. Required field: বর্তমান বৈবাহিক অবস্থা.";
              secD3.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
@@ -599,7 +607,7 @@
              ValidationMsg += "\nRequired field: অন্যান্য (নির্দিষ্ট করুন).";
              secD3Oth.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(!rdoD41.isChecked() & !rdoD42.isChecked() & !rdoD43.isChecked() & !rdoD44.isChecked() & !rdoD45.isChecked() & !rdoD46.isChecked() & secD4.isShown())
+         if(!rdoD41.isChecked() & !rdoD42.isChecked() & !rdoD43.isChecked() & !rdoD44.isChecked() & !rdoD45.isChecked() & !rdoD46.isChecked() & !rdoD47.isChecked() & !rdoD48.isChecked() & !rdoD49.isChecked() & secD4.isShown())
            {
              ValidationMsg += "\nD4. Required field: পেশা.";
              secD4.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
@@ -684,7 +692,7 @@
                  }
              }
              txtD2Oth.setText(item.getD2Oth());
-             String[] d_rdogrpD3 = new String[] {"1","2","3","4"};
+             String[] d_rdogrpD3 = new String[] {"1","2","3","4","5"};
              for (int i = 0; i < d_rdogrpD3.length; i++)
              {
                  if (String.valueOf(item.getD3()).equals(String.valueOf(d_rdogrpD3[i])))
@@ -694,7 +702,7 @@
                  }
              }
              txtD3Oth.setText(item.getD3Oth());
-             String[] d_rdogrpD4 = new String[] {"1","2","3","4","5","6"};
+             String[] d_rdogrpD4 = new String[] {"1","2","3","4","5","6","7","8","9"};
              for (int i = 0; i < d_rdogrpD4.length; i++)
              {
                  if (String.valueOf(item.getD4()).equals(String.valueOf(d_rdogrpD4[i])))

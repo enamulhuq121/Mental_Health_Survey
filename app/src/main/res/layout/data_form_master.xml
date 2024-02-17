@@ -167,7 +167,7 @@
 
     <LinearLayout android:id="@+id/secTab" android:paddingTop="10sp" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical" android:layout_below="@id/information">
         <TabHost
-            android:id="@android:id/tabhost"
+            android:id="@+id/tabhost"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             >
@@ -176,12 +176,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
                 <TabWidget
-                    android:id="@android:id/tabs"
+                    android:id="@+id/tabs"
                     android:showDividers="middle"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
                 <FrameLayout
-                    android:id="@android:id/tabcontent"
+                    android:id="@+id/tabcontent"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"/>
             </LinearLayout>

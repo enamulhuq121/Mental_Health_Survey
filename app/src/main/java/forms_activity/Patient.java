@@ -37,6 +37,8 @@
  import androidx.appcompat.app.AppCompatActivity;
  import androidx.core.content.ContextCompat;
  import org.icddrb.mental_health_survey.R;
+ import org.icddrb.mental_health_survey.adapter.CustomSpinnerAdapter;
+
  import forms_datamodel.Patient_DataModel;
  import Utility.*;
  import Common.*;
@@ -123,6 +125,11 @@
     RadioGroup rdogrprecv_service;
     RadioButton rdorecv_service1;
     RadioButton rdorecv_service2;
+
+     LinearLayout secReferred;
+     View lineReferred;
+     TextView VlblReferred;
+     Spinner spnReferred;
 
     static int MODULEID   = 0;
     static int LANGUAGEID = 0;
@@ -317,6 +324,22 @@
          lineProvID=(View)findViewById(R.id.lineProvID);
          VlblProvID=(TextView) findViewById(R.id.VlblProvID);
          txtProvID=(EditText) findViewById(R.id.txtProvID);
+
+         secReferred=(LinearLayout)findViewById(R.id.secReferred);
+         lineReferred=(View)findViewById(R.id.lineReferred);
+         VlblReferred=(TextView) findViewById(R.id.VlblReferred);
+         spnReferred=(Spinner) findViewById(R.id.spnReferred);
+         List<String> listReferred = new ArrayList<String>();
+
+         listReferred.add("");
+         listReferred.add("1-Gynae");
+         listReferred.add("2-Medicine indoor");
+         listReferred.add("3-Medicine outdoor");
+         listReferred.add("4-Emergency");
+         listReferred.add("5-Community Clinic");
+         listReferred.add("6-Other hospital");
+         listReferred.add("7-Self");
+         spnReferred.setAdapter(new CustomSpinnerAdapter(this,new ArrayList<>(listReferred)));
      }
      catch(Exception  e)
      {
@@ -370,7 +393,7 @@
              rb = (RadioButton)rdogrppat_cat.getChildAt(i);
              if (rb.isChecked()) objSave.setpat_cat(d_rdogrppat_cat[i]);
          }
-
+         objSave.setReferred(spnReferred.getSelectedItemPosition() == 0 ? "" : spnReferred.getSelectedItem().toString().split("-")[0]);
          objSave.setStartTime(STARTTIME);
          objSave.setEndTime(g.CurrentTime24());
          objSave.setDeviceID(DEVICEID);
@@ -485,6 +508,11 @@
              ValidationMsg += "\n লিঙ্গ পুরুষ হলে রোগীর ধরনঃ গর্ভবতী / প্রসবোত্তর হবেনা ";
              secpat_sex.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
          }
+         if(spnReferred.getSelectedItemPosition()==0  & secReferred.isShown())
+         {
+             ValidationMsg += "\n10. Required field: Referred from.";
+             secReferred.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
+         }
      }
      catch(Exception  e)
      {
@@ -509,6 +537,7 @@
              secrecv_service.setBackgroundColor(Color.WHITE);
              secpat_sex.setBackgroundColor(Color.WHITE);
              secpat_cat.setBackgroundColor(Color.WHITE);
+             secReferred.setBackgroundColor(Color.WHITE);
      }
      catch(Exception  e)
      {
@@ -559,6 +588,7 @@
                    }
                }
                txtProvID.setText(item.getProvID());
+               spnReferred.setSelection(Global.SpinnerItemPositionAnyLength(spnReferred, String.valueOf(item.getReferred())));
 
            }
         }

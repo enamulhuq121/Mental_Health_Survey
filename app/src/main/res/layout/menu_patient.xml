@@ -103,13 +103,14 @@
                         <Button android:layout_weight="1"
                             android:id="@+id/cmdSecC"
                             style="@style/menuButtonStyle"
+
                             android:layout_width="fill_parent"
                             android:layout_marginBottom="5sp"
                             android:layout_marginLeft="0sp"
                             android:layout_marginRight="20sp" android:layout_height="match_parent"
                             android:background="@drawable/button_style_gray"
                             android:gravity="center|center_vertical"
-                            android:text="SECTION C: PREGNANCY INFORMATION"
+                            android:text="SECTION CC: SPECIFIC VARIABLE"
                             android:textColor="#FFFFFF"
                             android:textSize="20sp" />
                     </LinearLayout>

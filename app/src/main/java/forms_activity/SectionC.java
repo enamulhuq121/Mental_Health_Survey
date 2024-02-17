@@ -730,9 +730,9 @@
              ValidationMsg += "\nC2. Required field: প্রসবোত্তর সপ্তাহ.";
              secC2.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
-         if(secC2.isShown() & (Integer.valueOf(txtC2.getText().toString().length()==0 ? "00" : txtC2.getText().toString()) < 00 || Integer.valueOf(txtC2.getText().toString().length()==0 ? "42" : txtC2.getText().toString()) > 42))
+         if(secC2.isShown() & (Integer.valueOf(txtC2.getText().toString().length()==0 ? "00" : txtC2.getText().toString()) < 00 || Integer.valueOf(txtC2.getText().toString().length()==0 ? "6" : txtC2.getText().toString()) > 6))
            {
-             ValidationMsg += "\nC2. Value should be between 00 and 42(প্রসবোত্তর সপ্তাহ).";
+             ValidationMsg += "\nC2. Value should be between 00 and 6(প্রসবোত্তর সপ্তাহ).";
              secC2.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.color_Section_Highlight));
            }
          if(txtC3.getText().toString().length()==0 & secC3.isShown())
