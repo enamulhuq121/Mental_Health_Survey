@@ -45,7 +45,7 @@ public class Menu_Patient extends Activity {
     static String PatCatDeliv = "";
     static String RecvService = "";
 
-    Button cmdSecA,cmdSecB,cmdSecC,cmdSecD,cmdSecE,cmdSecF,cmdSecG,cmdSecH,cmdWomen;
+    Button cmdSecA,cmdSecB,cmdSecCC,cmdSecD,cmdSecE,cmdSecF,cmdSecG,cmdSecH,cmdWomen;
 
     LinearLayout secMenuConsent;
     Connection C;
@@ -127,8 +127,8 @@ public class Menu_Patient extends Activity {
                     startActivityForResult(f1,1);
             }
         });
-        cmdSecC=findViewById(R.id.cmdSecC);
-        cmdSecC.setOnClickListener(new View.OnClickListener() {
+        cmdSecCC=findViewById(R.id.cmdSecCC);
+        cmdSecCC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle IDbundle = new Bundle();
@@ -156,7 +156,10 @@ public class Menu_Patient extends Activity {
             }
         });
         cmdSecE=findViewById(R.id.cmdSecE);
-        cmdSecE.setOnClickListener(new View.OnClickListener() {
+        cmdSecE.setEnabled(false);
+        cmdSecE.setVisibility(View.GONE);
+
+        /*cmdSecE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle IDbundle = new Bundle();
@@ -167,9 +170,11 @@ public class Menu_Patient extends Activity {
                 f1.putExtras(IDbundle);
                 startActivityForResult(f1,1);
             }
-        });
+        });*/
         cmdSecF=findViewById(R.id.cmdSecF);
-        cmdSecF.setOnClickListener(new View.OnClickListener() {
+        cmdSecF.setEnabled(false);
+        cmdSecF.setVisibility(View.GONE);
+        /*cmdSecF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle IDbundle = new Bundle();
@@ -180,9 +185,11 @@ public class Menu_Patient extends Activity {
                 f1.putExtras(IDbundle);
                 startActivityForResult(f1,1);
             }
-        });
+        });*/
         cmdSecG=findViewById(R.id.cmdSecG);
-        cmdSecG.setOnClickListener(new View.OnClickListener() {
+        cmdSecG.setEnabled(false);
+        cmdSecG.setVisibility(View.GONE);
+        /*cmdSecG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle IDbundle = new Bundle();
@@ -193,9 +200,11 @@ public class Menu_Patient extends Activity {
                 f1.putExtras(IDbundle);
                 startActivityForResult(f1,1);
             }
-        });
+        });*/
         cmdSecH=findViewById(R.id.cmdSecH);
-        cmdSecH.setOnClickListener(new View.OnClickListener() {
+        cmdSecH.setEnabled(false);
+        cmdSecH.setVisibility(View.GONE);
+        /*cmdSecH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle IDbundle = new Bundle();
@@ -206,7 +215,7 @@ public class Menu_Patient extends Activity {
                 f1.putExtras(IDbundle);
                 startActivityForResult(f1,1);
             }
-        });
+        });*/
         cmdWomen=findViewById(R.id.cmdWomen);
         cmdWomen.setEnabled(false);
         cmdWomen.setVisibility(View.GONE);
@@ -228,15 +237,16 @@ public class Menu_Patient extends Activity {
 
     private void DataStatus()
     {
-        cmdSecC.setEnabled(false);
-        cmdSecC.setBackgroundResource(R.drawable.button_style);
+        /*cmdSecCC.setEnabled(false);
+        cmdSecCC.setBackgroundResource(R.drawable.button_style);*/
         if (PatCatPreg.equals("1") | PatCatDeliv.equals("1"))
         {
-            cmdSecC.setEnabled(true);
-            cmdSecC.setBackgroundResource(R.drawable.button_style_gray);
+            cmdSecCC.setVisibility(View.VISIBLE);
+            cmdSecCC.setEnabled(true);
+            cmdSecCC.setBackgroundResource(R.drawable.button_style_gray);
         }else {
-            cmdSecC.setEnabled(false);
-            cmdSecC.setBackgroundResource(R.drawable.button_style);
+            cmdSecCC.setEnabled(false);
+            cmdSecCC.setBackgroundResource(R.drawable.button_style);
         }
 
         if((C.Existence("Select * from SectionA where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")))
@@ -249,6 +259,16 @@ public class Menu_Patient extends Activity {
             cmdSecB.setBackgroundResource(R.drawable.button_style);
         }
 
+        if ((C.Existence("Select * from SectionB where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")))
+        {
+            cmdSecCC.setVisibility(View.VISIBLE);
+            cmdSecCC.setEnabled(true);
+            cmdSecCC.setBackgroundResource(R.drawable.button_style_gray);
+        }else {
+            cmdSecCC.setEnabled(false);
+            cmdSecCC.setBackgroundResource(R.drawable.button_style);
+        }
+
         if((C.Existence("Select * from SectionB where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")))
         {
             cmdSecD.setVisibility(View.VISIBLE);
@@ -259,7 +279,7 @@ public class Menu_Patient extends Activity {
             cmdSecD.setBackgroundResource(R.drawable.button_style);
         }
 
-        if((C.Existence("Select * from SectionD where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")))
+        /*if((C.Existence("Select * from SectionD where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")))
         {
             cmdSecE.setVisibility(View.VISIBLE);
             cmdSecE.setEnabled(true);
@@ -297,7 +317,7 @@ public class Menu_Patient extends Activity {
         }else{
             cmdSecH.setEnabled(false);
             cmdSecH.setBackgroundResource(R.drawable.button_style);
-        }
+        }*/
        /* if((C.Existence("Select * from SectionC where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")))
         {
             cmdWomen.setVisibility(View.VISIBLE);
@@ -314,13 +334,13 @@ public class Menu_Patient extends Activity {
         if(C.Existence("Select * from SectionB  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
             cmdSecB.setBackgroundResource(R.drawable.button_style_green);
         }
-        if(C.Existence("Select * from SectionC  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
-            cmdSecC.setBackgroundResource(R.drawable.button_style_green);
+        if(C.Existence("Select * from SPECIFICVAR  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
+            cmdSecCC.setBackgroundResource(R.drawable.button_style_green);
         }
         if(C.Existence("Select * from SectionD  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
             cmdSecD.setBackgroundResource(R.drawable.button_style_green);
         }
-        if(C.Existence("Select * from SectionE  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
+        /*if(C.Existence("Select * from SectionE  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
             cmdSecE.setBackgroundResource(R.drawable.button_style_green);
         }
         if(C.Existence("Select * from SectionF  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
@@ -331,7 +351,7 @@ public class Menu_Patient extends Activity {
         }
         if(C.Existence("Select * from SectionH  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
             cmdSecH.setBackgroundResource(R.drawable.button_style_green);
-        }
+        }*/
         /*if(C.Existence("Select * from Women  where PatientID='"+ PATIENTID +"' and FacilityID='"+ FACILITYID +"'")){
             cmdWomen.setBackgroundResource(R.drawable.button_style_green);
         }*/
