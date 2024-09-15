@@ -1,0 +1,42 @@
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/data_form_master.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/data_registration.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/fragment_home.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/fragment_main.xml" value="0.2" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/fragment_main_content.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/login_activity.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/mainmenugriditem.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/menu_patient.xml" value="0.38" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/patient.xml" value="0.536" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/patient_list.xml" value="0.3748271092669433" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/patient_row.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/patientheading.xml" value="0.4" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/provider.xml" value="0.536" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/provider_list.xml" value="0.31941544885177453" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/provider_row.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/providerheading.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectiona.xml" value="0.6" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectionb.xml" value="0.4" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectionc.xml" value="0.536" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectiond.xml" value="0.536" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectione.xml" value="0.6" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectionf.xml" value="0.6" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectiong.xml" value="0.4" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/sectionh.xml" value="0.24864864864864866" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/women.xml" value="0.4" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/women_list.xml" value="0.536" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/women_row.xml" value="0.2421875" />
+        <entry key="..\:/Software/Android/Mental_Health_Survey/app/src/main/res/layout/womenheading.xml" value="0.2421875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
