@@ -45,7 +45,7 @@ public class Menu_Patient extends Activity {
     static String PatCatDeliv = "";
     static String RecvService = "";
 
-    Button cmdSecA,cmdSecB,cmdSecC,cmdSecCC,cmdSecD,cmdSecE,cmdSecF,cmdSecG,cmdSecH,cmdWomen;
+    Button cmdSecA,cmdSecB,cmdSecC,cmdSecD,cmdSecE,cmdSecF,cmdSecG,cmdSecH,cmdWomen;
 
     LinearLayout secMenuConsent;
     Connection C;
@@ -127,7 +127,7 @@ public class Menu_Patient extends Activity {
                     startActivityForResult(f1,1);
             }
         });
-      cmdSecC=findViewById(R.id.cmdSecC);
+        cmdSecC=findViewById(R.id.cmdSecC);
         cmdSecC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,27 +137,11 @@ public class Menu_Patient extends Activity {
                 IDbundle.putString("WoName", WoName);
                 IDbundle.putString("PatCatPreg", PatCatPreg);
                 IDbundle.putString("PatCatDeliv", PatCatDeliv);
-                Intent f1 = new Intent(getApplicationContext(), SPECIFICVAR.class);
+                Intent f1 = new Intent(getApplicationContext(), SectionC.class);
                 f1.putExtras(IDbundle);
                 startActivityForResult(f1,1);
             }
         });
-
-        /*cmdSecCC=findViewById(R.id.cmdSecCC);
-        cmdSecCC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle IDbundle = new Bundle();
-                IDbundle.putString("PatientID", PATIENTID);
-                IDbundle.putString("FacilityID", FACILITYID);
-                IDbundle.putString("WoName", WoName);
-              //  IDbundle.putString("PatCatPreg", PatCatPreg);
-            //    IDbundle.putString("PatCatDeliv", PatCatDeliv);
-                Intent f1 = new Intent(getApplicationContext(), SPECIFICVAR.class);
-                f1.putExtras(IDbundle);
-                startActivityForResult(f1,1);
-            }
-        });*/
         cmdSecD=findViewById(R.id.cmdSecD);
         cmdSecD.setOnClickListener(new View.OnClickListener() {
             @Override

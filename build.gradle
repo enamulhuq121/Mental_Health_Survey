@@ -3,14 +3,14 @@
 
 buildscript {
     repositories {
-        mavenCentral()
+        mavenCentral()  // Replace jcenter with mavenCentral
         google()
     }
     dependencies {
         //classpath 'com.android.tools.build:gradle:4.0.1'
-        classpath "com.android.tools.build:gradle:7.0.2"
-        classpath "io.realm:realm-gradle-plugin:10.8.1"
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.android.tools.build:gradle:7.0.2'  // Gradle plugin
+        classpath 'io.realm:realm-gradle-plugin:10.8.1'    // Updated Realm Plugin
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'  // Maven Plugin (same version)
     }
 }
 
